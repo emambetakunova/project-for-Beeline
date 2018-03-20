@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #app {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: 'Work Sans', sans-serif;
+}
+
+form {
+  width: 300px;
+  padding: 10px 40px;
+}
+form label {
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  font-weight: bold;
+}
+form input, form textarea {
+  border: 1px solid #ccc;
+  color: #333;
+  width: calc(100% - 30px);
+}
+form input, form textarea, form button {
+  border-radius: 4px;
+  padding: 8px 15px;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 300;
+}
+form div {
+  margin: 20px 0;
+}
+
+button {
+  color: white;
+  border: none;
+  width: 100%;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: #ccc;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+  -webkit-transition: 0.25s all ease;
+  transition: 0.25s all ease;
+}
+button:hover {
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
+}
+
+.active {
+  background: #5968d7;
+}
+pre-content {
+  width: 300px;
+}
+</style>
+</head>
+<body>
+    <div id="app">
+        <form @submit.prevent="submitForm" v-if="!status">
+            <div>
+                <label for="name">Номер телефона:</label><br>
+                <input placeholder="996-XXX-XXX" id="name" type="text" v-model="name" required/>
+            </div>
+            <button :class="[name ? activeClass : '']" type="submit">Submit</button>
+            <div v-if="response">
+                <h3>Response from server:</h3>
+                <pre>{{ response }}</pre>
+            </div>
+        </form>
+        <form @submit.prevent="submitForm2" v-if="status">
+            <div>
+                <label for="name">Код:</label><br>
+                <input id="code" type="text" v-model="code" required/>
+            </div>
+            <button :class="[name ? activeClass : '']" type="submit">Submit</button>
+        </form>
+    </div>
+
+
+    <script src="./vue.min.js"></script>
+    <script src="./babel.min.js"></script>
+    <script src="./axios.min.js"></script>
+    <script>
+        //this is a vue instance
+        new Vue({
+        //this targets the div id app
+        el: '#app',
+            data: {
+                name: '', //this stores data values for ‘name’,
+                activeClass: 'active',
+                response: '',
+                status: false,
+                code: ''
+            },
+            methods: {
+                submitForm() {
+                    axios.post('http://192.168.1.2:8080/wifi/auth/sendCode', this.name)
+                        .then(response => {
+                        this.response = JSON.stringify(response, null, 2)
+                        if(response.data == true) {
+                            this.status = true
+                        }
+                    })
+                },
+                submitForm2() {
+                    axios.post('http://207.154.201.9:8080/wifi/auth/validateCode', )
+                        .then(response => {
+                        this.response = JSON.stringify(response, null, 2)
+
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>
