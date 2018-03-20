@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    
     <style>
     #app {
   display: -webkit-box;
@@ -20,18 +21,18 @@ form {
   width: 300px;
   padding: 10px 40px;
 }
-form label {
+form label[] {
   text-transform: uppercase;
   font-size: 13px;
   letter-spacing: 0.03em;
   font-weight: bold;
 }
-form input, form textarea {
+form input[type="text"] {
   border: 1px solid #ccc;
   color: #333;
   width: calc(100% - 30px);
 }
-form input, form textarea, form button {
+form input[type="text"], form textarea, form button {
   border-radius: 4px;
   padding: 8px 15px;
   font-family: 'Work Sans', sans-serif;
@@ -39,6 +40,15 @@ form input, form textarea, form button {
 }
 form div {
   margin: 20px 0;
+}
+
+form span {
+    text-decoration: underline;
+}
+
+form span:hover {
+    text-decoration: none;
+    color: #5968d7;
 }
 
 button {
@@ -66,29 +76,81 @@ button:hover {
 pre-content {
   width: 300px;
 }
+.modal {
+    display: block; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
 </style>
 </head>
 <body>
+        <div>
+            <h2 style="text-align: center;">Для бесплатного доступа к интернету введите свой номер</h2>
+        </div>
     <div id="app">
         <form @submit.prevent="submitForm" v-if="!status">
             <div>
                 <label for="name">Номер телефона:</label><br>
                 <input placeholder="996-XXX-XXX" id="name" type="text" v-model="name" required/>
             </div>
-            <button :class="[name ? activeClass : '']" type="submit">Submit</button>
+            <button :class="[checked && name ? activeClass : '']" type="submit">Submit</button>
             <div v-if="response">
                 <h3>Response from server:</h3>
                 <pre>{{ response }}</pre>
             </div>
+            <div >
+                <input type="checkbox" v-model="checked">
+                <span @click="showModal = true">
+                    Я принимаю пользовательское соглашение
+                </span>
+            </div>
         </form>
         <form @submit.prevent="submitForm2" v-if="status">
             <div>
-                <label for="name">Код:</label><br>
+                <label for="code">Код:</label><br>
                 <input id="code" type="text" v-model="code" required/>
             </div>
-            <button :class="[name ? activeClass : '']" type="submit">Submit</button>
+            <button :class="[code ? activeClass : '']" type="submit">Submit</button>
         </form>
+        <div v-if="showModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+                <span @click="showModal = false" class="close">&times;</span>
+                <p>Some text in the Modal..</p>
+        </div>
+        </div>
     </div>
+
 
 
     <script src="./vue.min.js"></script>
@@ -104,7 +166,9 @@ pre-content {
                 activeClass: 'active',
                 response: '',
                 status: false,
-                code: ''
+                code: '',
+                showModal: false,
+                checked: false,
             },
             methods: {
                 submitForm() {
