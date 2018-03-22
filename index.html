@@ -7,7 +7,7 @@
     <title>Document</title>
     
     <style>
-    #app {
+    .flex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -21,9 +21,9 @@ form {
   width: 300px;
   padding: 10px 40px;
 }
-form label[] {
-  text-transform: uppercase;
-  font-size: 13px;
+form label {
+  color: grey;
+  font-size: 10px;
   letter-spacing: 0.03em;
   font-weight: bold;
 }
@@ -114,16 +114,19 @@ pre-content {
 </style>
 </head>
 <body>
-        <div>
-            <h2 style="text-align: center;">Для бесплатного доступа к интернету введите свой номер</h2>
-        </div>
+        
     <div id="app">
+        <div>
+                <h3 v-if="!status" style="text-align: center;">Для бесплатного доступа в интернет, введите свой номер телефона и получите SMS с кодом доступа.</h3>
+                <h3 v-if="status" style="text-align: center;">Введите код доступа.</h3>
+            </div>
+        <div class="flex">
         <form @submit.prevent="submitForm" v-if="!status">
             <div>
-                <label for="name">Номер телефона:</label><br>
-                <input placeholder="996-XXX-XXX" id="name" type="text" v-model="name" required/>
+                <label for="name">Пример: 77ХХХХХХХ, 55ХХХХХХХ</label><br>
+                <input v-on:keypress="isNumber(event)" placeholder="996-XXX-XXX-XXX" id="name" type="text" v-model="name" required/>
             </div>
-            <button :class="[checked && name ? activeClass : '']" type="submit">Submit</button>
+            <button :class="[checked && isFull() ? activeClass : '']" type="submit">Получить код</button>
             <div v-if="response">
                 <h3>Response from server:</h3>
                 <pre>{{ response }}</pre>
@@ -138,17 +141,18 @@ pre-content {
         <form @submit.prevent="submitForm2" v-if="status">
             <div>
                 <label for="code">Код:</label><br>
-                <input id="code" type="text" v-model="code" required/>
+                <input v-on:keypress="isNumber(event)" id="code" type="text" v-model="code" required/>
             </div>
-            <button :class="[code ? activeClass : '']" type="submit">Submit</button>
+            <button :class="[code && isFull() ? activeClass : '']" type="submit">Подключиться</button>
         </form>
         <div v-if="showModal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
                 <span @click="showModal = false" class="close">&times;</span>
-                <p>Some text in the Modal..</p>
+                <p>Я принимаю правила пользования WI-FI от Билайн</p>
         </div>
         </div>
+    </div>
     </div>
 
 
@@ -172,13 +176,16 @@ pre-content {
             },
             methods: {
                 submitForm() {
-                    axios.post('http://192.168.1.2:8080/wifi/auth/sendCode', this.name)
+                    if(this.name && this.checked) {
+                    console.log("12")
+                    axios.post('http://jsonplaceholder/p', this.name)
                         .then(response => {
                         this.response = JSON.stringify(response, null, 2)
                         if(response.data == true) {
                             this.status = true
                         }
                     })
+                    }
                 },
                 submitForm2() {
                     axios.post('http://207.154.201.9:8080/wifi/auth/validateCode', )
@@ -186,6 +193,19 @@ pre-content {
                         this.response = JSON.stringify(response, null, 2)
 
                     })
+                },
+                isNumber: function(evt) {
+                    evt = (evt) ? evt : window.event;
+                    var charCode = (evt.which) ? evt.which : evt.keyCode;
+                    if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
+                        evt.preventDefault();;
+                    } else {
+                        return true;
+                    }
+                },
+                isFull() {
+                    
+                    if(this.name.length > 11 || this.code > 3) return true
                 }
             }
         })
