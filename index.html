@@ -5,18 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    
     <style>
-    .flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
+.flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  font-family: 'Work Sans', sans-serif;
+    font-family: 'Work Sans', sans-serif;
 }
-
 form {
   width: 300px;
   padding: 10px 40px;
@@ -41,16 +39,13 @@ form input[type="text"], form textarea, form button {
 form div {
   margin: 20px 0;
 }
-
 form span {
     text-decoration: underline;
 }
-
 form span:hover {
     text-decoration: none;
     color: #5968d7;
 }
-
 button {
   color: white;
   border: none;
@@ -69,7 +64,6 @@ button:hover {
   -webkit-transform: translateY(2px);
           transform: translateY(2px);
 }
-
 .active {
   background: #5968d7;
 }
@@ -104,33 +98,56 @@ pre-content {
     font-size: 28px;
     font-weight: bold;
 }
-
 .close:hover,
 .close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
 }
+        
+        #loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 </style>
 </head>
-<body>
-        
-    <div id="app">
+<body onload="myFunction()">
+    <div id="loader"></div>
+    <div id="app" style="display:none;" id="myDiv">
         <div>
-                <h3 v-if="!status" style="text-align: center;">Для бесплатного доступа в интернет, введите свой номер телефона и получите SMS с кодом доступа.</h3>
-                <h3 v-if="status" style="text-align: center;">Введите код доступа.</h3>
-            </div>
-        <div class="flex">
+            <h3 v-if="!status" style="text-align: center;">Для бесплатного доступа в интернет, введите свой номер телефона и получите SMS с кодом доступа.</h3>
+            <h3 v-if="status" style="text-align: center;">Введите код доступа.</h3>
+        </div>
+        
+         <div class="flex">
         <form @submit.prevent="submitForm" v-if="!status">
             <div>
                 <label for="name">Пример: 77ХХХХХХХ, 55ХХХХХХХ</label><br>
-                <input v-on:keypress="isNumber(event)" placeholder="996-XXX-XXX-XXX" id="name" type="text" v-model="name" required/>
+                <input placeholder="996XXXXXXXXX" id="name" type="text" v-model="name" required/>
             </div>
             <button :class="[checked && isFull() ? activeClass : '']" type="submit">Получить код</button>
-            <div v-if="response">
-                <h3>Response from server:</h3>
-                <pre>{{ response }}</pre>
-            </div>
             <div >
                 <input type="checkbox" v-model="checked">
                 <span @click="showModal = true">
@@ -141,7 +158,7 @@ pre-content {
         <form @submit.prevent="submitForm2" v-if="status">
             <div>
                 <label for="code">Код:</label><br>
-                <input v-on:keypress="isNumber(event)" id="code" type="text" v-model="code" required/>
+                <input id="code" type="text" v-model="code" required/>
             </div>
             <button :class="[code && isFull() ? activeClass : '']" type="submit">Подключиться</button>
         </form>
@@ -152,23 +169,24 @@ pre-content {
                 <p>Я принимаю правила пользования WI-FI от Билайн</p>
         </div>
         </div>
-    </div>
-    </div>
-
+</div>
+      
+</div>
 
 
     <script src="./vue.min.js"></script>
     <script src="./babel.min.js"></script>
-    <script src="./axios.min.js"></script>
-    <script>
+    <script src="./vue-resource.min.js"></script>
+    <script type="text/babel">
         //this is a vue instance
         new Vue({
         //this targets the div id app
         el: '#app',
-            data: {
+            data: {     
                 name: '', //this stores data values for ‘name’,
                 activeClass: 'active',
                 response: '',
+                response2: '',
                 status: false,
                 code: '',
                 showModal: false,
@@ -176,39 +194,54 @@ pre-content {
             },
             methods: {
                 submitForm() {
-                    if(this.name && this.checked) {
-                    console.log("12")
-                    axios.post('http://jsonplaceholder/p', this.name)
+
+                if(this.name.length > 8 && this.checked) {
+                 console.log("dsa");
+                    this.$http.post('http://192.168.1.2:8181/wifi/auth/sendCode', {phoneNumber: this.name})
                         .then(response => {
+                        if(response.body.status === null) {
+                            alert(response.body.error);
+                        }
                         this.response = JSON.stringify(response, null, 2)
-                        if(response.data == true) {
+    
+                        if(response.body.status !== null) {
                             this.status = true
                         }
                     })
-                    }
+                }
                 },
                 submitForm2() {
-                    axios.post('http://207.154.201.9:8080/wifi/auth/validateCode', )
+                    this.$http.post('http://192.168.1.2:8181/wifi/auth/validateCode', {
+                        phoneNumber: this.name,   
+                        code: this.code
+                    })
                         .then(response => {
-                        this.response = JSON.stringify(response, null, 2)
+                        if(response.body.status === true) {
+                            window.location.href = "https://beeline.kg";                  
+                        }
+                        if(response.body.status === false) {
+                            alert("Неверный код, попробуйте ввести еще раз")
+                        }
 
                     })
                 },
-                isNumber: function(evt) {
-                    evt = (evt) ? evt : window.event;
-                    var charCode = (evt.which) ? evt.which : evt.keyCode;
-                    if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
-                        evt.preventDefault();;
-                    } else {
-                        return true;
-                    }
-                },
                 isFull() {
                     
-                    if(this.name.length > 11 || this.code > 3) return true
+                    if(this.name.length > 8 || this.code > 3) return true
                 }
-            }
+            },
         })
+        
+        let myVar;
+
+        function myFunction() {
+            myVar = setTimeout(showPage, 500);
+        }
+
+        function showPage() {
+          document.getElementById("loader").style.display = "none";
+          document.getElementById("app").style.display = "block";
+        }
     </script>
 </body>
 </html>
