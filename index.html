@@ -1,247 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-.flex {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-    font-family: 'Work Sans', sans-serif;
-}
-form {
-  width: 300px;
-  padding: 10px 40px;
-}
-form label {
-  color: grey;
-  font-size: 10px;
-  letter-spacing: 0.03em;
-  font-weight: bold;
-}
-form input[type="text"] {
-  border: 1px solid #ccc;
-  color: #333;
-  width: calc(100% - 30px);
-}
-form input[type="text"], form textarea, form button {
-  border-radius: 4px;
-  padding: 8px 15px;
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 300;
-}
-form div {
-  margin: 20px 0;
-}
-form span {
-    text-decoration: underline;
-}
-form span:hover {
-    text-decoration: none;
-    color: #5968d7;
-}
-button {
-  color: white;
-  border: none;
-  width: 100%;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  background: #ccc;
-  cursor: pointer;
-  -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
-          box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
-  -webkit-transition: 0.25s all ease;
-  transition: 0.25s all ease;
-}
-button:hover {
-  -webkit-transform: translateY(2px);
-          transform: translateY(2px);
-}
-.active {
-  background: #5968d7;
-}
-pre-content {
-  width: 300px;
-}
-.modal {
-    display: block; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-}
-/* Modal Content/Box */
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-}
-/* The Close Button */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-        
-        #loader {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 1;
-  width: 150px;
-  height: 150px;
-  margin: -75px 0 0 -75px;
-  border: 16px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 16px solid #3498db;
-  width: 120px;
-  height: 120px;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
-}
-
-@-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-</style>
+    <title>Beeline Free Wifi</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed" rel="stylesheet">
 </head>
-<body onload="myFunction()">
-    <div id="loader"></div>
-    <div id="app" style="display:none;" id="myDiv">
-        <div>
-            <h3 v-if="!status" style="text-align: center;">Для бесплатного доступа в интернет, введите свой номер телефона и получите SMS с кодом доступа.</h3>
-            <h3 v-if="status" style="text-align: center;">Введите код доступа.</h3>
+
+<body>
+<div class="wrapper">
+    <header class="wifi__header">
+        <img class="wifi__logo" src="./images/logo1.svg" alt="">
+        <div class="wifi__heading__wrapper">
+            <h3 class="wifi__heading">Высокоскоростной и бесплатный </h3>
         </div>
-        
-         <div class="flex">
-        <form @submit.prevent="submitForm" v-if="!status">
-            <div>
-                <label for="name">Пример: 77ХХХХХХХ, 55ХХХХХХХ</label><br>
-                <input placeholder="996XXXXXXXXX" id="name" type="text" v-model="name" required/>
-            </div>
-            <button :class="[checked && isFull() ? activeClass : '']" type="submit">Получить код</button>
-            <div >
-                <input type="checkbox" v-model="checked">
-                <span @click="showModal = true">
-                    Я принимаю пользовательское соглашение
-                </span>
-            </div>
-        </form>
-        <form @submit.prevent="submitForm2" v-if="status">
-            <div>
-                <label for="code">Код:</label><br>
-                <input id="code" type="text" v-model="code" required/>
-            </div>
-            <button :class="[code && isFull() ? activeClass : '']" type="submit">Подключиться</button>
-        </form>
-        <div v-if="showModal" class="modal">
-        <!-- Modal content -->
-        <div class="modal-content">
-                <span @click="showModal = false" class="close">&times;</span>
-                <p>Я принимаю правила пользования WI-FI от Билайн</p>
+    </header>
+    <main class="wifi" id="app">
+        <div class="wifi__options">
+            <p class="wifi__options__heading">Безлимитный доступ</p>
+            <button class="wifi__options__button" @click="route">
+                для абонентов
+                <span class="wifi__options__strong">Beeline</span>
+            </button>
         </div>
+        <div class="wifi__options">
+            <p class="wifi__options__heading">Нет номера Beeline?</p>
+            <button class="wifi__options__button" @click="getAccess">подключись на 30 минут</button>
         </div>
-</div>
-      
+        <div class="wifi__options">
+            <p class="wifi__options__heading">или</p>
+            <button class="wifi__options__button wifi__options__button--transparent" @click="confirm_page">
+                <p style="width: 95%">просто получить сим-карту для безлимитного доступа</p><span class="arrow"></span>
+            </button>
+        </div>
+    </main>
 </div>
 
+<script src="./libs/vue.min.js"></script>
+<script src="./libs/babel.min.js"></script>
+<script src="./libs/vue-resource.min.js"></script>
 
-    <script src="./vue.min.js"></script>
-    <script src="./babel.min.js"></script>
-    <script src="./vue-resource.min.js"></script>
-    <script type="text/babel">
-        //this is a vue instance
-        new Vue({
+<script type="text/babel">
+    //this is a vue instance
+    new Vue({
         //this targets the div id app
         el: '#app',
-            data: {     
-                name: '', //this stores data values for ‘name’,
-                activeClass: 'active',
-                response: '',
-                response2: '',
-                status: false,
-                code: '',
-                showModal: false,
-                checked: false,
+        mounted: function () {
+            this.seamlessAuth()
+        },
+        _this: this,
+        data: {
+            name: '', //this stores data values for ‘name’,
+            activeClass: 'wifi__button--yellow active',
+            session: '',
+            response2: '',
+            status: false,
+            code: '',
+            showModal: false,
+            checked: false,
+            serverurl: 'http://192.168.1.2:8181/wifi/',
+        },
+        methods: {
+            seamlessAuth() {
+                this.$http.get(this.serverurl + 'auth/seamlessAuth')
+                    .then(response => {
+                        if (response.body.status === true) {
+                            window.location.href = "https://beeline.kg";
+                        }
+                    })
             },
-            methods: {
-                submitForm() {
 
-                if(this.name.length > 8 && this.checked) {
-                 console.log("dsa");
-                    this.$http.post('http://192.168.1.2:8181/wifi/auth/sendCode', {phoneNumber: this.name})
-                        .then(response => {
-                        if(response.body.status === null) {
-                            alert(response.body.error);
+            getAccess() {
+                this.$http.get(this.serverurl + 'auth/getAccess')
+                    .then(response => {
+                        if (response.body.status === null || response.body.status === false) {
+                            window.location.href = "../index.html";
                         }
-                        this.response = JSON.stringify(response, null, 2)
-    
-                        if(response.body.status !== null) {
-                            this.status = true
-                        }
-                    })
-                }
-                },
-                submitForm2() {
-                    this.$http.post('http://192.168.1.2:8181/wifi/auth/validateCode', {
-                        phoneNumber: this.name,   
-                        code: this.code
-                    })
-                        .then(response => {
-                        if(response.body.status === true) {
-                            window.location.href = "https://beeline.kg";                  
-                        }
-                        if(response.body.status === false) {
-                            alert("Неверный код, попробуйте ввести еще раз")
+                        if (response.body.status === true) {
+                            window.location.href = "../confirmation_page.html";
                         }
 
+                        if (response.body.status === false) {
+                            window.location.href = "../confirmation_page3.html";
+                        }
                     })
-                },
-                isFull() {
-                    
-                    if(this.name.length > 8 || this.code > 3) return true
-                }
             },
-        })
-        
-        let myVar;
 
-        function myFunction() {
-            myVar = setTimeout(showPage, 500);
-        }
+            confirm_page() {
+                window.location.href = "../confirmation_page2.html";
+            },
 
-        function showPage() {
-          document.getElementById("loader").style.display = "none";
-          document.getElementById("app").style.display = "block";
-        }
-    </script>
+            route() {
+                window.location.href = "../number.html";
+            },
+
+            isFull() {
+
+                if (this.name.length > 8) return true
+            }
+        },
+    })
+</script>
 </body>
 </html>
