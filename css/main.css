@@ -102,6 +102,7 @@ body {
   font-size: 1rem;
   text-align: center;
   font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .wifi {
@@ -123,6 +124,7 @@ body {
 
 .wifi__options {
   margin-bottom: 20px;
+  letter-spacing: 1px;
 }
 
 .wifi__options__heading {
@@ -149,10 +151,12 @@ body {
   background: -o-linear-gradient(rgb(251, 207, 26), rgb(249, 179, 1));
   background: linear-gradient(rgb(251, 207, 26), rgb(249, 179, 1));
   border: none;
-  font-weight: medium;
+  font-weight: normal;
+  font-family: 'fira_sans_condensedmedium';
   color: black;
   padding: 0 20px;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  letter-spacing: 1px;
 }
 
 .wifi__options__button--black {
@@ -461,4 +465,89 @@ main {
     display: flex;
     display: -webkit-box;
     display: -ms-flexbox;
+}
+.rating__block {
+  padding-bottom: 10px;
+}
+.rating__header {
+  padding: 40px 30px 0 30px;
+}
+.rating__description {
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  padding: 32px 21px 20px 21px;
+  text-align: center;
+  background: #fbcf1a;
+  background: -webkit-linear-gradient(#fbcf1a 0%, #f9b301 100%);
+  background: -o-linear-gradient(#fbcf1a 0%, #f9b301 100%);
+  background: linear-gradient(#fbcf1a 0%, #f9b301 100%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbcf1a', endColorstr='#f9b301',GradientType=0 );
+}
+.rating__description::before {
+  content: "";
+  position: absolute;
+  top:17px;
+  left: 45%;
+  width: 43px;
+  height: 40px;
+  display: inline-block;
+  background: url(../images/icon_i.svg) 0px 0px no-repeat;
+}
+.icon__attention::before {
+  background-position: 0 0;
+}
+.star__block {
+  width: 100%;
+  max-width: 375px;
+  margin: auto;
+  counter-reset: star;
+}
+.star__text {
+  text-align: center;
+  margin: 30px 0;
+  font-size: 1rem;
+}
+.star__container {
+  display: inline-block;
+  line-height: 2.5;
+  letter-spacing: 2px;
+  text-align: center;
+  counter-reset: star;
+}
+.star__item {
+  display: inline-block;
+}
+.star {
+  display: none;
+}
+.star__label {
+  cursor: pointer;
+  position: relative;
+}
+.star__label::before {
+  position: absolute;
+  counter-increment: star;
+  content: counter(star);
+  text-align: center;
+  top: -26px;
+  font-size: 16px;
+  color: #424242;
+  width: 50px;
+  letter-spacing: 1px
+}
+.star__label svg {
+  fill: lightgrey;
+  width: 50px;
+}
+.star:checked ~ .star__label svg {
+  fill: rgb(251, 207, 26);
+}
+.star:checked ~ .star__label::before {
+  color: #fff;
+}
+@media(max-width: 320px) {
+  .star__label svg {
+  fill: lightgrey;
+  width: 45px;
+  }
 }
