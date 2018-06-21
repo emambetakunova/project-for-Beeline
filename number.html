@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Beeline Free Wifi</title>
+    <link rel="stylesheet" href="./fonts/fonts.css">
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
@@ -21,8 +22,10 @@
         </div>
         <div class="policy-group">
             <input class="policy__input" id="policy" name="policy" type="checkbox" v-model="checked">
-            <span class="policy__span"></span>
-            <label class="policy__label" for="policy">я согласен(на) с условиями пользовательского соглашения</label>
+            <label class="policy__label" for="policy">
+                <div class="policy__span"></div>
+                <div class="policy__text">я согласен(а) с условиями пользовательского соглашения</div>
+            </label>
         </div>
         <button class="button" v-if="checked" type="submit" :class="[isFull() ? activeClass : '']" v-on:click.prevent="sendCode($event)">
             ПОЛУЧИТЬ КОД
