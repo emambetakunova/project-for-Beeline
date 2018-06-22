@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Beeline Free Wifi</title>
+    <link rel="stylesheet" href="./fonts/fonts.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+<div class="wrapper">
+    <header class="wifi__header">
+        <img class="wifi__logo" src="./images/logo1.svg" alt="">
+        <div class="wifi__heading__wrapper">
+            <h3 class="wifi__heading">Высокоскоростной и бесплатный </h3>
+        </div>
+    </header>
+    <main class="wifi" id="app">
+        <div class="wifi__options">
+            <p class="wifi__options__heading">Безлимитный доступ</p>
+            <button class="wifi__options__button" @click="route">
+                для абонентов
+                <span class="wifi__options__strong">Beeline</span>
+            </button>
+        </div>
+        <div class="wifi__options">
+            <p class="wifi__options__heading">Нет номера Beeline?</p>
+            <button class="wifi__options__button" @click="getAccess">подключись на 30 минут</button>
+        </div>
+        <div class="wifi__options">
+            <p class="wifi__options__heading">или</p>
+            <button class="wifi__options__button wifi__options__button--transparent" @click="confirm_page">
+                <p style="width: 95%">просто купи
+                    <span class="wifi__options__strong">sim-карту</span>
+                     для безлимитного доступа</p>
+                     <span class="arrow"></span>
+            </button>
+        </div>
+    </main>
+</div>
+
+<script src="./libs/vue.min.js"></script>
+<script src="./libs/babel.min.js"></script>
+<script src="./libs/vue-resource.min.js"></script>
+
+<script type="text/babel">
+    //this is a vue instance
+    new Vue({
+        //this targets the div id app
+        el: '#app',
+        data: {
+            name: '', //this stores data values for ‘name’,
+            activeClass: 'wifi__button--yellow active',
+            session: '',
+            response2: '',
+            status: false,
+            code: '',
+            showModal: false,
+            checked: false,
+            serverurl: 'http://192.168.1.2:8181/wifi/',
+        },
+        methods: {
+            getAccess() {
+                this.$http.get(this.serverurl + 'auth/getAccess')
+                    .then(response => {
+                        if (response.body.status === null || response.body.status === false) {
+                            window.location.href = "../index.html";
+                        }
+                        if (response.body.status === true) {
+                            window.location.href = "../confirmation_page.html";
+                        }
+
+                        if (response.body.status === false) {
+                            window.location.href = "../confirmation_page3.html";
+                        }
+                    })
+            },
+
+            confirm_page() {
+                window.location.href = "../confirmation_page2.html";
+            },
+
+            route() {
+                window.location.href = "../number.html";
+            },
+
+            isFull() {
+
+                if (this.name.length > 8) return true
+            }
+        },
+    })
+</script>
+</body>
+</html>
