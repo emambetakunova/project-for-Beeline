@@ -2,7 +2,7 @@
 <html lang="en">
    <head>
       <meta charset="UTF-8">
-      <title>rating_1</title>
+			<title>Beeline Free Wifi</title>
    </head>
    <body>
       <!DOCTYPE html>
@@ -139,13 +139,17 @@
                  activeClass: 'wifi__button--yellow active',
                  status: false,
          				rating: 0,
+								isOwnUsers: true,
                  serverurl: 'http://192.168.1.2:8181/wifi/',
              },
 
            methods: {
-
                  markCheckBox(rating) {
-         		console.log(rating);
+									 this.$http.post(this.serverurl + 'rating/rate', {rate: rating, isOwnUsers: this.isOwnUsers})
+											 .then(response => {
+														   window.location.href = "https://beeline.kg";
+											 })
+									 event.preventDefault();
                  }
              }
          })
