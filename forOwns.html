@@ -140,14 +140,17 @@
                  status: false,
          				rating: 0,
 								isOwnUsers: true,
-                 serverurl: 'http://192.168.1.2:8181/wifi/',
+                serverurl: 'http://192.168.1.2:8181/wifi/',
              },
 
            methods: {
                  markCheckBox(rating) {
 									 this.$http.post(this.serverurl + 'rating/rate', {rate: rating, isOwnUsers: this.isOwnUsers})
 											 .then(response => {
-														   window.location.href = "https://beeline.kg";
+
+                         if (response.body.status === true) {
+                           window.location.href = "https://beeline.kg";
+                         }
 											 })
 									 event.preventDefault();
                  }
