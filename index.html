@@ -50,7 +50,10 @@
                     .then(response => {
                         if (response.body.status === true) {
                             window.location.href = "https://beeline.kg";
-                        } else {
+                        } else if (response.body.isRated===true){
+                          window.location.href = "../forOwns.html";
+                        }
+                        else {
                           window.location.href = "../main.html";
                         }
                     })

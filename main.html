@@ -66,6 +66,11 @@
             getAccess() {
                 this.$http.get(this.serverurl + 'auth/getAccess')
                     .then(response => {
+
+                        if (response.body.isRated===true){
+                          window.location.href = "../forStrangers.html";
+                        }
+
                         if (response.body.status === null || response.body.status === false) {
                             window.location.href = "../index.html";
                         }
@@ -76,6 +81,8 @@
                         if (response.body.status === false) {
                             window.location.href = "../confirmation_page3.html";
                         }
+
+
                     })
             },
 
