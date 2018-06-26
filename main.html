@@ -67,7 +67,7 @@
                 this.$http.get(this.serverurl + 'auth/getAccess')
                     .then(response => {
 
-                        if (response.body.isRated===true){
+                        if (response.body.rated===true){
                           window.location.href = "../forStrangers.html";
                         }
 
