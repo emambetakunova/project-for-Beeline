@@ -48,10 +48,11 @@
             seamlessAuth() {
                 this.$http.get(this.serverurl + 'auth/seamlessAuth')
                     .then(response => {
-                        if (response.body.status === true) {
-                            window.location.href = "https://beeline.kg";
-                        } else if (response.body.rated===true){
+                       if (response.body.rated===true){
                           window.location.href = "../forOwns.html";
+                        }
+                        else if (response.body.status === true) {
+                            window.location.href = "https://beeline.kg";
                         }
                         else {
                           window.location.href = "../main.html";
