@@ -50,6 +50,11 @@ body {
   flex-direction: column;
   background: rgb(242, 245, 249);
 }
+.wrap {
+  background: -webkit-linear-gradient(rgb(233, 255, 255), rgb(249, 179, 1));
+  background: -o-linear-gradient(rgb(251, 207, 26), rgb(249, 179, 1));
+  background: linear-gradient(rgb(251, 207, 26), rgb(249, 179, 1));
+}
 
 .form-wrapper {
   display: -webkit-box;
