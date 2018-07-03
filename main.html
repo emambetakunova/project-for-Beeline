@@ -13,7 +13,7 @@
 <body>
 <div class="wrapper">
     <header class="wifi__header">
-        <img class="wifi__logo" src="./images/logo1.svg" alt="">
+        <img class="wifi__logo" src="./images/logo.svg" alt="">
         <div class="wifi__heading__wrapper">
             <h3 class="wifi__heading">Высокоскоростной и бесплатный </h3>
         </div>
@@ -51,6 +51,10 @@
     new Vue({
         //this targets the div id app
         el: '#app',
+        mounted: function () {
+          var url = new URL(window.location.href);
+          //var c = url.searchParams.get("p_param");
+        },
         data: {
             name: '', //this stores data values for ‘name’,
             activeClass: 'wifi__button--yellow active',
@@ -66,7 +70,6 @@
             getAccess() {
                 this.$http.get(this.serverurl + 'auth/getAccess')
                     .then(response => {
-
                         if (response.body.rated===true){
                           window.location.href = "../forStrangers.html";
                         }
