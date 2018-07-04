@@ -20,13 +20,17 @@
             <input class="form__input" placeholder="07XX XXXXXX" id="name" type="number" v-model="name"
                    required>
         </div>
-        <div class="policy-group">
+
+          <div class="policy-group">
             <input class="policy__input" id="policy" name="policy" type="checkbox" v-model="checked">
             <label class="policy__label" for="policy">
                 <div class="policy__span"></div>
-                <div class="policy__text">я согласен(а) с условиями пользовательского соглашения</div>
+                <span @click="showModal = true">
+                    Я согласен(а) с условиями пользовательского соглашения
+                </span>
             </label>
         </div>
+
         <button class="button" v-if="checked" type="submit" :class="[isFull() ? activeClass : '']" v-on:click.prevent="sendCode($event)">
             ПОЛУЧИТЬ КОД
         </button>
@@ -44,6 +48,14 @@
             ПОДКЛЮЧИТЬСЯ
         </button>
     </form>
+
+    <div v-if="showModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+              <span @click="showModal = false" class="close">&times;</span>
+              <p>Я принимаю правила пользования WI-FI от Билайн rew</p>
+      </div>
+      </div>
 </div>
 
 <script src="./libs/vue.min.js"></script>
@@ -65,6 +77,7 @@
             checked: false,
             serverurl: 'http://192.168.1.2:8181/wifi/',
             formIdentificator: '1',
+            showModal: false,
         },
         methods: {
             sendCode(event) {
