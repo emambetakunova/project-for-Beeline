@@ -48,7 +48,7 @@
             seamlessAuth() {
                 this.$http.get(this.serverurl + 'auth/seamlessAuth')
                     .then(response => {
-                      if (response.body.rate===true){
+                      if (response.body.rate === true){
                          window.location.href = "../forOwns.html";
                        }
                        else if (response.body.status === true) {
