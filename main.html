@@ -71,7 +71,7 @@
                 this.$http.get(this.serverurl + 'auth/getAccess')
                     .then(response => {
 
-                        if (response.body.rate === true){
+                        if (response.body.rate === true) {
                           window.location.href = "../forStrangers.html";
                         } else {
                           if (response.body.status === null || response.body.status === false) {
@@ -84,7 +84,7 @@
                           if (response.body.status === false) {
                               window.location.href = "../confirmation_page3.html";
                           }
-                        }                        
+                        }
 
                     })
             },
