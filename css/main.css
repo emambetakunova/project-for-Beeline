@@ -41,7 +41,11 @@ body {
   font-family: 'fira_sans_condensedregular', sans-serif;
   font-size: 0.88rem;
 }
-
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 .wrapper {
   height: 100vh;
     display: -webkit-box;
@@ -63,9 +67,69 @@ body {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  height: 100vh;
+  height: 54vh;
 }
-
+.btn {
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 50%;
+  border: 1px solid rgba(51, 60, 75, 0.25);
+  color: #000;
+  font-size: 1rem;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin-left: 10px;
+  background: #fff;
+}
+.language_block {
+  position: relative;
+}
+.language_block:hover .languages_dropdown {
+  opacity: 1;
+}
+.btn_dropdown {
+  background: linear-gradient(rgb(253, 218, 2), rgb(249, 179, 1));
+  float: right;
+  position: absolute;
+  top: 10px;
+  right: 18px;
+  z-index: 1;
+}
+.btn_dropdown:hover + .languages_dropdown {
+  opacity: 1;
+}
+.languages_dropdown {
+  border-radius: 8px;
+  border: 1px solid rgba(51, 60, 75, 0.25);
+  background: rgb(255, 255, 255);
+  box-shadow: 0px 2px 6px 0px rgba(51, 60, 75, 0.25);
+  width: 218px;
+  height: 80px;
+  position: absolute;
+  top: 67px;
+  right: 17px;
+  z-index: 1;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+  transition-delay: 0.2s;
+}
+.languages_dropdown::before {
+  content: "";
+  position: absolute;
+  top: -9px;
+  right: 11px;
+  width: 16px;
+  height: 9px;
+  background: url('../images/combined_shape.svg') no-repeat;
+}
+.languages_dropdown .btn:hover {
+  background: linear-gradient(rgb(253, 218, 2), rgb(249, 179, 1));
+}
 .wifi__header {
   background: -webkit-gradient(
     linear,
@@ -88,6 +152,7 @@ body {
   -ms-flex-pack: center;
   justify-content: center;
   padding: 16px 0 60px 0;
+  position: relative;
 }
 
 .wifi__logo {
@@ -116,19 +181,12 @@ body {
   top: -30px;
   border-radius: 8px;
   box-shadow: 0 2px 12px 0 rgba(51, 60, 75, 0.2);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
   margin: 0 20px;
-  padding-top: 20px;
+  padding-top: 12px;
 }
 
 .wifi__options {
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   letter-spacing: 1px;
 }
 
@@ -209,6 +267,7 @@ form {
 .button {
   width: 100%;
   height: 50px;
+  margin-top: 20px;
   border-radius: 8px;
   -webkit-box-shadow: 0 2px 6px rgba(51, 60, 75, 0.2);
   box-shadow: 0 2px 6px rgba(51, 60, 75, 0.2);
@@ -240,11 +299,6 @@ form {
   flex-direction: column;
   margin-bottom: 10px;
 }
-
-.policy-group {
-  margin-bottom: 40px;
-  padding: 0 26px;
-}
 .form__label {
   width: 100%;
   margin-bottom: 20px;
@@ -259,6 +313,7 @@ form {
   border-radius: 8px;
   background: rgb(241, 241, 241);
   border: none;
+  border: 1px solid rgb(204,204,204);
   text-align: center;
   font-size: 18px;
   color: rgb(147, 147, 147);
@@ -271,6 +326,8 @@ form {
 }
 
 .policy-group {
+  margin: 20px 0;
+  padding: 0 16px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -292,15 +349,19 @@ form {
   display: inline-block;
   background: url('../images/checkbox-01.svg') no-repeat;
   margin: 1%;
+  padding-right: 22px;
 }
 .policy__label {
-  color: black;
-  font-size: 0.8rem;
   display: flex;
   justify-content: space-between;
 }
+.policy__label a {
+  color: black;
+  font-size: 0.8rem;
+}
 .policy__text {
   margin-left: 20px;
+  text-decoration: underline;
 }
 .confirmation {
     padding-bottom: 10px;
@@ -318,6 +379,7 @@ form {
 
 .confirmation__header {
     padding: 40px 30px 0 30px;
+    position: relative;
 }
 
 .confirmation__description {
@@ -376,12 +438,96 @@ form {
 }
 
 .contacts__messanger__link:first-child {
-  margin-right: 40px;
+  margin-right: 30px;
 }
 
 main {
   padding: 0 20px;
   margin-bottom: 40px;
+}
+
+.btn_back {
+  border-radius: 8px;
+  border: 0;
+  background: rgb(249, 249, 249);
+  box-shadow: 0px 2px 6px 0px rgba(51, 60, 75, 0.25);
+  color: rgb(119, 119, 119);
+  font-size: 15px;
+  padding-left: 21px;
+  margin: 0 0 20px 0;
+  box-sizing: border-box;
+  width: 81px;
+  height: 40px;
+}
+
+.btn_back_white {
+  box-shadow: none;
+  border: 1px solid rgb(204, 204, 204);
+}
+
+.btn_back::before {
+  content: "";
+  width: 8px;
+  height: 14px;
+  position: absolute;
+  top: 53px;
+  left: 41px;
+  background: url(../images/arrow_back.svg) no-repeat;
+}
+
+.btn_block {
+  padding: 40px 30px 0 30px;
+}
+
+.agreement_btn {
+  padding: 20px;
+  width: 100%;
+  height: 122px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgb(191, 191, 191);
+  background: #fff;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+.btn_agree_back {
+  box-shadow: none;
+  width: 150px;
+  height: 50px;
+  font-size: 18px;
+  border: 1px solid #000;
+  color: #000;
+}
+
+.btn_agree_back::before {
+  content: "";
+  width: 8px;
+  height: 14px;
+  position: absolute;
+  top: 38px;
+  left: 50px;
+  background: url(../images/arrow_back2.svg) no-repeat;
+}
+
+.btn_agree {
+  font-size: 18px;
+  width: 150px;
+  margin-top: 0;
+}
+
+.agreement_text {
+  padding: 0 20px 145px;
+  letter-spacing: 0.9px;
+}
+
+.agreement_text h6 {
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  padding: 20px 0;
+  letter-spacing: 1px;
 }
 
 .information {
@@ -554,5 +700,16 @@ main {
   .star__label svg {
   fill: lightgrey;
   width: 45px;
+  }
+  .wifi__heading {
+    font-size: 0.9rem;
+  }
+  .btn_agree_back {
+    width: 120px;
+    font-size: 16px;
+  }
+  .btn_agree {
+    font-size: 16px;
+    width: 120px;
   }
 }
