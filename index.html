@@ -24,43 +24,44 @@
     <script src="./libs/babel.min.js"></script>
     <script src="./libs/vue-resource.min.js"></script>
 
-    <script type="text/babel">
-        //this is a vue instance
-        new Vue({
+<script type="text/babel">
+    //this is a vue instance
+    new Vue({
         //this targets the div id app
         el: '#app',
         mounted: function () {
-        // this.seamlessAuth()
-    },
-    _this: this,
-    data: {
-    name: '', //this stores data values for ‘name’,
-    activeClass: 'wifi__button--yellow active',
-    session: '',
-    response2: '',
-    status: false,
-    code: '',
-    showModal: false,
-    checked: false,
-    serverurl: 'http://192.168.1.2:8181/wifi/',
-},
-methods: {
-seamlessAuth() {
-this.$http.get(this.serverurl + 'auth/seamlessAuth')
-.then(response => {
-if (response.body.rated===true){
-window.location.href = "../forOwns.html";
-}
-else if (response.body.status === true) {
-//  window.location.href = "https://beeline.kg";
-}
-else {
-window.location.href = "../main.html";
-}
-})
-}
-}
-})
+           this.seamlessAuth()
+        },
+        _this: this,
+        data: {
+            name: '', //this stores data values for ‘name’,
+            activeClass: 'wifi__button--yellow active',
+            session: '',
+            response2: '',
+            status: false,
+            code: '',
+            showModal: false,
+            checked: false,
+            serverurl: 'http://192.168.1.2:8181/wifi/',
+        },
+        methods: {
+            seamlessAuth() {
+                this.$http.get(this.serverurl + 'auth/seamlessAuth')
+                    .then(response => {
+                      if (response.body.rate === true){
+                         window.location.href = "../forOwns.html";
+                       }
+                       else if (response.body.status === true) {
+                           window.location.href = "https://beeline.kg";
+                       }
+                       else {
+                         window.location.href = "../main.html";
+                       }
+
+                    })
+            }
+        }
+    })
 </script>
 </body>
 </html>

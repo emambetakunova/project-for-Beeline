@@ -5,14 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no">
     <title>Beeline Free Wifi</title>
     <link rel="stylesheet" href="./fonts/fonts.css">
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
-<div class="confirmation">
+<div class="confirmation" id="app">
     <header class="confirmation__header">
+      <button class="btn_back"  @click="topFunction()" id="myBtn" title="Н">Назад</button>
         <p class="confirmation__description">Спасибо за оценку! <br>Доступ на
             <span class="wifi__options__strong">30 минут </span>предоставлен.</p>
         <div class="confirmation__sim">
@@ -87,6 +89,33 @@
         </div>
     </main>
 </div>
-</body>
+<script src="./libs/vue.min.js"></script>
+<script src="./libs/babel.min.js"></script>
+<script src="./libs/vue-resource.min.js"></script>
 
+<script type="text/babel">
+    //this is a vue instance
+    new Vue({
+//this targets the div id app
+        el: '#app',
+        data: {
+            name: '', //this stores data values for ‘name’,
+            activeClass: 'wifi__button--yellow active',
+            session: '',
+            response2: '',
+            code: '',
+            status: false,
+            checked: false,
+            serverurl: 'http://192.168.1.2:8181/wifi/',
+            formIdentificator: '1',
+        },
+
+        methods: {
+          topFunction() {
+            window.location.href = "../main.html";
+          }
+        }
+    })
+</script>
+</body>
 </html>

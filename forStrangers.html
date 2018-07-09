@@ -106,9 +106,9 @@
 
 				 methods: {
 							 markCheckBox(rating) {
-								 this.$http.post(this.serverurl + 'rating/rate', {rate: rating, isOwnUsers: this.isOwnUsers})
+								 this.$http.post(this.serverurl + 'rating/rate', {rate: rating, isOwnUsers: true})
 										 .then(response => {
-														 window.location.href = "https://beeline.kg";
+											 window.location.href = "../confirmation_page4.html";
 										 })
 								 event.preventDefault();
 							 }
