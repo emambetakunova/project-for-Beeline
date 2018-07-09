@@ -12,10 +12,10 @@
 </head>
 
 <body>
-    <div class="btn_block">
+    <div class="btn_block" id="app">
         <button class="btn_back btn_back_white"  @click="topFunction()" id="myBtn" title="Н">Назад</button>
-    </div>
-    <div class="form-wrapper" id="app">
+
+    <div class="form-wrapper">
         <form class="wifi__form" v-if="formIdentificator==1">
             <div class="phone_number-group">
                 <label class="form__label">Введи номер
@@ -48,6 +48,7 @@
             </button>
         </form>
     </div>
+    </div>
 
     <script src="./libs/vue.min.js"></script>
     <script src="./libs/babel.min.js"></script>
@@ -67,7 +68,7 @@
                 status: false,
                 checked: false,
                 serverurl: 'http://192.168.1.2:8181/wifi/',
-                formIdentificator: '1',
+                formIdentificator: 1,
             },
             methods: {
                 sendCode(event) {
@@ -80,7 +81,7 @@
 
                                 if(response.body.status === true) {
                                     this.session = response.body.session;
-                                    this.formIdentificator = '2';
+                                    this.formIdentificator = 2;
                                 }
 
                                 if(response.body.status === false) {
@@ -91,7 +92,7 @@
                     }
                 },
 
-                            validateCode() {
+                  validateCode() {
                     this.$http.post(this.serverurl + 'auth/validateCode', {
                         phoneNumber: this.name,
                         code: this.code,
@@ -109,7 +110,11 @@
 
                 },
                 topFunction() {
-                  window.location.href = "../main.html";
+                  if (formIdentificator === 1) {
+                    formIdentificator=2;
+                  } else {
+                      window.location.href = "../main.html";
+                  }
                 },
 
                 isFull() {
