@@ -11,30 +11,33 @@
 </head>
 
 <body>
-<div class="form-wrapper" id="app">
-    <form class="wifi__form" action="">
-        <div class="phone_number-group">
-            <label class="form__label" for="code">Введите <b>код</b>, который <br>
+    <div class="btn_block">
+        <button class="btn_back btn_back_white"  @click="topFunction()" id="myBtn" title="Н">Назад</button>
+    </div>
+    <div class="form-wrapper" id="app">
+        <form class="wifi__form" action="">
+            <div class="phone_number-group">
+                <label class="form__label" for="code">Введите <b>код</b>, который <br>
                 получите на ваш телефон</label>
-            <input id="code" name="code" class="form__input" type="number"
-                   placeholder="XXXX" v-model="code"
-                   required>
-        </div>
-        <button class="button" type="submit" v-on:click.prevent="validateCode($event)">
-            ПОДКЛЮЧИТЬСЯ
-        </button>
-    </form>
-</div>
-<script src="./libs/vue.min.js"></script>
-<script src="./libs/babel.min.js"></script>
-<script src="./libs/vue-resource.min.js"></script>
+                <input id="code" name="code" class="form__input" type="number"
+                placeholder="XXXX" v-model="code"
+                required>
+            </div>
+            <button class="button" type="submit" v-on:click.prevent="validateCode($event)">
+                ПОДКЛЮЧИТЬСЯ
+            </button>
+        </form>
+    </div>
+    <script src="./libs/vue.min.js"></script>
+    <script src="./libs/babel.min.js"></script>
+    <script src="./libs/vue-resource.min.js"></script>
 
-<script type="text/babel">
-    //this is a vue instance
-    new Vue({
+    <script type="text/babel">
+        //this is a vue instance
+        new Vue({
         //this targets the div id app
         el: '#app',
-        data: {
+            data: {
             name: '', //this stores data values for ‘name’,
             session: '',
             code: '',
@@ -47,23 +50,23 @@
                 this.$http.post(this.serverurl + 'auth/validateCode', {
                     phoneNumber: localStorage.getItem("phoneNumber"),
                     code: this.code,
-			session: localStorage.getItem("session")
+                    session: localStorage.getItem("session")
                 })
-                    .then(response => {
-                        if (response.body.status === true) {
-                            localStorage.removeItem("phoneNumber");
-				localStorage.removeItem("session");
-                            window.location.href = "https://beeline.kg";
-                        }
-                        if (response.body.status === false) {
-                            alert("Неверный код, попробуйте ввести еще раз")
-                        }
+                .then(response => {
+                    if (response.body.status === true) {
+                        localStorage.removeItem("phoneNumber");
+                        localStorage.removeItem("session");
+                        window.location.href = "https://beeline.kg";
+                    }
+                    if (response.body.status === false) {
+                        alert("Неверный код, попробуйте ввести еще раз")
+                    }
 
                     })
 
+                }
             }
-        }
-    })
-</script>
+        })
+    </script>
 </body>
 </html>

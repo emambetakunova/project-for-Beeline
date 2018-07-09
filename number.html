@@ -12,118 +12,108 @@
 </head>
 
 <body>
-<div class="form-wrapper" id="app">
-    <form class="wifi__form" v-if="formIdentificator==1">
-        <div class="phone_number-group">
-            <label class="form__label">Введи номер
-                <strong>Beeline</strong> и получи код для безлимитного доступа</label>
-            <input class="form__input" placeholder="07XX XXXXXX" id="name" type="number" v-model="name"
-                   required>
-        </div>
+    <div class="btn_block">
+        <button class="btn_back btn_back_white"  @click="topFunction()" id="myBtn" title="Н">Назад</button>
+    </div>
+    <div class="form-wrapper" id="app">
+        <form class="wifi__form" v-if="formIdentificator==1">
+            <div class="phone_number-group">
+                <label class="form__label">Введи номер
+                    <strong>Beeline</strong> и получи код для безлимитного доступа</label>
+                <input class="form__input" placeholder="07XX XXXXXX" id="name" type="number" v-model="name"
+                    required>
+            </div>
+            <div class="policy-group">
+                <input class="policy__input" id="policy" name="policy" type="checkbox" v-model="checked">
+                <label class="policy__label" for="policy">
+                    <div class="policy__span"></div>
+                    <div class="policy__text">я согласен(а) с условиями пользовательского соглашения</div>
+                </label>
+            </div>
+            <button class="button" v-if="checked" type="submit" :class="[isFull() ? activeClass : '']" v-on:click.prevent="sendCode($event)">
+                ПОЛУЧИТЬ КОД
+            </button>
+        </form>
 
-          <div class="policy-group">
-            <input class="policy__input" id="policy" name="policy" type="checkbox" v-model="checked">
-            <label class="policy__label" for="policy">
-                <div class="policy__span"></div>
-                <span @click="showModal = true">
-                    Я согласен(а) с условиями пользовательского соглашения
-                </span>
-            </label>
-        </div>
+        <form class="wifi__form" action="" v-if="formIdentificator==2">
+            <div class="phone_number-group">
+                <label class="form__label" for="code">Введите <b>код</b>, который <br>
+                    получите на ваш телефон</label>
+                <input id="code" name="code" class="form__input" type="number"
+                    placeholder="XXXX" v-model="code"
+                    required>
+            </div>
+            <button class="button" type="submit" v-on:click.prevent="validateCode($event)">
+                ПОДКЛЮЧИТЬСЯ
+            </button>
+        </form>
+    </div>
 
-        <button class="button" v-if="checked" type="submit" :class="[isFull() ? activeClass : '']" v-on:click.prevent="sendCode($event)">
-            ПОЛУЧИТЬ КОД
-        </button>
-    </form>
+    <script src="./libs/vue.min.js"></script>
+    <script src="./libs/babel.min.js"></script>
+    <script src="./libs/vue-resource.min.js"></script>
 
-     <form class="wifi__form" action="" v-if="formIdentificator==2">
-        <div class="phone_number-group">
-            <label class="form__label" for="code">Введите <b>код</b>, который <br>
-                получите на ваш телефон</label>
-            <input id="code" name="code" class="form__input" type="number"
-                   placeholder="XXXX" v-model="code"
-                   required>
-        </div>
-        <button class="button" type="submit" v-on:click.prevent="validateCode($event)">
-            ПОДКЛЮЧИТЬСЯ
-        </button>
-    </form>
-
-    <div v-if="showModal" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-              <span @click="showModal = false" class="close">&times;</span>
-              <p>Я принимаю правила пользования WI-FI от Билайн rew</p>
-      </div>
-      </div>
-</div>
-
-<script src="./libs/vue.min.js"></script>
-<script src="./libs/babel.min.js"></script>
-<script src="./libs/vue-resource.min.js"></script>
-
-<script type="text/babel">
-    //this is a vue instance
-    new Vue({
-//this targets the div id app
-        el: '#app',
-        data: {
-            name: '', //this stores data values for ‘name’,
-            activeClass: 'wifi__button--yellow active',
-            session: '',
-            response2: '',
-            code: '',
-            status: false,
-            checked: false,
-            serverurl: 'http://192.168.1.2:8181/wifi/',
-            formIdentificator: '1',
-            showModal: false,
-        },
-        methods: {
-            sendCode(event) {
-                if(this.name.length > 2) {
-                    this.$http.post(this.serverurl + 'auth/sendCode', {phoneNumber: this.name})
-                        .then(response => {
-                            if(response.body.status === null) {
-                               alert(response.body.error);
-                            }
-
-                            if(response.body.status === true) {
-                                this.session = response.body.session;
-                                this.formIdentificator = '2';
-                            }
-
-                            if(response.body.status === false) {
+    <script type="text/babel">
+        //this is a vue instance
+        new Vue({
+    //this targets the div id app
+            el: '#app',
+            data: {
+                name: '', //this stores data values for ‘name’,
+                activeClass: 'wifi__button--yellow active',
+                session: '',
+                response2: '',
+                code: '',
+                status: false,
+                checked: false,
+                serverurl: 'http://192.168.1.2:8181/wifi/',
+                formIdentificator: '1',
+            },
+            methods: {
+                sendCode(event) {
+                    if(this.name.length > 2) {
+                        this.$http.post(this.serverurl + 'auth/sendCode', {phoneNumber: this.name})
+                            .then(response => {
+                                if(response.body.status === null) {
                                 alert(response.body.error);
-                            }
-                        })
-                    event.preventDefault();
-                }
-            },
+                                }
 
-                        validateCode() {
-                this.$http.post(this.serverurl + 'auth/validateCode', {
-                    phoneNumber: this.name,
-                    code: this.code,
-                    session: this.session
-                })
-                    .then(response => {
-                        if (response.body.status === true) {
-                            window.location.href = "https://beeline.kg";
-                        }
-                        if (response.body.status === false) {
-                            alert("Неверный код, попробуйте ввести еще раз")
-                        }
+                                if(response.body.status === true) {
+                                    this.session = response.body.session;
+                                    this.formIdentificator = '2';
+                                }
 
+                                if(response.body.status === false) {
+                                    alert(response.body.error);
+                                }
+                            })
+                        event.preventDefault();
+                    }
+                },
+
+                            validateCode() {
+                    this.$http.post(this.serverurl + 'auth/validateCode', {
+                        phoneNumber: this.name,
+                        code: this.code,
+                        session: this.session
                     })
+                        .then(response => {
+                            if (response.body.status === true) {
+                                window.location.href = "https://beeline.kg";
+                            }
+                            if (response.body.status === false) {
+                                alert("Неверный код, попробуйте ввести еще раз")
+                            }
 
-            },
+                        })
 
-            isFull() {
-                if (this.name.length > 8) return true
+                },
+
+                isFull() {
+                    if (this.name.length > 8) return true
+                }
             }
-        }
-    })
-</script>
+        })
+    </script>
 </body>
 </html>

@@ -13,6 +13,7 @@
 <body>
 <div class="confirmation" id="app">
     <header class="confirmation__header">
+        <button class="btn_back"  @click="topFunction()" id="myBtn" title="Н">Назад</button>
         <p class="confirmation__description">К сожалению, время истекло. Возвращайтесь завтра!</p>
         <div class="confirmation__sim">
             <p class="confirmation__sim__description">Для безлимитного доступа купи sim-карту, сообщив нам:</p>
@@ -29,7 +30,6 @@
 
     </header>
     <main>
-      <button  @click="topFunction()" id="myBtn" title="Н">Назад</button>
         <div class="information">
             <h3 class="information__heading">С SIM-КАРТОЙ BEELINE ПОЛУЧИШЬ:</h3>
             <p class="information__text--first"><strong>Высокоскоростной и бесплатный</strong> <br>Beeline Wi-Fi с
@@ -87,7 +87,6 @@
         </div>
     </main>
 </div>
-
 <script src="./libs/vue.min.js"></script>
 <script src="./libs/babel.min.js"></script>
 <script src="./libs/vue-resource.min.js"></script>
@@ -108,7 +107,6 @@
             serverurl: 'http://192.168.1.2:8181/wifi/',
             formIdentificator: '1',
         },
-
         methods: {
           topFunction() {
             window.location.href = "../main.html";
