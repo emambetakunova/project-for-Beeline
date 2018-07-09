@@ -110,8 +110,9 @@
 
                 },
                 topFunction() {
-                  if (formIdentificator === 1) {
-                    formIdentificator=2;
+                  console.log(this.formIdentificator);
+                  if (this.formIdentificator === 2) {
+                    this.formIdentificator=1;
                   } else {
                       window.location.href = "../main.html";
                   }
