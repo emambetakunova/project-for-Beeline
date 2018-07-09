@@ -175,7 +175,7 @@ body {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  padding: 16px 0 60px 0;
+  padding: 100px 0 60px 0;
   position: relative;
 }
 
@@ -295,7 +295,6 @@ form {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding: 0 30px;
   width: 100%;
 }
 
@@ -407,7 +406,6 @@ form {
   font-size: 0.8rem;
 }
 .policy__text {
-  margin-left: 20px;
   text-decoration: underline;
 }
 .confirmation {
@@ -576,7 +574,7 @@ main {
 }
 
 .agreement_text {
-  padding: 0 20px 145px;
+  padding: 100px 20px 145px;
   letter-spacing: 0.9px;
 }
 
