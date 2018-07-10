@@ -27,7 +27,8 @@
                 <input class="policy__input" id="policy" name="policy" type="checkbox" v-model="checked">
                 <label class="policy__label" for="policy">
                     <div class="policy__span"></div>
-                    <div class="policy__text">я согласен(а) с условиями пользовательского соглашения</div>
+                    <div class="policy__text " v-on:click.prevent="goToAgreementpage($event)">я согласен(а) с условиями пользовательского соглашения</div>
+
                 </label>
             </div>
             <button class="button" v-if="checked" type="submit" :class="[isFull() ? activeClass : '']" v-on:click.prevent="sendCode($event)">
@@ -110,12 +111,16 @@
 
                 },
                 topFunction() {
-                  console.log(this.formIdentificator);
                   if (this.formIdentificator === 2) {
                     this.formIdentificator=1;
                   } else {
                       window.location.href = "../main.html";
                   }
+                },
+
+                goToAgreementpage() {
+                  window.location.href = "../agreement_page.html";
+
                 },
 
                 isFull() {
