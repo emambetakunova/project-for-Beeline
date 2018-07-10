@@ -60,6 +60,11 @@
         new Vue({
     //this targets the div id app
             el: '#app',
+            mounted: function () {
+          var url = new URL(window.location.href);
+          this.checked = url.searchParams.get("checked");
+          console.log(this.checked);
+        },
             data: {
                 name: '', //this stores data values for ‘name’,
                 activeClass: 'wifi__button--yellow active',
