@@ -28,7 +28,6 @@
                 <label class="policy__label" for="policy">
                     <div class="policy__span"></div>
                     <div class="policy__text " v-on:click.prevent="goToAgreementpage($event)">я согласен(а) с условиями пользовательского соглашения</div>
-
                 </label>
             </div>
             <button class="button" v-if="checked" type="submit" :class="[isFull() ? activeClass : '']" v-on:click.prevent="sendCode($event)">
@@ -64,7 +63,7 @@
               var url = new URL(window.location.href);
               var result = url.searchParams.get("checked");
 
-              if (result==null){
+              if (result===null){
                 this.checked=false;
               } else {
                 this.checked=result;
