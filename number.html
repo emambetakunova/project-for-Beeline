@@ -62,8 +62,13 @@
             el: '#app',
             mounted: function () {
               var url = new URL(window.location.href);
-              this.checked = url.searchParams.get("checked");            
-                console.log(this.checked);
+              var result = url.searchParams.get("checked");
+
+              if (result==null){
+                this.checked=false;
+              } else {
+                this.checked=result;
+              }
         },
             data: {
                 name: '', //this stores data values for ‘name’,
