@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 <head>
     <meta charset="UTF-8">
@@ -13,12 +14,12 @@
 <div class="wrapper" id="app">
     <header class="wifi__header">
             <div class="language_block clearfix">
-                <a href="#" class="btn btn_dropdown">ru</a>
+                <a href="#" class="btn btn_dropdown" id="switch_lang">ru</a>
                 <div class="languages_dropdown">
-                    <a href="#" class="btn">ru</a>
-                    <a href="#" class="btn"rel="">kg</a>
-                    <a href="#" class="btn">en</a>
-                    <a href="#" class="btn">uz</a>
+                    <a href="#" class="btn" @click="myHref('ru')">ru</a>
+                    <a href="#" class="btn" @click="myHref('kg')">kg</a>
+                    <a href="#" class="btn" @click="myHref('en')">en</a>
+                    <a href="#" class="btn" @click="myHref('uz')">uz</a>
                 </div>
             </div>
             <img class="wifi__logo" src="./images/logo.svg" alt="">
@@ -50,6 +51,8 @@
     </main>
 </div>
 
+</script>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="./libs/vue.min.js"></script>
 <script src="./libs/babel.min.js"></script>
 <script src="./libs/vue-resource.min.js"></script>
@@ -78,7 +81,6 @@
             getAccess() {
                 this.$http.get(this.serverurl + 'auth/getAccess')
                     .then(response => {
-
                         if (response.body.rate === true) {
                           window.location.href = "../forStrangers.html";
                         } else {
@@ -93,7 +95,6 @@
                               window.location.href = "../confirmation_page3.html";
                           }
                         }
-
                     })
             },
 
@@ -104,9 +105,11 @@
             route() {
                 window.location.href = "../number.html";
             },
+            myHref(lang){
+                document.getElementById('switch_lang').innerHTML=lang
+            },
 
             isFull() {
-
                 if (this.name.length > 8) return true
             }
         },
