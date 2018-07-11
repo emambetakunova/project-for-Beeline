@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+			<title>Beeline Free Wifi</title>
+   </head>
+   <body>
+      <!DOCTYPE html>
+      <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+         <title>Beeline Free Wifi</title>
+         <link rel="stylesheet" href="../../fonts/fonts.css">
+         <link rel="stylesheet" href="../../css/main.css">
+         <link rel="icon" href="../../images/48.ico">
+      </head>
+      <div class="rating__block" id="app">
+         <header class="rating__header">
+            <p class="rating__description icon__attention">Как тебе скорость
+               <span class="wifi__options__strong">Wi-Fi</span>?
+            </p>
+            <div class="star__block">
+               <h3 class="star__text">Выбери оценку от 0 до 10,<br> где 0 - плохо, а 10 - отлично!</h3>
+               <div class="star__container">
+                  <div class="star__item">
+                     <input type="checkbox" id=1 class="star" @click="markCheckBox(1)">
+                     <label class="star__label" for=1>
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 53.867 53.867">
+                           <g>
+                              <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798   10.288,52.549 13.467,34.013 0,20.887 18.611,18.182"/>
+                           </g>
+                        </svg>
+                     </label>
+                  </div>
+                  <div class="star__item">
+                     <input type="checkbox" id=2 class="star" @click="markCheckBox(2)" >
+                     <label class="star__label" for=2>
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 53.867 53.867">
+                           <g>
+                              <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798   10.288,52.549 13.467,34.013 0,20.887 18.611,18.182"/>
+                           </g>
+                        </svg>
+                     </label>
+                  </div>
+                  <div class="star__item">
+                     <input type="checkbox" id=3 class="star"  @click="markCheckBox(3)" >
+                     <label class="star__label" for=3>
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 53.867 53.867">
+                           <g>
+                              <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798   10.288,52.549 13.467,34.013 0,20.887 18.611,18.182"/>
+                           </g>
+                        </svg>
+                     </label>
+                  </div>
+                  <div class="star__item">
+                     <input type="checkbox" id=4 class="star"  @click="markCheckBox(4)" >
+                     <label class="star__label" for=4>
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 53.867 53.867">
+                           <g>
+                              <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798   10.288,52.549 13.467,34.013 0,20.887 18.611,18.182"/>
+                           </g>
+                        </svg>
+                     </label>
+                  </div>
+                  <div class="star__item">
+                     <input type="checkbox" id=5 class="star"  @click="markCheckBox(5)" >
+                     <label class="star__label" for=5>
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 53.867 53.867">
+                           <g>
+                              <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798   10.288,52.549 13.467,34.013 0,20.887 18.611,18.182"/>
+                           </g>
+                        </svg>
+                     </label>
+                  </div>
+                  <div class="star__item">
+                     <input type="checkbox" id=6 class="star"  @click="markCheckBox(6)" >
+                     <label class="star__label" for=6>
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 53.867 53.867">
+                           <g>
+                              <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798   10.288,52.549 13.467,34.013 0,20.887 18.611,18.182"/>
+                           </g>
+                        </svg>
+                     </label>
+                  </div>
+                  <div class="star__item">
+                     <input type="checkbox" id=7 class="star"  @click="markCheckBox(7)" >
+                     <label class="star__label" for=7>
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 53.867 53.867">
+                           <g>
+                              <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798   10.288,52.549 13.467,34.013 0,20.887 18.611,18.182"/>
+                           </g>
+                        </svg>
+                     </label>
+                  </div>
+                  <div class="star__item">
+                     <input type="checkbox" id=8 class="star"  @click="markCheckBox(8)">
+                     <label class="star__label" for=8>
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 53.867 53.867">
+                           <g>
+                              <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798   10.288,52.549 13.467,34.013 0,20.887 18.611,18.182"/>
+                           </g>
+                        </svg>
+                     </label>
+                  </div>
+                  <div class="star__item">
+                     <input type="checkbox" id=9 class="star"  @click="markCheckBox(9)">
+                     <label class="star__label" for=9>
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 53.867 53.867">
+                           <g>
+                              <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798   10.288,52.549 13.467,34.013 0,20.887 18.611,18.182"/>
+                           </g>
+                        </svg>
+                     </label>
+                  </div>
+                  <div class="star__item">
+                     <input type="checkbox" id=10 class="star"  @click="markCheckBox(10)" >
+                     <label class="star__label" for=10>
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 53.867 53.867">
+                           <g>
+                              <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798   10.288,52.549 13.467,34.013 0,20.887 18.611,18.182"/>
+                           </g>
+                        </svg>
+                     </label>
+                  </div>
+               </div>
+            </div>
+         </header>
+      </div>
+      <script src="../../libs/vue.min.js"></script>
+      <script src="../../libs/babel.min.js"></script>
+      <script src="../../libs/vue-resource.min.js"></script>
+      <script type="text/babel">
+         //this is a vue instance
+         new Vue({
+             //this targets the div id app
+             el: '#app',
+             data: {
+                 name: '', //this stores data values for ‘name’,
+                 activeClass: 'wifi__button--yellow active',
+                 status: false,
+         				rating: 0,
+                lang: 'en',
+                serverurl: 'http://192.168.1.2:8181/wifi/',
+             },
+
+           methods: {
+                 markCheckBox(rating) {
+									 this.$http.post(this.serverurl + 'rating/rate', {rate: rating, OwnUsers: true})
+											 .then(response => {
+                           window.location.href = "https://beeline.kg";
+											 })
+									 event.preventDefault();
+                 }
+             }
+         })
+      </script>
+   </body>
+</html>
