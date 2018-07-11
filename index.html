@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +7,8 @@
     <title>Beeline Free Wifi</title>
     <link rel="stylesheet" href="./fonts/fonts.css">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="icon" href="./images/48.ico">
+
 </head>
 
 <body>
@@ -30,9 +31,14 @@
         //this targets the div id app
         el: '#app',
         mounted: function () {
-           this.seamlessAuth()
+          var lang = localStorage.getItem('lang');
+          if (lang===null){
+            localStorage.setItem('lang', 'ru');
+          } else {
+            this.lang = lang;
+          }
+          this.seamlessAuth()
         },
-        _this: this,
         data: {
             name: '', //this stores data values for ‘name’,
             activeClass: 'wifi__button--yellow active',
@@ -42,6 +48,7 @@
             code: '',
             showModal: false,
             checked: false,
+            lang: 'ru',
             serverurl: 'http://192.168.1.2:8181/wifi/',
         },
         methods: {
@@ -49,15 +56,14 @@
                 this.$http.get(this.serverurl + 'auth/seamlessAuth')
                     .then(response => {
                       if (response.body.rate === true){
-                         window.location.href = "../forOwns.html";
+                         window.location.href = "../" + this.lang + "/forOwns.html";
                        }
                        else if (response.body.status === true) {
                            window.location.href = "https://beeline.kg";
                        }
                        else {
-                         window.location.href = "../main.html";
+                         window.location.href = "../" + this.lang + "/main.html";
                        }
-
                     })
             }
         }
