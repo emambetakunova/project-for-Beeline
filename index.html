@@ -53,7 +53,9 @@
         },
         methods: {
             seamlessAuth() {
-                this.$http.get(this.serverurl + 'auth/seamlessAuth')
+              window.location.href = "../lang/" + this.lang + "/main.html";
+
+              /*  this.$http.get(this.serverurl + 'auth/seamlessAuth')
                     .then(response => {
                       if (response.body.rate === true){
                          window.location.href = "../" + this.lang + "/forOwns.html";
@@ -64,7 +66,7 @@
                        else {
                          window.location.href = "../" + this.lang + "/main.html";
                        }
-                    })
+                    })*/
             }
         }
     })
