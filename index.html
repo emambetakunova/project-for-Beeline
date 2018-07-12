@@ -53,20 +53,23 @@
         },
         methods: {
             seamlessAuth() {
-              window.location.href = "../lang/" + this.lang + "/main.html";
-
-              /*  this.$http.get(this.serverurl + 'auth/seamlessAuth')
+              try {
+              this.$http.get(this.serverurl + 'auth/seamlessAuth')
                     .then(response => {
                       if (response.body.rate === true){
-                         window.location.href = "../" + this.lang + "/forOwns.html";
+                         window.location.href = "../lang/" + this.lang + "/forOwns.html";
                        }
                        else if (response.body.status === true) {
                            window.location.href = "https://beeline.kg";
                        }
                        else {
-                         window.location.href = "../" + this.lang + "/main.html";
+                         window.location.href = "../lang/" + this.lang + "/main.html";
                        }
-                    })*/
+                    })
+}
+                    catch(error){
+                      window.location.href = "../lang/" + this.lang + "/main.html";
+                    }
             }
         }
     })
