@@ -14,13 +14,13 @@
 
 <body>
     <div class="btn_block" id="app">
-        <button class="btn_back btn_back_white"  @click="topFunction()" id="myBtn" title="Н">Назад</button>
+        <button class="btn_back btn_back_white"  @click="topFunction()" id="myBtn" title="Н">ORQAGA</button>
 
     <div class="form-wrapper">
         <form class="wifi__form" v-if="formIdentificator==1">
             <div class="phone_number-group">
-                <label class="form__label">Введи номер
-                    <strong>Beeline</strong> и получи код для безлимитного доступа</label>
+                <label class="form__label">
+                    <strong>Beeline</strong> raqamini kiriting va cheksiz kirish uchun kodni oling</label>
                 <input class="form__input" placeholder="07XX XXXXXX" id="name" type="number" v-model="name"
                     required>
             </div>
@@ -28,24 +28,23 @@
                 <input class="policy__input" id="policy" name="policy" type="checkbox" v-model="checked">
                 <label class="policy__label" for="policy">
                     <div class="policy__span"></div>
-                    <div class="policy__text " v-on:click.prevent="goToAgreementpage($event)">я согласен(а) с условиями пользовательского соглашения</div>
+                    <div class="policy__text " v-on:click.prevent="goToAgreementpage($event)">Men foydalanuvchi shartnomasining shartlariga rozilik bildiraman</div>
                 </label>
             </div>
             <button class="button" v-if="checked" type="submit" :class="[isFull() ? activeClass : '']" v-on:click.prevent="sendCode($event)">
-                ПОЛУЧИТЬ КОД
+                Kodni oling
             </button>
         </form>
 
         <form class="wifi__form" action="" v-if="formIdentificator==2">
             <div class="phone_number-group">
-                <label class="form__label" for="code">Введите <b>код</b>, который <br>
-                    получите на ваш телефон</label>
+                <label class="form__label" for="code">Telefoningizdagi <b>kodni</b> kiriting </label>
                 <input id="code" name="code" class="form__input" type="number"
                     placeholder="XXXX" v-model="code"
                     required>
             </div>
             <button class="button" type="submit" v-on:click.prevent="validateCode($event)">
-                ПОДКЛЮЧИТЬСЯ
+                Ulanish
             </button>
         </form>
     </div>
