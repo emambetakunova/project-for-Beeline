@@ -10,7 +10,7 @@
       <link rel="icon" href="../../images/48.ico">
    </head>
    <body>
-      <div class="agreement_block"  id="app">
+      <div class="agreement_block">
          <div class="agreement_text">
             <h6>Пользовательское соглашение об использовании Wi-Fi сети Beeline</h6>
             <p>Настоящее Пользовательское соглашение (далее Соглашение) об использовании Wi-Fi сети Beeline регламентирует отношения между ООО «Скай Мобайл», являющимся Оператором электросвязи (далее — «Оператор») и действующим на основании лицензий в области электрической связи и передачи данных, в частности Лицензии в области передачи данных 16-1526-КР от 21.12.2016 года,  предоставляющим услугу доступа к сети Интернет посредством использования сети беспроводного доступа (далее – «Услуга») и физическим лицом, прошедшим процедуру идентификации (далее — «Пользователь»). Текст настоящего Соглашения является публичной офертой и прохождение процедуры идентификации является принятием оферты, то есть полным и безоговорочным согласием пользователя с условиями настоящего Соглашения.
@@ -68,43 +68,22 @@
             </p>
          </div>
          <div class="agreement_btn">
-            <button class="btn_back btn_agree_back"  @click="backButton()" id="myBtn" title="Н">НАЗАД</button>
-            <button class="button btn_agree" @click="acceptButton()" type="submit">ПРИНИМАЮ</button>
+            <button class="btn_back btn_agree_back"  onclick="backButton()">НАЗАД</button>
+            <button class="button btn_agree" onclick="acceptButton()" type="submit">ПРИНИМАЮ</button>
          </div>
       </div>
 
-      <script src="../../libs/vue.min.js"></script>
-      <script src="../../libs/babel.min.js"></script>
-      <script src="../../libs/vue-resource.min.js"></script>
-
-      <script type="text/babel">
-          //this is a vue instance
-          new Vue({
-      //this targets the div id app
-              el: '#app',
-              data: {
-                  name: '', //this stores data values for ‘name’,
-                  activeClass: 'wifi__button--yellow active',
-                  session: '',
-                  response2: '',
-                  code: '',
-                  status: false,
-                  checked: false,
-                  lang: 'ru',
-                  serverurl: 'http://192.168.1.2:8181/wifi/',
-                  formIdentificator: '1',
-              },
-
-              methods: {
-                backButton() {
-                  history.back();
-                  //window.location.href = "../" + this.lang + "/number.html?checked=2";
-                },
-                acceptButton() {
-                  window.location.href = "../" + this.lang + "/number.html?checked=1";
-                }
-              }
-          })
+      <script>
+      function backButton() {
+          window.history.back();
+      }
       </script>
+
+      <script>
+      function acceptButton() {
+          window.location.href = "./number.html?checked=1";
+      }
+      </script>
+
     </body>
     </html>

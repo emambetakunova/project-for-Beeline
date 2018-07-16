@@ -10,7 +10,7 @@
       <link rel="icon" href="../../images/48.ico">
    </head>
    <body>
-      <div class="agreement_block"  id="app">
+      <div class="agreement_block">
          <div class="agreement_text">
            <h6>User agreement on the use of Beeline Wi-Fi network</h6>
 <p>This User agreement (hereinafter referred to as the "Agreement") on the use of Beeline Wi-Fi  network shall regulate relationships between the "Sky Mobile" LLC, which is a telecommunications operator (hereinafter referred to as the "Operator") and operates on the basis of the licenses in the field of telecommunications and data transmission, in particular the License in the field of data transmission 16-1526-KP dated 21.12.2016, providing Internet access service through the use of wireless access network (hereinafter referred to as the "Service") and the individual that have passed the identification procedure (hereinafter referred to as the "User"). The text of this Agreement is a public offer and passing of the identification procedure is an acceptance of the offer, i.e. the user’s full and unconditional consent with the terms and conditions of this Agreement.
@@ -67,43 +67,22 @@ Beeline Wi-Fi network is intended to provide Internet access to the Users pursua
 
          </div>
          <div class="agreement_btn">
-            <button class="btn_back btn_agree_back"  @click="backButton()" id="myBtn" title="Н">НАЗАД</button>
-            <button class="button btn_agree" @click="acceptButton()" type="submit">ПРИНИМАЮ</button>
+            <button class="btn_back btn_agree_back"  onclick="backButton()">BACK</button>
+            <button class="button btn_agree" onclick="acceptButton()" type="submit">ACCEPT</button>
          </div>
       </div>
 
-      <script src="../../libs/vue.min.js"></script>
-      <script src="../../libs/babel.min.js"></script>
-      <script src="../../libs/vue-resource.min.js"></script>
-
-      <script type="text/babel">
-          //this is a vue instance
-          new Vue({
-      //this targets the div id app
-              el: '#app',
-              data: {
-                  name: '', //this stores data values for ‘name’,
-                  activeClass: 'wifi__button--yellow active',
-                  session: '',
-                  response2: '',
-                  code: '',
-                  status: false,
-                  checked: false,
-                  lang: 'en',
-                  serverurl: 'http://192.168.1.2:8181/wifi/',
-                  formIdentificator: '1',
-              },
-
-              methods: {
-                backButton() {
-                  history.back();
-                  //window.location.href = "../" + this.lang + "/number.html?checked=2";
-                },
-                acceptButton() {
-                  window.location.href = "../" + this.lang + "/number.html?checked=1";
-                }
-              }
-          })
+      <script>
+      function backButton() {
+          window.history.back();
+      }
       </script>
+
+      <script>
+      function acceptButton() {
+          window.location.href = "./number.html?checked=1";
+      }
+      </script>
+
     </body>
     </html>

@@ -15,108 +15,84 @@
 <body>
 <div class="confirmation" id="app">
     <header class="confirmation__header">
-        <button class="btn_back"  @click="topFunction()" id="myBtn" title="Н">Назад</button>
+        <button class="btn_back"  onclick="backButton()" id="myBtn" title="Н">BACK</button>
         <p class="confirmation__description">К сожалению, время истекло. Возвращайтесь завтра!</p>
-        <div class="confirmation__sim">
-            <p class="confirmation__sim__description">Для безлимитного доступа купи sim-карту, сообщив нам:</p>
+               <div class="confirmation__sim">
+            <p class="confirmation__sim__description">For unlimited access, buy a sim card, informing us:</p>
             <strong class="contacts-number">0771 055 155</strong>
             <div class="contacts__messanger">
-                <a class="contacts__messanger__link" href="https://api.whatsapp.com/send?phone=9960771055155">
-                    <img src="../../images/Whatsapp_icon.svg" alt="">
-                </a>
-                <a class="contacts__messanger__link" href="">
-                    <img src="../../images/Telegram_icon.svg" alt="https://telegram.me/Beeline_free_wifi">
-                </a>
+              <a class="contacts__messanger__link" href="https://api.whatsapp.com/send?phone=9960771055155">
+                <img src="../../images/Whatsapp_icon.svg" alt="">
+              </a>
+              <a class="contacts__messanger__link" href="https://telegram.me/Beeline_free_wifi">
+                <img src="../../images/Telegram_icon.svg" alt="">
+              </a>
             </div>
-        </div>
+          </div>
 
-    </header>
-    <main>
-        <div class="information">
-            <h3 class="information__heading">С SIM-КАРТОЙ BEELINE ПОЛУЧИШЬ:</h3>
-            <p class="information__text--first"><strong>Высокоскоростной и бесплатный</strong> <br>Beeline Wi-Fi с
-                безлимитным доступом
+        </header>
+        <main>
+          <div class="information">
+            <h3 class="information__heading">WITH THE SIM-CARD BEELINE YOU GET:</h3>
+              <p class="information__text--first"><strong>High-speed and free</strong> <br>Beeline Wi-Fi with unlimited access
             </p>
             <div class="information__heading-container">
-                <h3 class="information__heading--main">НОВЫЙ ТАРИФ БЕЗ ЗАБОТ</h3>
-                <h3 class="information__heading--secondary">«ПРОСТО»:</h3>
+                <h3 class="information__heading--main">NEW TARIFF WITHOUT CARE</h3>
+                <h3 class="information__heading--secondary">«PROSTO»:</h3>
             </div>
-            <div class="information__text__container">
-                <div class="information__image__wrapper">
-                    <img src="../../images/1-illustration.svg" alt=""/>
-                </div>
-                <p class="information__text information__text--border">безлимитные звонки <span
-                        class="information__text--black">и sms внутри сети</span>
-                </p>
-            </div>
-            <div class="information__text__container">
-                <div class="information__image__wrapper">
-                    <img src="../../images/2-illustration.svg" alt=""/>
-                </div>
-                <p class="information__text information__text--border">4 гигабайта <span
-                        class="information__text--black">без деления</span>
-                </p>
-            </div>
-            <div class="information__text__container">
-                <div class="information__image__wrapper">
-                    <img src="../../images/3-illustration.svg" alt=""/>
-                </div>
-                <p class="information__text information__text--border">10 минут <span
-                        class="information__text--black">на другие сети</span>
-                </p>
-            </div>
-            <div class="information__text__container">
-                <div class="information__image__wrapper">
-                    <img src="../../images/4-illustration.svg" alt=""/>
-                </div>
-                <p class="information__text information__text--border">безлимитный ночной интернет <span
-                        class="information__text--black">c 01:00 до 07:00</span>
-                </p>
-            </div>
-            <div class="information__text__container">
-                <div class="information__image__wrapper">
-                    <img src="../../images/5-illustartion.svg" alt=""/>
-                </div>
-                <p class="information__text information__text--border">интернет без пакета <span
-                        class="information__text--black">10 тыйын за 1 мб</span>
-                </p>
-            </div>
-            <div class="price__info">
-                <p class="information__price">
-                    <strong>ЗА 95 СОМ В НЕДЕЛЮ</strong>
-                </p>
-            </div>
-        </div>
-    </main>
-</div>
-<script src="../../libs/vue.min.js"></script>
-<script src="../../libs/babel.min.js"></script>
-<script src="../../libs/vue-resource.min.js"></script>
+              <div class="information__text__container">
+                  <div class="information__image__wrapper">
+                      <img src="../../images/1-illustration.svg" alt=""/>
+                  </div>
+                  <p class="information__text information__text--border">UNLIMITED CALLS <span
+                          class="information__text--black">AND SMS INSIDE THE NETWORK</span>
+                  </p>
+              </div>
+              <div class="information__text__container">
+                  <div class="information__image__wrapper">
+                      <img src="../../images/2-illustration.svg" alt=""/>
+                  </div>
+                  <p class="information__text information__text--border">4 GB <span
+                          class="information__text--black">WITHOUT DIVIDING</span>
+                  </p>
+              </div>
+              <div class="information__text__container">
+                  <div class="information__image__wrapper">
+                      <img src="../../images/3-illustration.svg" alt=""/>
+                  </div>
+                  <p class="information__text information__text--border">10 MINUTES <span
+                          class="information__text--black">TO ANOTHER NETWORKS</span>
+                  </p>
+              </div>
+              <div class="information__text__container">
+                  <div class="information__image__wrapper">
+                      <img src="../../images/4-illustration.svg" alt=""/>
+                  </div>
+                  <p class="information__text information__text--border">UNLIMITED NIGHT INTERNET <span
+                          class="information__text--black">FROM 01:00 TO 07:00</span>
+                  </p>
+              </div>
+              <div class="information__text__container">
+                  <div class="information__image__wrapper">
+                      <img src="../../images/5-illustartion.svg" alt=""/>
+                  </div>
+                  <p class="information__text information__text--border">INTERNET WITHOUT PACKAGE  <span
+                          class="information__text--black">110 TYYN PER 1 MB</span>
+                  </p>
+              </div>
+              <div class="price__info">
+                  <p class="information__price">
+                      <strong>95 SOMS PER WEEK</strong>
+                  </p>
+              </div>
+          </div>
+        </main>
+  </div>
 
-<script type="text/babel">
-    //this is a vue instance
-    new Vue({
-//this targets the div id app
-        el: '#app',
-        data: {
-            name: '', //this stores data values for ‘name’,
-            activeClass: 'wifi__button--yellow active',
-            session: '',
-            response2: '',
-            code: '',
-            status: false,
-            checked: false,
-            lang: 'en',
-            serverurl: 'http://192.168.1.2:8181/wifi/',
-            formIdentificator: '1',
-        },
-        methods: {
-          topFunction() {
-            window.location.href = "../" + this.lang + "/main.html";
-          }
-        }
-    })
-</script>
->>>>>>> 79d2e7f45a78503759db66e22e43415a17ef2cb0
+   <script>
+      function backButton() {
+          window.history.back();
+      }
+      </script>
 </body>
 </html>

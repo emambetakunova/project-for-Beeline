@@ -10,7 +10,7 @@
       <link rel="icon" href="../../images/48.ico">
    </head>
    <body>
-      <div class="agreement_block"  id="app">
+      <div class="agreement_block">
          <div class="agreement_text">
            <h6>Beeline tarmog’ida  Wi-Fi dan  foydalanish shartnomasi</h6>
         <p>Ushbu, Beeline tarmoqlarida Wi-Fi dan Foydalanish shartnomasi (keyingi o’rinlarda - Shartnoma), elektraloqa Operatori hisoblanuvchi (keyingi o’rinlarda – “Operator”), elektr aloqasi va ma’lumotlarni uzatish sohasida litsenziya asosida faoliyat yurituvchi, xususan, simsiz ulanish tarmog'idan foydalanish orqali Internetga kirish xizmatini taqdim etuvchi (keyingi o’rinlarda – “Xizmatlar”), 21.12.2016 yildagi 16-1526-KR Litsenziyasi asosida faoliyat olib boruvchi “Skay Mobayl” MChJ va  identifikatsiyalash tartibidan o'tgan jismoniy shaxs (keyingi o’rinlarda – “Foydalanuvchi”) o’rtasidagi munosabatlarni belgilab boradi. Ushbu Shartnoma matni ochiq taklif hisoblanadi va identifikatsiya  protsedurasidan o'tish taklif qabul qilinganini anglatadi, ya'ni foydalanuvchi ushbu Shartnomaning shartlariga to'liq va so’zsiz rozilik bildiradi.
@@ -64,45 +64,25 @@ Shartnoma shartlari rad etilgan hollarda, "Beeline"ning  Wi-Fi tarmog’idan foy
 <p>9. Operator bir tomonlama tartibda Operatorning quyidagi manzil bo’yicha Internet tarmoqlaridagi rasmiy veb-saytida Shartnomaning yangi tahririni nashr etish orqali har qanday o'zgartirish/qo'shimchani kiritish huquqiga ega: ____________________________. Bunday o'zgartirishlar Shartnomaning yangi nashri e'lon qilingan kundan boshlab 10 kalendar kundan so'ng kuchga kiradi. Foydalanuvchi Shartnoma kuchga kirganidan keyin xizmatdan foydalanishni davom ettirsa, ushbu Shartnoma shartlarini o'zgartirishga rozi bo'ladi.
 Beeline Wi-Fi tarmog'i Foydalanuvchilarga ushbu Foydalanish Shartnomasi shartlariga muvofiq Internet tarmoqlariga kirishni ta'minlash uchun mo'ljallangan.
 * - Foydalanuvchi tomonidan o’rnatilgan/tanlangan Operator tarif rejasiga ko’ra Operator tomonidan avtorizatsiyadan o’tish protsedurasi uchun to’lov amalga oshirilishiga Foydalanuvchi rozi bo’ladi.
-         </div>
+
+      </div>
          <div class="agreement_btn">
-            <button class="btn_back btn_agree_back"  @click="backButton()" id="myBtn" title="Н">ORQAGA</button>
-            <button class="button btn_agree" @click="acceptButton()" type="submit">Men qabul qilaman</button>
+            <button class="btn_back btn_agree_back"  onclick="backButton()">ORQAGA</button>
+            <button class="button btn_agree" onclick="acceptButton()" type="submit">Men qabul qilaman</button>
          </div>
       </div>
 
-      <script src="../../libs/vue.min.js"></script>
-      <script src="../../libs/babel.min.js"></script>
-      <script src="../../libs/vue-resource.min.js"></script>
-
-      <script type="text/babel">
-          //this is a vue instance
-          new Vue({
-      //this targets the div id app
-              el: '#app',
-              data: {
-                  name: '', //this stores data values for ‘name’,
-                  activeClass: 'wifi__button--yellow active',
-                  session: '',
-                  response2: '',
-                  code: '',
-                  status: false,
-                  checked: false,
-                  lang: 'uz',
-                  serverurl: 'http://192.168.1.2:8181/wifi/',
-                  formIdentificator: '1',
-              },
-
-              methods: {
-                backButton() {
-                  history.back();
-                  //window.location.href = "../" + this.lang + "/number.html?checked=2";
-                },
-                acceptButton() {
-                  window.location.href = "../" + this.lang + "/number.html?checked=1";
-                }
-              }
-          })
+      <script>
+      function backButton() {
+          window.history.back();
+      }
       </script>
+
+      <script>
+      function acceptButton() {
+          window.location.href = "./number.html?checked=1";
+      }
+      </script>
+
     </body>
     </html>
