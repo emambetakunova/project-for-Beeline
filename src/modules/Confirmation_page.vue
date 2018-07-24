@@ -1,0 +1,95 @@
+<template>
+  <div class="confirmation" id="confirm">
+    <header class="confirmation__header">
+      <button-back></button-back>
+      <p class="confirmation__description">Доступ на
+        <span class="confirmation__description--bold">30 минут</span> предоставлен.
+      </p>
+      <div class="confirmation__sim">
+        <p class="confirmation__sim__description">Для безлимитного доступа купи sim-карту, сообщив нам:</p>
+        <strong class="contacts-number">0771 055 155</strong>
+        <div class="contacts__messanger">
+          <a class="contacts__messanger__link" href="https://api.whatsapp.com/send?phone=9960771055155">
+            <img src="../assets/images/Whatsapp_icon.svg" alt="">
+          </a>
+          <a class="contacts__messanger__link" href="https://telegram.me/Beeline_free_wifi">
+            <img src="../assets/images/Telegram_icon.svg" alt="">
+          </a>
+        </div>
+      </div>
+
+    </header>
+    <main>
+      <div class="information">
+        <h3 class="information__heading">С SIM-КАРТОЙ BEELINE ПОЛУЧИШЬ:</h3>
+        <p class="information__text--first"><strong>Высокоскоростной и бесплатный</strong> <br>Beeline Wi-Fi с
+          безлимитным доступом
+        </p>
+        <div class="information__heading-container">
+          <h3 class="information__heading--main">НОВЫЙ ТАРИФ БЕЗ ЗАБОТ</h3>
+          <h3 class="information__heading--secondary">«ПРОСТО»:</h3>
+        </div>
+        <div class="information__text__container">
+          <div class="information__image__wrapper">
+            <img src="../assets/images/1-illustration.svg" alt=""/>
+          </div>
+          <p class="information__text information__text--border">безлимитные звонки <span
+            class="information__text--black">и sms внутри сети</span>
+          </p>
+        </div>
+        <div class="information__text__container">
+          <div class="information__image__wrapper">
+            <img src="../assets/images/2-illustration.svg" alt=""/>
+          </div>
+          <p class="information__text information__text--border">4 гигабайта <span
+            class="information__text--black">без деления</span>
+          </p>
+        </div>
+        <div class="information__text__container">
+          <div class="information__image__wrapper">
+            <img src="../assets/images/3-illustration.svg" alt=""/>
+          </div>
+          <p class="information__text information__text--border">10 минут <span
+            class="information__text--black">на другие сети</span>
+          </p>
+        </div>
+        <div class="information__text__container">
+          <div class="information__image__wrapper">
+            <img src="../assets/images/4-illustration.svg" alt=""/>
+          </div>
+          <p class="information__text information__text--border">безлимитный ночной интернет <span
+            class="information__text--black">c 01:00 до 07:00</span>
+          </p>
+        </div>
+        <div class="information__text__container">
+          <div class="information__image__wrapper">
+            <img src="../assets/images/5-illustartion.svg" alt=""/>
+          </div>
+          <p class="information__text information__text--border">интернет без пакета <span
+            class="information__text--black">10 тыйын за 1 мб</span>
+          </p>
+        </div>
+        <div class="price__info">
+          <p class="information__price">
+            <strong>ЗА 95 СОМ В НЕДЕЛЮ</strong>
+          </p>
+        </div>
+      </div>
+    </main>
+  </div>
+</template>
+
+<script>
+  import ButtonBack from "../components/BackButton";
+  export default {
+    name: 'confirm',
+    components: {ButtonBack},
+    data: function () {
+      return {
+        count: 0
+      }
+    }
+  }
+</script>
+
+
