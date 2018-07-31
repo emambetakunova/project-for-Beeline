@@ -8,6 +8,7 @@ import Code from './modules/Code.vue';
 import Main from './modules/Main.vue';
 import App from './modules/App.vue';
 import axios from 'axios';
+import Rating from './modules/Rating.vue';
 
 
 Vue.use(VueRouter);
@@ -18,6 +19,7 @@ const routes = [
   {path: '/code', component: Code},
   {path: '/number', component: Number},
   {path: '/welcome', component: Welcome},
+  {path: '/rating', component: Rating},
   {path: '/', component: Main}
 ];
 
@@ -26,7 +28,7 @@ const router = new VueRouter(
 );
 
 const axiosConfig = {
-  baseurl: 'http://localhost:8181/wifi/',
+  baseUrl: 'http://localhost:8181/wifi/',
   timeout: 30000,
 };
 

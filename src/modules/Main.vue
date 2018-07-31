@@ -8,10 +8,10 @@
       <div class="language_block clearfix">
         <a href="#" class="btn btn_dropdown" id="switch_lang">ru</a>
         <div class="languages_dropdown">
-          <a href="#" class="btn" v-on:click="changeLang('kg')">kg</a>
-          <a href="#" class="btn" v-on:click="changeLang('ru')">ru</a>
-          <a href="#" class="btn" v-on:click="changeLang('en')">en</a>
-          <a href="#" class="btn" v-on:click="changeLang('uz')">uz</a>
+          <a href="#" class="btn" v-on:click="changeLang('kg')" v-if="getLang('kg')">kg</a>
+          <a href="#" class="btn" v-on:click="changeLang('ru')" v-if="getLang('ru')">ru</a>
+          <a href="#" class="btn" v-on:click="changeLang('en')" v-if="getLang('en')">en</a>
+          <a href="#" class="btn" v-on:click="changeLang('uz')" v-if="getLang('uz')">uz</a>
         </div>
       </div>
       <img class="wifi__logo" src="../assets/images/logo.svg" alt="">
@@ -45,33 +45,37 @@
 </template>
 
 <script>
+  import {HTTP} from '../service/http-common';
 
   export default {
+    mounted: function () {
+      this.changeLang(localStorage.getItem("lang"));
+    },
     data: function () {
       return {
-        baseUrl: 'http://localhost:8181/wifi/',
+        lang: 'ru',
       }
     },
 
     methods: {
-        getAccess: function () {
-          this.$axios.get(this.baseUrl + 'auth/getAccess')
-            .then((response) => {
-              if (response.body.rate === true) {
-                window.location.href = "../" + this.lang + "/forStrangers.html";
-              } else {
+      getAccess: function () {
+        HTTP.get(this.baseUrl + 'auth/getAccess')
+          .then((response) => {
+            if (response.body.rate === true) {
+              this.router.push("rating");
+            } else {
 
-                if (response.body.status === true) {
-                  this.$router.push("/confirm");
-                }
-
-                if (response.body.status === false) {
-                  this.$router.push("/confirm");
-                }
+              if (response.body.status === true) {
+                this.$router.push("/confirm");
               }
-            }).catch((err) => {
-            console.log(err);
-          })
+
+              if (response.body.status === false) {
+                this.$router.push("/confirm");
+              }
+            }
+          }).catch((err) => {
+          console.log(err);
+        })
       },
 
       confirm_page: function () {
@@ -83,10 +87,23 @@
       },
 
       changeLang: function (lang) {
+        if (lang === null) {
+          lang = this.lang;
+        }
         document.getElementById('switch_lang').innerHTML = lang;
+        this.lang = lang;
+        localStorage.setItem('lang', lang);
       },
+
+      getLang: function (lang) {
+        if (lang != this.lang) {
+          return true;
+        }
+        return false;
+      }
     },
   }
 </script>
+<style src="../assets/css/main.css"></style>
 
 

@@ -17,6 +17,7 @@
 </template>
 
 <script>
+  import {HTTP} from '../service/http-common';
   import ButtonBackBlackWhite from "../components/BackButtonBlackWhite";
   export default {
     name: 'code',
@@ -28,5 +29,7 @@
     }
   }
 </script>
+<style src="../assets/css/main.css"></style>
+
 
 

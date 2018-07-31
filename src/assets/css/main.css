@@ -695,39 +695,6 @@ main {
   display: -ms-flexbox;
 }
 
-.rating__block {
-  padding-bottom: 10px;
-}
-
-.rating__header {
-  padding: 40px 30px 0 30px;
-}
-
-.rating__description {
-  border-radius: 8px;
-  font-size: 1rem;
-  margin-bottom: 20px;
-  padding: 32px 21px 20px 21px;
-  text-align: center;
-  background: #fbcf1a;
-  background: -webkit-linear-gradient(#fbcf1a 0%, #f9b301 100%);
-  background: -o-linear-gradient(#fbcf1a 0%, #f9b301 100%);
-  background: -webkit-gradient(linear, left top, left bottom, from(#fbcf1a), to(#f9b301));
-  background: linear-gradient(#fbcf1a 0%, #f9b301 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fbcf1a', endColorstr='#f9b301', GradientType=0);
-}
-
-.rating__description::before {
-  content: "";
-  position: absolute;
-  top: 17px;
-  left: 45%;
-  width: 43px;
-  height: 40px;
-  display: inline-block;
-  background: url(../images/icon_i.svg) 0px 0px no-repeat;
-}
-
 .icon__attention::before {
   background-position: 0 0;
 }

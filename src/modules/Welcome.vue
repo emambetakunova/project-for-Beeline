@@ -18,11 +18,11 @@
     },
     data() {
       return {
-        baseUrl: 'http://localhost:8181/wifi/',
-
       }
     }
   }
 </script>
+<style src="../assets/css/main.css"></style>
+
 
 

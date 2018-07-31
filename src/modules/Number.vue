@@ -29,6 +29,7 @@
 </template>
 
 <script>
+  import {HTTP} from '../service/http-common';
   import ButtonBackBlackWhite from "../components/BackButtonBlackWhite";
 
   export default {
@@ -52,7 +53,6 @@
         checked: false,
         lang: 'ru',
         info: null,
-        baseUrl: 'http://localhost:8181/wifi/',
       }
     },
     methods: {
@@ -63,7 +63,7 @@
         this.$router.push('agreement');
       },
       sendCode: function () {
-        this.$axios.post(this.baseUrl + 'auth/sendCode',
+        HTTP.post('auth/sendCode',
           {
           phoneNumber: this.name
         })
@@ -79,5 +79,7 @@
     }
   }
 </script>
+<style src="../assets/css/main.css"></style>
+
 
 
