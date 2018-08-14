@@ -24,8 +24,7 @@
             <label class="interview_label" for="interview_text">Другое</label>
           </div>
           <div class="interview_item interview_itemlast">
-              <textarea class="interview_textarea" id="interview_text" placeholder="Ваши комментарии" cols="32"
-                        rows="5"></textarea>
+            <textarea class="interview_textarea" id="interview_text" placeholder="Ваши комментарии"></textarea>
           </div>
         </form>
       </div>
@@ -36,8 +35,7 @@
   export default {
     name: 'RatingInterview',
     data: function () {
-      return {
-      }
+      return {}
     }
   }
 </script>

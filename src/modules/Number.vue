@@ -4,8 +4,8 @@
     <div class="form-wrapper">
       <form class="wifi__form">
         <div class="phone_number-group">
-          <label class="form__label">Введи номер
-            <strong>Beeline</strong> и получи код для безлимитного доступа</label>
+          <label class="form__label">{{ $t("pass") }} {{ $t("msisdn") }}
+            <strong>{{ $t("Beeline") }}</strong> {{ $t("get_password") }}</label>
           <input class="form__input" placeholder="07XX XXXXXX" id="name" type="number" v-model="name"
                  required>
         </div>
@@ -13,14 +13,13 @@
           <input class="policy__input" id="policy" name="policy" type="checkbox" v-model="checked">
           <label class="policy__label" for="policy">
             <div class="policy__span"></div>
-            <div class="policy__text" v-on:click="goToAgreementpage()">я согласен(а) с условиями пользовательского
-              соглашения
+            <div class="policy__text" v-on:click="goToAgreementpage()">{{ $t("using_agreement") }}
             </div>
           </label>
         </div>
         <button class="button" v-if="checked" type="submit" :class="[isFull() ? activeClass : '']"
                 v-on:click="sendCode()">
-          ПОЛУЧИТЬ КОД
+          {{ $t("get_code") }}
         </button>
       </form>
     </div>
@@ -68,7 +67,20 @@
           phoneNumber: this.name
         })
           .then((response) => {
-            this.$router.push("/code");
+
+            if(response.body.status === null) {
+              alert(response.body.error);
+            }
+
+            if(response.body.status === true) {
+              localStorage.setItem()
+              this.$router.push("/code");
+            }
+
+            if(response.body.status === false) {
+              alert(response.body.error);
+            }
+
         }).catch((err) => {
           console.log(err);
         })

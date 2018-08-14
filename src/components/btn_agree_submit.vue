@@ -1,5 +1,5 @@
 <template>
-  <button class="button btn_agree" v-on:click="acceptButton()" type="submit">ПРИНИМАЮ</button>
+  <button class="button btn_agree" v-on:click="acceptButton()" type="submit">{{ $t("agree") }}</button>
 </template>
 <script>
   export default {

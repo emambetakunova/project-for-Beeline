@@ -3,30 +3,27 @@
     <button-back-black-white></button-back-black-white>
     <form class="wifi__form" action="">
       <div class="phone_number-group">
-        <label class="form__label" for="code">Введите <b>код</b>, который <br>
+        <label class="form__label" for="password">Введите <b>код</b>, который <br>
           получите на ваш телефон</label>
-        <input id="code" name="code" class="form__input" type="number"
-               placeholder="XXXX" v-model="code"
+        <input id="password" name="code" class="form__input" type="number"
+               placeholder="XXXX" v-model="password"
                required>
       </div>
-      <button class="button" type="submit">
-        ПОДКЛЮЧИТЬСЯ
-      </button>
     </form>
   </div>
 </template>
 
 <script>
-  import {HTTP} from '../service/http-common';
   import ButtonBackBlackWhite from "../components/BackButtonBlackWhite";
+
   export default {
-    name: 'code',
-    components: {ButtonBackBlackWhite},
+    name: 'password',
     data: function () {
       return {
-        count: 0
+        lang: 'ru',
       }
-    }
+    },
+    components: {ButtonBackBlackWhite},
   }
 </script>
 <style src="../assets/css/main.css"></style>

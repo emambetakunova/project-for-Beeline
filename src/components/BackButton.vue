@@ -1,5 +1,5 @@
 <template>
-  <button class="btn_back" v-on:click="backButton()">Назад</button>
+  <button class="btn_back" v-on:click="backButton()">{{ $t("back") }}</button>
 </template>
 <script>
   export default {

@@ -1,0 +1,108 @@
+@media screen and (min-width: 375px) {
+  .rating_btn {
+    width: 335px;
+  }
+  .rating__description {
+    font-size: 1.125rem;
+    margin: auto;
+    width: 335px;
+    padding: 37px 50px 32px;
+  }
+  .interview_textarea {
+    width: 323px;
+  }
+  .interview_title {
+    margin: 32px 0 15px;
+  }
+  .rating__title {
+    font-size: 1.125rem;
+  }
+}
+@media screen and (min-width: 480px) {
+  .rating_btn {
+    font-size: 1.25rem;
+    width: 400px;
+    height: 60px;
+  }
+  .rating__description {
+    font-size: 1.25rem;
+    margin: auto;
+    width: 400px;
+  }
+  .rating__title {
+    font-size: 1.25rem;
+  }
+  .interview_title {
+    font-size: 1.25rem;
+  }
+  .emoji_checkbox + label {
+    font-size: 0.75rem;
+  }
+  .interview_list {
+    display: flex;
+    justify-content: center;
+  }
+  .interview_radio + label {
+    font-size: 1rem;
+  }
+  .interview_label {
+    font-size: 1rem;
+  }
+  .interview_item {
+    padding: 8px 0 15px;
+  }
+  .interview_textarea {
+    width: 400px;
+  }
+  .emoji_checkbox + label {
+    font-size: 0.75rem;
+    padding-top: 60px;
+    width: 60px;
+  }
+  .emoji_checkbox + label::before {
+    width: 48px;
+    height: 48px;
+    background-image: url(../images/emoji_big.svg);
+  }
+  .rating_1.emoji_checkbox + label::before {
+    background-position: 0 center;
+  }
+  .rating_2.emoji_checkbox + label::before {
+    background-position: -88px center;
+  }
+  .rating_3.emoji_checkbox + label::before {
+    background-position: -176px center;
+  }
+  .rating_4.emoji_checkbox + label::before {
+    background-position: -264px center;
+  }
+  .rating_5.emoji_checkbox + label::before {
+    background-position: -352px center;
+  }
+}
+@media screen and (min-width: 600px) {
+  .rating_btn {
+    width: 520px;
+  }
+  .rating__description {
+    margin: auto;
+    width: 520px;
+    padding: 37px 99px 32px;
+  }
+  .interview_textarea {
+    width: 520px;
+  }
+  .emoji_checkbox + label {
+    width: 80px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .rating_btn {
+    width: 398px;
+  }
+  .rating__description {
+    margin: auto;
+    width: 600px;
+    padding: 37px 137px 32px;
+  }
+}

@@ -11,7 +11,7 @@
       </div>
       <RatingInterview v-if="showInterview"></RatingInterview>
       <div class="rating_button">
-        <button class="rating_btn" type="submit">подключись</button>
+        <button class="rating_btn" type="submit" v-on:click.prevent="validateCode($event)">подключись</button>
       </div>
     </div>
   </div>
@@ -35,3 +35,5 @@
 </script>
 <style src="../assets/css/reset.css"></style>
 <style src="../assets/css/style.css"></style>
+<style src="../assets/css/media.css"></style>
+

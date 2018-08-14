@@ -2,16 +2,16 @@
   <div class="rating_block">
     <div>
       <form>
-        <input name="rating" type="radio" class="emoji_checkbox rating_1" id="1"/>
-        <label for="1">ужасно</label>
-        <input name="rating" type="radio" class="emoji_checkbox rating_2" id="2"/>
-        <label for="2">плохо</label>
-        <input name="rating" type="radio" class="emoji_checkbox rating_3" id="3"/>
-        <label for="3">нормально</label>
-        <input name="rating" type="radio" class="emoji_checkbox rating_4" id="4"/>
-        <label for="4">хорошо</label>
-        <input name="rating" type="radio" class="emoji_checkbox rating_5" id="5"/>
-        <label for="5">отлично</label>
+        <input name="rating" type="radio" class="emoji_checkbox rating_1" id="rating_1"/>
+        <label for="rating_1">ужасно</label>
+        <input name="rating" type="radio" class="emoji_checkbox rating_2" id="rating_2"/>
+        <label for="rating_2">плохо</label>
+        <input name="rating" type="radio" class="emoji_checkbox rating_3" id="rating_3"/>
+        <label for="rating_3">нормально</label>
+        <input name="rating" type="radio" class="emoji_checkbox rating_4" id="rating_4"/>
+        <label for="rating_4">хорошо</label>
+        <input name="rating" type="radio" class="emoji_checkbox rating_5" id="rating_5"/>
+        <label for="rating_5">отлично</label>
       </form>
     </div>
   </div>
