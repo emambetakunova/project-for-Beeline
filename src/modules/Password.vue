@@ -22,7 +22,6 @@
       return {
         lang: 'ru',
         baseUrl: 'https://free-wifi.beeline.kg:8181//wifi/',
-
       }
     },
     components: {ButtonBackBlackWhite},
