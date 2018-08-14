@@ -12,6 +12,7 @@ import Rating from './modules/Rating.vue';
 import i18n from './lang/lang';
 import store from './store';
 
+
 Vue.use(VueRouter);
 
 const routes = [
