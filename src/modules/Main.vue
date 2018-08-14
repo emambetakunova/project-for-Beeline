@@ -57,6 +57,7 @@
     data: function () {
       return {
         lang: 'ru',
+        baseUrl: 'https://free-wifi.beeline.kg:8181//wifi/',
       }
     },
 
