@@ -31,7 +31,7 @@ const router = new VueRouter(
 
 
 const axiosConfig = {
-  baseUrl: 'http://localhost:8181/wifi/',
+  baseUrl: 'https://free-wifi.beeline.kg:8181//wifi/',
   timeout: 30000,
 };
 
