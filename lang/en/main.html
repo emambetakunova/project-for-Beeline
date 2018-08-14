@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Beeline Free Wifi</title>
+    <link rel="stylesheet" href="../../fonts/fonts.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="icon" href="../../images/48.ico">
+</head>
+<body>
+<div class="wrapper" id="app">
+    <header class="wifi__header">
+            <div class="language_block clearfix">
+                <a href="#" class="btn btn_dropdown" id="switch_lang">en</a>
+                <div class="languages_dropdown">
+                    <a href="#" class="btn" @click="myHref('ru')">ru</a>
+                    <a href="#" class="btn" @click="myHref('kg')">kg</a>
+                    <a href="#" class="btn" @click="myHref('uz')">uz</a>
+                </div>
+            </div>
+            <img class="wifi__logo" src="../../images/logo.svg" alt="">
+        <div class="wifi__heading__wrapper">
+            <h3 class="wifi__heading">High-speed and free </h3>
+        </div>
+    </header>
+    <main class="wifi" >
+        <div class="wifi__options">
+            <p class="wifi__options__heading">Unlimited access</p>
+            <button class="wifi__options__button" @click="route">
+                for
+                <span class="wifi__options__strong">Beeline</span> customers
+            </button>
+        </div>
+        <div class="wifi__options">
+            <p class="wifi__options__heading">Don't you have a Beeline number? </p>
+            <button class="wifi__options__button" @click="getAccess">Try to connect for 30 minutes</button>
+        </div>
+        <div class="wifi__options">
+            <p class="wifi__options__heading">or</p>
+            <button class="wifi__options__button wifi__options__button--transparent" @click="confirm_page">
+                <p style="width: 95%">just buy
+                    <span class="wifi__options__strong"> a sim-card</span>
+                     for unlimited access</p>
+                     <span class="arrow"></span>
+            </button>
+        </div>
+    </main>
+</div>
+
+</script>
+<script src="../../libs/vue.min.js"></script>
+<script src="../../libs/babel.min.js"></script>
+<script src="../../libs/vue-resource.min.js"></script>
+<!--script type="text/javascript" src="../lang/arrLang.js"></script-->
+<script src="../../libs/jquery.min.js"></script>
+
+<script type="text/babel">
+    //this is a vue instance
+    new Vue({
+        //this targets the div id app
+        el: '#app',
+        mounted: function () {
+          //document.getElementById('switch_lang').innerHTML=this.lang;
+        },
+        data: {
+            name: '', //this stores data values for ‘name’,
+            activeClass: 'wifi__button--yellow active',
+            session: '',
+            response2: '',
+            status: false,
+            code: '',
+            showModal: false,
+            checked: false,
+            lang: 'en',
+            serverurl: 'http://192.168.1.2:8181/wifi/',
+        },
+        methods: {
+            getAccess() {
+                this.$http.get(this.serverurl + 'auth/getAccess')
+                    .then(response => {
+                        if (response.body.rate === true) {
+                          window.location.href = "../" + this.lang + "/forStrangers.html";
+                        } else {
+                          if (response.body.status === null || response.body.status === false) {
+                              window.location.href = "../" + this.lang + "/main.html";
+                          }
+                          if (response.body.status === true) {
+                              window.location.href = "../" + this.lang + "/confirmation_page.html";
+                          }
+
+                          if (response.body.status === false) {
+                              window.location.href = "../" + this.lang + "/confirmation_page3.html";
+                          }
+                        }
+                    })
+            },
+
+            confirm_page() {
+                window.location.href = "../" + this.lang + "/confirmation_page2.html";
+            },
+
+            route() {
+                window.location.href = "../" + this.lang + "/number.html";
+            },
+            myHref(lang){
+                document.getElementById('switch_lang').innerHTML=lang;
+                localStorage.setItem('lang', lang);
+                if (lang!='en'){
+                  this.lang=lang;
+                  window.location.href = "../" + this.lang + "/main.html";
+                }
+            },
+
+            isFull() {
+                if (this.name.length > 8) return true
+            }
+        },
+    })
+</script>
+</body>
+</html>
