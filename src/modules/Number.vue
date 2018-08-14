@@ -63,7 +63,7 @@
         this.$router.push('agreement');
       },
       sendCode: function () {
-        HTTP.post('auth/sendCode',
+        HTTP.post(this.baseUrl + 'auth/sendCode',
           {
           phoneNumber: this.name
         })
