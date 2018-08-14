@@ -5,7 +5,7 @@
   export default {
     name: 'app',
     mounted: function () {
-      //localStorage.setItem('app', 'app.vue');
+      localStorage.setItem('app', 'app.vue');
     },
 
     data: function () {

@@ -42,8 +42,8 @@ export const app = new Vue({
   store,
   i18n,
   render: h => h(App)
-})
+});
 
-window['vue'] = app
-window.store = store
+window['vue'] = app;
+window.store = store;
 

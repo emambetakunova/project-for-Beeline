@@ -8,7 +8,7 @@ import uz from './uz.json'
 
 Vue.use(VueI18n)
 
-const locale = localStorage.getItem('lang')
+const locale = sessionStorage.getItem('lang');
 
 const messages = {
   ru, en, kg, uz
