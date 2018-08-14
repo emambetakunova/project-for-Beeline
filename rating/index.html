@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="fonts/fonts.css">
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/media.css">
 </head>
 <body>
 	<div class="rating__header">
@@ -34,7 +35,7 @@
 		</div>
 		<div class="interview_block">
 			<div class="container">
-				<h3 class="rating__title">Твой отзыв поможет нам стать лучше:</h3>
+				<h3 class="interview_title">Твой отзыв поможет нам стать лучше:</h3>
 				<div class="interview_list">
 					<form>
 						<div class="interview_item">
@@ -57,14 +58,14 @@
 							<label class="interview_label" for="interview_text">Другое</label>
 						</div>
 						<div class="interview_item interview_itemlast">
-							<textarea class="interview_textarea" id="interview_text" placeholder="Ваши комментарии" cols="32" rows="5"></textarea>
+							<textarea class="interview_textarea" id="interview_text" placeholder="Ваши комментарии"></textarea>
 						</div>
 					</form>
 				</div>
+				<div class="rating_button">
+					<button class="rating_btn" type="submit" v-on:click.prevent="validateCode($event)">подключись</button>
+				</div>
 			</div>
-		</div>
-		<div class="rating_button">
-			<button class="rating_btn" type="submit" v-on:click.prevent="validateCode($event)">подключись</button>
 		</div>
 	</div>
 </div>
