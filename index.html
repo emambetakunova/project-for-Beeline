@@ -1,73 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Beeline Free Wifi</title>
-  <link rel="stylesheet" href="./fonts/fonts.css">
-  <link rel="stylesheet" href="./css/main.css">
-  <link rel="icon" href="./images/48.ico">
-
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wi Fi</title>
+    <link rel="stylesheet" href="./src/assets/fonts/fonts.css">
+    <link rel="icon" href="./src/assets/images/48.ico">
+  </head>
 
 <body>
-<header class="wifi__header">
-  <div class="wrapper wrap">
-    <img class="wifi__logo" src="./images/logo_welcome.svg" alt="">
-    <div class="wifi__heading__wrapper">
-      <h3 class="wifi__heading">Высокоскоростной и бесплатный </h3>
-    </div>
-  </div>
-</header>
-
-<script src="./libs/vue.min.js"></script>
-<script src="./libs/babel.min.js"></script>
-<script src="./libs/vue-resource.min.js"></script>
-
-<script type="text/babel">
-  //this is a vue instance
-  new Vue({
-    //this targets the div id app
-    el: '#app',
-    mounted: function () {
-      var lang = localStorage.getItem('lang');
-      if (lang===null){
-        localStorage.setItem('lang', 'ru');
-      } else {
-        this.lang = lang;
-      }
-      this.seamlessAuth()
-    },
-    data: {
-      name: '', //this stores data values for ‘name’,
-      activeClass: 'wifi__button--yellow active',
-      session: '',
-      response2: '',
-      status: false,
-      code: '',
-      showModal: false,
-      checked: false,
-      lang: 'ru',
-      serverurl: 'http://192.168.1.2:8181/wifi/',
-    },
-    methods: {
-      seamlessAuth() {
-        this.$http.get(this.serverurl + 'auth/seamlessAuth')
-          .then(response => {
-            if (response.body.rate === true){
-              window.location.href = "../lang/" + this.lang + "/forOwns.html";
-            }
-            else if (response.body.status === true) {
-              window.location.href = "https://beeline.kg";
-            }
-            else {
-              window.location.href = "../lang/" + this.lang + "/main.html";
-            }
-          })
-      }
-    }
-  })
-</script>
+<div id="app"></div>
+<script src="/dist/build.js"></script>
 </body>
 </html>
