@@ -63,6 +63,7 @@
 
     methods: {
       getAccess: function () {
+        console.log(this.baseUrl);
         HTTP.get(this.baseUrl + 'auth/getAccess')
           .then((response) => {
             if (response.body.rate === true) {
