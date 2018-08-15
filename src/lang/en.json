@@ -37,8 +37,8 @@
   "no_pakage": "INTERNET WITHOUT PACKAGE ",
   "prices": "10 TYYN PER 1 MB",
   "rental_fee": "95 SOMS PER WEEK",
-  "": "",
-  "": "",
-  "": "",
+  "access_granted": "Access for 30 minutes is granted.",
+  "access_restricted": "Unfortunately, time is up. Come back tomorrow!",
+  "thanks_for_rate": "Thank you for rating! Access for 30 minutes </span>is granted.",
   "": ""
 }

@@ -37,8 +37,8 @@
   "no_pakage": "PAKETSIZ INTERNET KULLANISH ",
   "prices": "1 Mb uchun 10 TYYN",
   "rental_fee": "HAFTASIGA 95 SOM",
-  "": "",
-  "": "",
-  "": "",
+  "access_granted": "Доступ на 30 минут предоставлен.",
+  "access_restricted": "К сожалению, время истекло. Возвращайтесь завтра!",
+  "thanks_for_rate": "Спасибо за оценку! Доступ на 30 минут предоставлен.",
   "": ""
 }
