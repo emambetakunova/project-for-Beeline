@@ -2,11 +2,13 @@
   <div class="confirmation" id="confirm">
     <header class="confirmation__header">
       <button-back></button-back>
-      <p class="confirmation__description">Доступ на
-        <span class="confirmation__description--bold">30 минут</span> предоставлен.
-      </p>
+
+      <confirm-granted v-if="getMessage('1')"></confirm-granted>
+      <confirm-restricted v-if="getMessage('2')"></confirm-restricted>
+      <confirm-rated v-if="getMessage('3')"></confirm-rated>
+
       <div class="confirmation__sim">
-        <p class="confirmation__sim__description">Для безлимитного доступа купи sim-карту, сообщив нам:</p>
+        <p class="confirmation__sim__description">{{ $t("bye_Beeline_sim_offer") }}</p>
         <strong class="contacts-number">0771 055 155</strong>
         <div class="contacts__messanger">
           <a class="contacts__messanger__link" href="https://api.whatsapp.com/send?phone=9960771055155">
@@ -21,57 +23,56 @@
     </header>
     <main>
       <div class="information">
-        <h3 class="information__heading">С SIM-КАРТОЙ BEELINE ПОЛУЧИШЬ:</h3>
-        <p class="information__text--first"><strong>Высокоскоростной и бесплатный</strong> <br>Beeline Wi-Fi с
-          безлимитным доступом
+        <h3 class="information__heading">{{ $t("with_Beeline_Sim_u_Get") }}</h3>
+        <p class="information__text--first"><strong>{{ $t("slogan") }}</strong> <br>{{ $t("Unlim_Wifi") }}
         </p>
         <div class="information__heading-container">
-          <h3 class="information__heading--main">НОВЫЙ ТАРИФ БЕЗ ЗАБОТ</h3>
-          <h3 class="information__heading--secondary">«ПРОСТО»:</h3>
+          <h3 class="information__heading--main">{{ $t("new_tariff_Plan") }}</h3>
+          <h3 class="information__heading--secondary">{{ $t("simple") }}</h3>
         </div>
         <div class="information__text__container">
           <div class="information__image__wrapper">
             <img src="../assets/images/1-illustration.svg" alt=""/>
           </div>
-          <p class="information__text information__text--border">безлимитные звонки <span
-            class="information__text--black">и sms внутри сети</span>
+          <p class="information__text information__text--border">{{ $t("unlim_calls") }}<span
+            class="information__text--black">{{ $t("unlim_sms") }}</span>
           </p>
         </div>
         <div class="information__text__container">
           <div class="information__image__wrapper">
             <img src="../assets/images/2-illustration.svg" alt=""/>
           </div>
-          <p class="information__text information__text--border">4 гигабайта <span
-            class="information__text--black">без деления</span>
+          <p class="information__text information__text--border">{{ $t("internet_trafik") }}<span
+            class="information__text--black">{{ $t("no_deviding") }}</span>
           </p>
         </div>
         <div class="information__text__container">
           <div class="information__image__wrapper">
             <img src="../assets/images/3-illustration.svg" alt=""/>
           </div>
-          <p class="information__text information__text--border">10 минут <span
-            class="information__text--black">на другие сети</span>
+          <p class="information__text information__text--border">{{ $t("10min") }}<span
+            class="information__text--black">{{ $t("offnet") }}</span>
           </p>
         </div>
         <div class="information__text__container">
           <div class="information__image__wrapper">
             <img src="../assets/images/4-illustration.svg" alt=""/>
           </div>
-          <p class="information__text information__text--border">безлимитный ночной интернет <span
-            class="information__text--black">c 01:00 до 07:00</span>
+          <p class="information__text information__text--border">{{ $t("unlim_night_internet") }}<span
+            class="information__text--black">{{ $t("timeDivation") }}</span>
           </p>
         </div>
         <div class="information__text__container">
           <div class="information__image__wrapper">
             <img src="../assets/images/5-illustartion.svg" alt=""/>
           </div>
-          <p class="information__text information__text--border">интернет без пакета <span
-            class="information__text--black">10 тыйын за 1 мб</span>
+          <p class="information__text information__text--border">{{ $t("no_pakage") }}<span
+            class="information__text--black">{{ $t("prices") }}</span>
           </p>
         </div>
         <div class="price__info">
           <p class="information__price">
-            <strong>ЗА 95 СОМ В НЕДЕЛЮ</strong>
+            <strong>{{ $t("rental_fee") }}</strong>
           </p>
         </div>
       </div>
@@ -81,13 +82,27 @@
 
 <script>
   import ButtonBack from "../components/BackButton";
+  import ConfirmRated from "../components/Rated";
+  import ConfirmGranted from "../components/AccessGranted";
+  import ConfirmRestricted from "../components/AccessRestricted";
+
   export default {
     name: 'confirm',
-    components: {ButtonBack},
+    components: {ConfirmRestricted, ConfirmGranted, ConfirmRated, ButtonBack},
     data: function () {
       return {
-        count: 0
+        count: 0,
+        messageType: 0,
       }
+    },
+    methods: {
+      getMessage: function (messageType) {
+        if (messageType === sessionStorage.getItem('messageType')) {
+          return true;
+        }
+        return false;
+      }
+
     }
   }
 </script>

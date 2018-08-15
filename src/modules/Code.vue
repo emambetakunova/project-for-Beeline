@@ -3,14 +3,15 @@
     <ButtonBackBlackWhite></ButtonBackBlackWhite>
     <form class="wifi__form" action="">
       <div class="phone_number-group">
-        <label class="form__label" for="password">Введите <b>код</b>, который <br>
-          получите на ваш телефон</label>
+        <label class="form__label" for="password"> {{ $t("pass") }} <b> {{ $t("msisdn") }}</b> {{ $t("wifi_which") }}
+          <br>
+          {{ $t("code_receive") }}</label>
         <input id="password" name="code" class="form__input" type="number"
                placeholder="XXXX" v-model="password"
                required>
       </div>
       <button class="button" type="submit" v-on:click="validateCode()">
-        ПОДКЛЮЧИТЬСЯ
+        {{ $t("connect") }}
       </button>
     </form>
   </div>
@@ -21,7 +22,7 @@
   import ButtonBackBlackWhite from "../components/BackButtonBlackWhite";
 
   export default {
-    name: 'password',
+    name: 'code',
     data: function () {
       return {
         lang: 'ru',

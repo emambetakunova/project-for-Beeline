@@ -4,7 +4,7 @@
       <div class="wrapper wrap">
         <img class="wifi__logo" src="../assets/images/logo_welcome.svg" alt="">
         <div class="wifi__heading__wrapper">
-          <h3 class="wifi__heading">Высокоскоростной и бесплатный </h3>
+          <h3 class="wifi__heading">{{ $t("slogan") }}</h3>
         </div>
       </div>
     </header>

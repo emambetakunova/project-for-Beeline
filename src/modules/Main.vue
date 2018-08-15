@@ -24,7 +24,7 @@
         <p class="wifi__options__heading">{{ $t("unlimited_access") }}</p>
         <button class="wifi__options__button" v-on:click="route">
           {{ $t("for_subscribers") }}
-          <span class="wifi__options__strong">{{ $t("Beeline") }}</span>
+          <span class="wifi__options__strong">{{ $t("Beeline") }} {{ $t("for_beeline_customers") }}</span>
         </button>
       </div>
       <div class="wifi__options">
@@ -71,10 +71,12 @@
             } else {
 
               if (response.data.status === true) {
+                sessionStorage.setItem("messageType", 1);
                 this.$router.push("/confirm");
               }
 
               if (response.data.status === false) {
+                sessionStorage.setItem("messageType", 2);
                 this.$router.push("/confirm");
               }
             }
@@ -84,6 +86,7 @@
       },
 
       confirm_page: function () {
+        sessionStorage.setItem("messageType", null);
         this.$router.push("/confirm");
       },
 
