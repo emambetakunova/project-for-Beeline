@@ -45,6 +45,7 @@
 </template>
 
 <script>
+  import {baseUrl} from '../utils/constants';
   import {HTTP} from '../service/http-common';
 
   export default {
@@ -57,24 +58,23 @@
     data: function () {
       return {
         lang: 'ru',
-        baseUrl: 'https://free-wifi.beeline.kg:8181/wifi/',
       }
     },
 
     methods: {
       getAccess: function () {
-        console.log(this.baseUrl);
-        HTTP.get(this.baseUrl + 'auth/getAccess')
+        HTTP.get(baseUrl + 'auth/getAccess')
           .then((response) => {
-            if (response.body.rate === true) {
-              this.router.push("rating");
+            console.log(response.data);
+            if (response.data.rate === true) {
+              this.$router.push("rating");
             } else {
 
-              if (response.body.status === true) {
+              if (response.data.status === true) {
                 this.$router.push("/confirm");
               }
 
-              if (response.body.status === false) {
+              if (response.data.status === false) {
                 this.$router.push("/confirm");
               }
             }

@@ -28,6 +28,7 @@
 </template>
 
 <script>
+  import {baseUrl} from '../utils/constants';
   import {HTTP} from '../service/http-common';
   import ButtonBackBlackWhite from "../components/BackButtonBlackWhite";
 
@@ -35,13 +36,11 @@
     name: 'number',
     components: {ButtonBackBlackWhite},
     mounted: function () {
-      console.log(this.$route.query.checked);
       if (this.$route.query.checked === '1') {
         this.checked = true;
       } else {
         this.checked = false;
       }
-
     },
     data: function () {
       return {
@@ -51,8 +50,8 @@
         status: false,
         checked: false,
         lang: 'ru',
+        session: null,
         info: null,
-        baseUrl: 'https://free-wifi.beeline.kg:8181/wifi/',
       }
     },
     methods: {
@@ -63,26 +62,26 @@
         this.$router.push('agreement');
       },
       sendCode: function () {
-        HTTP.post(this.baseUrl + 'auth/sendCode',
+        HTTP.post(baseUrl + 'auth/sendCode',
           {
-          phoneNumber: this.name
-        })
+            phoneNumber: this.name
+          })
           .then((response) => {
 
-            if(response.body.status === null) {
+            if (response.data.status === null) {
               alert(response.body.error);
             }
 
-            if(response.body.status === true) {
-              localStorage.setItem()
+            if (response.data.status === true) {
+              sessionStorage.setItem('session', response.data.session)
               this.$router.push("/code");
             }
 
-            if(response.body.status === false) {
-              alert(response.body.error);
+            if (response.data.status === false) {
+              alert(response.data.error);
             }
 
-        }).catch((err) => {
+          }).catch((err) => {
           console.log(err);
         })
       },
