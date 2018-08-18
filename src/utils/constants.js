@@ -1,1 +1,1 @@
-export const baseUrl = 'http://localhost:8181/wifi/';
+export const baseUrl = 'http://free-wifi.beeline.kg:8181/wifi/';
