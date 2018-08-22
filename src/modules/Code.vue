@@ -3,14 +3,14 @@
     <ButtonBackBlackWhite></ButtonBackBlackWhite>
     <form class="wifi__form" action="">
       <div class="phone_number-group">
-        <label class="form__label" for="password"> {{ $t("pass") }} <b> {{ $t("msisdn") }}</b> {{ $t("wifi_which") }}
+        <label class="form__label" for="code"> {{ $t("pass") }} <b> {{ $t("msisdn") }}</b> {{ $t("wifi_which") }}
           <br>
           {{ $t("code_receive") }}</label>
-        <input id="password" name="code" class="form__input" type="number"
-               placeholder="XXXX" v-model="password"
+        <input id="code" name="code" class="form__input" type="number"
+               placeholder="XXXX" v-model="code"
                required>
       </div>
-      <button class="button" type="submit" v-on:click="validateCode()">
+      <button class="button" type="submit" v-on:click="validateCode(event)">
         {{ $t("connect") }}
       </button>
     </form>
@@ -20,20 +20,22 @@
 <script>
   import {baseUrl} from '../utils/constants';
   import ButtonBackBlackWhite from "../components/BackButtonBlackWhite";
+  import {HTTP} from '../service/http-common';
 
   export default {
-    name: 'code',
+    name: 'code_page',
     data: function () {
       return {
         lang: 'ru',
-        password: '',
+        code: '',
       }
     },
     components: {ButtonBackBlackWhite},
     methods: {
-      validateCode() {
+      validateCode: function () {
+        event.preventDefault()
         HTTP.post(baseUrl + 'auth/validateCode', {
-          phoneNumber: this.name,
+          phoneNumber: sessionStorage.getItem('phoneNumber'),
           code: this.code,
           session: sessionStorage.getItem('session')
         })
@@ -41,10 +43,10 @@
             if (response.data.status === true) {
               window.location.href = "https://beeline.kg";
             }
-            if (response.data.status === false) {
-              alert("Неверный код, попробуйте ввести еще раз")
-            }
-          })
+
+          }).catch(e => {
+          alert("Неверный код, попробуйте ввести еще раз")
+        })
       },
       isFull() {
         if (this.name.length > 8) return true
@@ -53,6 +55,3 @@
   }
 </script>
 <style src="../assets/css/main.css"></style>
-
-
-

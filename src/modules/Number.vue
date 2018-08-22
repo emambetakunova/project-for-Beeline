@@ -18,7 +18,7 @@
           </label>
         </div>
         <button class="button" v-if="checked" type="submit" :class="[isFull() ? activeClass : '']"
-                v-on:click="sendCode()">
+                v-on:click="sendCode(event)">
           {{ $t("get_code") }}
         </button>
       </form>
@@ -62,26 +62,23 @@
         this.$router.push('agreement');
       },
       sendCode: function () {
+        event.preventDefault()
         HTTP.post(baseUrl + 'auth/sendCode',
           {
             phoneNumber: this.name
           })
           .then((response) => {
 
-            if (response.data.status === null) {
-              alert(response.body.error);
-            }
-
             if (response.data.status === true) {
+              sessionStorage.setItem('phoneNumber', response.data.phoneNumber);
               sessionStorage.setItem('session', response.data.session)
+
               this.$router.push("/code");
             }
 
-            if (response.data.status === false) {
-              alert(response.data.error);
-            }
-
           }).catch((err) => {
+          alert(response.data.error);
+
           console.log(err);
         })
       },
@@ -92,6 +89,3 @@
   }
 </script>
 <style src="../assets/css/main.css"></style>
-
-
-
