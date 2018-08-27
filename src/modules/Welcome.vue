@@ -11,13 +11,31 @@
   </div>
 </template>
 <script>
+  import {baseUrl} from '../utils/constants';
+  import {HTTP} from '../service/http-common';
+
   export default {
     name: 'app',
     mounted: function () {
-      this.$router.push("/");
+      this.seamlessAuth();
     },
     data() {
-      return {
+      return {}
+    },
+    methods: {
+      seamlessAuth: function () {
+        HTTP.get(baseUrl + 'auth/seamlessAuth')
+          .then(response => {
+            // if (response.data.rate === true) {
+            //   window.location.href = "../lang/" + this.lang + "/forOwns.html";
+            // }
+            if (response.data.status === true) {
+              window.location.href = "https://beeline.kg";
+            }
+            else {
+              this.$router.push("/");
+            }
+          })
       }
     }
   }

@@ -59,6 +59,8 @@
         this.$router.push('/');
       },
       goToAgreementpage: function () {
+        al
+
         this.$router.push('agreement');
       },
       sendCode: function () {
