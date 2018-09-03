@@ -1,5 +1,5 @@
 <template>
-  <div class="interview_block">
+  <div class="interview_block" id="RatingInterview">
     <div class="container">
       <h3 class="rating__title">Твой отзыв поможет нам стать лучше:</h3>
       <div class="interview_list">
@@ -24,7 +24,7 @@
             <label class="interview_label" for="interview_text">Другое</label>
           </div>
           <div class="interview_item interview_itemlast">
-            <textarea class="interview_textarea" id="interview_text" placeholder="Ваши комментарии"></textarea>
+            <textarea class="interview_textarea" id="interview_text" placeholder="Твои комментарии"></textarea>
           </div>
         </form>
       </div>

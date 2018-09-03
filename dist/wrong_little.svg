@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
   <title>Fill 1 Copy 2</title>
   <desc>Created with Sketch.</desc>
   <defs></defs>
-  <g id="320_landing-page-copy-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-260.000000, -410.000000)">
-    <path d="M270,410 C264.47,410 260,414.47 260,420 C260,425.529 264.47,430 270,430 C275.53,430 280,425.529 280,420 C280,414.47 275.53,410 270,410 Z M272.59,416 L270,418.59 L267.41,416 L266,417.41 L268.59,420 L266,422.59 L267.41,424 L270,421.409 L272.59,424 L274,422.59 L271.41,420 L274,417.41 L272.59,416 Z" id="Fill-1-Copy-2" fill="#FF3838" transform="translate(270.000000, 420.000000) rotate(-270.000000) translate(-270.000000, -420.000000) "></path>
+  <g id="320_landing-page-copy-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"
+     transform="translate(-260.000000, -410.000000)">
+    <path
+      d="M270,410 C264.47,410 260,414.47 260,420 C260,425.529 264.47,430 270,430 C275.53,430 280,425.529 280,420 C280,414.47 275.53,410 270,410 Z M272.59,416 L270,418.59 L267.41,416 L266,417.41 L268.59,420 L266,422.59 L267.41,424 L270,421.409 L272.59,424 L274,422.59 L271.41,420 L274,417.41 L272.59,416 Z"
+      id="Fill-1-Copy-2" fill="#FF3838"
+      transform="translate(270.000000, 420.000000) rotate(-270.000000) translate(-270.000000, -420.000000) "></path>
   </g>
 </svg>

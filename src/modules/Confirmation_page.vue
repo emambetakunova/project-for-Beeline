@@ -197,6 +197,9 @@
   import ConfirmRestricted from "../components/AccessRestricted";
 
   export default {
+    mounted: function () {
+      console.log(window.test);
+    },
     name: 'confirm',
     components: {ConfirmRestricted, ConfirmGranted, ConfirmRated, ButtonBack},
     data: function () {
@@ -208,25 +211,24 @@
     },
     methods: {
       getMessage: function (messageType) {
-        if (messageType === sessionStorage.getItem('messageType')) {
-          if (sessionStorage.getItem('messageType') === '1') {
+        if (messageType === window.messageType) {
+          if (window.messageType === '1') {
             this.bottomType = 1;
           }
 
-          if (sessionStorage.getItem('messageType') === '2') {
+          if (window.messageType === '2') {
             this.bottomType = 1;
           }
 
-          if (sessionStorage.getItem('messageType') === '3') {
+          if (window.messageType === '3') {
             this.bottomType = 2;
           }
 
-          if (sessionStorage.getItem('messageType') === '4') {
+          if (window.messageType === '4') {
             this.bottomType = 3;
           }
 
-
-          if (sessionStorage.getItem('messageType') === '5') {
+          if (window.messageType === '5') {
             this.bottomType = 4;
           }
 

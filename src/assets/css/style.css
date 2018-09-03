@@ -7,7 +7,6 @@ body {
   margin: 0;
   min-width: 320px;
 }
-
 .container {
   width: 100%;
   min-width: 320px;
@@ -15,12 +14,10 @@ body {
   padding: 0 20px;
   margin: 0 auto;
 }
-
 /*********rating block**********/
 .rating__header {
   padding-top: 2.5rem;
 }
-
 .rating__description {
   position: relative;
   border-radius: 8px;
@@ -30,7 +27,6 @@ body {
   background: linear-gradient(#fbcf1a 0%, #f9b301 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fbcf1a', endColorstr='#f9b301', GradientType=0);
 }
-
 .rating__description::before {
   content: "";
   position: absolute;
@@ -42,26 +38,21 @@ body {
   transform: translateX(-50%);
   background: url(../images/icon_i.svg) 0px 0px no-repeat;
 }
-
 .rating__description span {
   font-weight: bold;
 }
-
 .rating__title {
   text-align: center;
   margin: 32px 0 15px;
   font-size: 1rem;
   letter-spacing: 0.9px;
 }
-
 .answer_text {
   color: rgb(251, 207, 26);
 }
-
 .rating_button {
   text-align: center;
 }
-
 .rating_btn {
   width: 100%;
   height: 50px;
@@ -76,15 +67,12 @@ body {
   font-weight: bold;
   letter-spacing: 1.2px;
 }
-
 .rating_block {
   text-align: center;
 }
-
 .emoji_checkbox {
   display: none;
 }
-
 .emoji_checkbox + label {
   text-transform: capitalize;
   color: rgb(170, 170, 170);
@@ -96,7 +84,6 @@ body {
   display: inline-block;
   width: 40px;
 }
-
 .emoji_checkbox + label::before {
   content: "";
   position: absolute;
@@ -110,27 +97,21 @@ body {
   background-position: 0 center;
   background-image: url(../images/emoji.svg);
 }
-
 .rating_1.emoji_checkbox + label::before {
   background-position: 0 center;
 }
-
 .rating_2.emoji_checkbox + label::before {
   background-position: -60px center;
 }
-
 .rating_3.emoji_checkbox + label::before {
   background-position: -120px center;
 }
-
 .rating_4.emoji_checkbox + label::before {
   background-position: -180px center;
 }
-
 .rating_5.emoji_checkbox + label::before {
   background-position: -240px center;
 }
-
 .emoji_checkbox:checked + label {
   color: #000;
 }
@@ -138,7 +119,6 @@ body {
 .emoji_checkbox:checked + label::before {
   filter: drop-shadow(0px 0px 6px rgb(255, 205, 0));
 }
-
 /*********interview block**********/
 .interview_title {
   text-align: center;
@@ -146,32 +126,26 @@ body {
   font-size: 1rem;
   letter-spacing: 0.9px;
 }
-
 .interview_list {
   padding: 0 6px;
 }
-
 .interview_item {
   padding: 8px 0 14px;
   border-bottom: 1px solid rgb(229, 229, 229);
 }
-
 .interview_itemlast {
   margin-bottom: 0;
   border-bottom: none;
 }
-
 .interview_radio {
   display: none;
 }
-
 .interview_radio + label {
   font-size: 0.875rem;
   position: relative;
   padding-left: 32px;
   cursor: pointer;
 }
-
 .interview_radio + label::before {
   content: '';
   position: absolute;
@@ -181,16 +155,13 @@ body {
   height: 20px;
   background: url(../images/check_sprite.svg);
 }
-
 .interview_radio:checked + label::before {
   background-position: -80px -100px;
 }
-
 .interview_label {
   font-size: 0.875rem;
   padding-left: 37px;
 }
-
 .interview_textarea {
   background: rgb(250, 251, 251);
   box-sizing: border-box;
@@ -204,24 +175,20 @@ body {
   height: 100px;
   opacity: 0.5;
 }
-
 .interview_textarea:focus {
   transition: 0.1s;
   opacity: 1;
   color: #000;
 }
-
 /**********main page**********/
 .header {
   height: 100vh;
   padding: 100px 0 60px 0;
   background: linear-gradient(to right, rgb(251, 207, 26), rgb(249, 179, 1));
 }
-
 .wrap {
   text-align: center;
 }
-
 /**********home page**********/
 .wrapper {
   height: 100vh;
@@ -230,17 +197,14 @@ body {
   background-position: center top;
   background-size: cover;
 }
-
 .wifi__header {
   text-align: center;
   padding: 70px 0 60px 0;
   position: relative;
 }
-
 .wifi__logo {
   margin-bottom: 18px;
 }
-
 .btn {
   text-decoration: none;
   text-transform: uppercase;
@@ -255,15 +219,12 @@ body {
   margin-left: 18px;
   background: #fff;
 }
-
 .language_block {
   position: relative;
 }
-
 .language_block:hover .languages_dropdown {
   opacity: 1;
 }
-
 .btn_dropdown {
   background: linear-gradient(rgb(253, 218, 2), rgb(249, 179, 1));
   box-shadow: 0px 3px 6px 0px rgba(51, 60, 75, 0.2);
@@ -272,11 +233,9 @@ body {
   right: 18px;
   z-index: 1;
 }
-
 .btn_dropdown:hover + .languages_dropdown {
   opacity: 1;
 }
-
 .languages_dropdown {
   border-radius: 8px;
   border: 1px solid rgba(51, 60, 75, 0.25);
@@ -295,7 +254,6 @@ body {
   transition: 0.2s;
   transition-delay: 0.2s;
 }
-
 .languages_dropdown::before {
   content: "";
   position: absolute;
@@ -305,11 +263,9 @@ body {
   height: 9px;
   background: url('../images/combined_shape.svg') no-repeat;
 }
-
 .languages_dropdown .btn:hover {
   background: linear-gradient(rgb(253, 218, 2), rgb(249, 179, 1));
 }
-
 .wifi {
   background-color: #fff;
   position: relative;
@@ -319,11 +275,9 @@ body {
   margin: 0 20px;
   padding: 23px 20px;
 }
-
 .wifi__options {
   letter-spacing: 1px;
 }
-
 .wifi__options__button {
   width: 100%;
   height: 50px;
@@ -338,20 +292,16 @@ body {
   font-size: 1rem;
   letter-spacing: 1px;
 }
-
 .wifi__options__strong {
   font-weight: bold;
 }
-
 /**********form block****************/
 .wifi__form {
   margin-top: 30px;
 }
-
 .btn_block {
   padding: 40px 30px 0 30px;
 }
-
 .btn_back {
   border-radius: 8px;
   border: 0;
@@ -366,7 +316,6 @@ body {
   height: 40px;
   position: relative;
 }
-
 .btn_back::before {
   content: "";
   width: 8px;
@@ -376,19 +325,16 @@ body {
   left: 10px;
   background: url(../images/arrow_back.svg) no-repeat;
 }
-
 .btn_back_white {
   -webkit-box-shadow: none;
   box-shadow: none;
   border: 1px solid rgb(204, 204, 204);
 }
-
 .phone__number__group {
   display: flex;
   flex-direction: column;
   margin-bottom: 36px;
 }
-
 .form__label {
   width: 100%;
   margin-bottom: 20px;
@@ -396,11 +342,9 @@ body {
   font-size: 18px;
   letter-spacing: 1.1px;
 }
-
 .form__label_sm {
   font-size: 16px;
 }
-
 .form__input {
   width: 100%;
   height: 50px;
@@ -414,28 +358,23 @@ body {
   color: rgb(204, 204, 204);
   transition: 0.1s;
 }
-
 .form__input:focus {
   border: 1px solid rgb(254, 200, 30);
   transition: 0.1s;
   color: #000;
   opacity: 1;
 }
-
 .policy__group {
   display: flex;
   justify-content: space-between;
   margin: 20px 0;
 }
-
 .policy__input {
   display: none;
 }
-
 .policy__input:checked + .policy__label .policy__span {
   background: url('../images/checkbox_done-01-01.svg') no-repeat;
 }
-
 .policy__span {
   width: 50px;
   height: 50px;
@@ -444,44 +383,36 @@ body {
   margin: 1%;
   padding-right: 22px;
 }
-
 .policy__label {
   display: flex;
   justify-content: space-between;
 }
-
 .policy__label a {
   color: black;
   font-size: 0.8rem;
 }
-
 .policy__text {
   text-decoration: underline;
   font-size: 15px;
   letter-spacing: 0.5px;
 }
-
 /***********agreement page**********/
 .agreement_text {
   letter-spacing: 0.9px;
   font-size: 15px;
 }
-
 .agreement_text h6 {
   font-size: 15px;
   text-align: center;
   letter-spacing: 1px;
 }
-
 .agreement_text p {
   margin: 0;
   padding: 0;
 }
-
 .agreement_text .last_text {
   margin-bottom: 140px;
 }
-
 .agreement_btn {
   padding: 20px;
   width: 100%;
@@ -493,7 +424,6 @@ body {
   left: 0;
   bottom: 0;
 }
-
 .btn_agree_back {
   box-shadow: none;
   width: 120px;
@@ -505,7 +435,6 @@ body {
   color: #000;
   position: relative;
 }
-
 .btn_agree_back::before {
   content: "";
   width: 8px;
@@ -515,20 +444,17 @@ body {
   left: 24px;
   background: url(../images/arrow_back2.svg) no-repeat;
 }
-
 .btn_agree {
   font-size: 18px;
   width: 120px;
   margin-top: 0;
 }
-
 /********landing page***********/
 .confirmation {
   padding: 40px 30px 100px 30px;
   background: linear-gradient(rgb(251, 207, 26), rgb(249, 179, 1));
   position: relative;
 }
-
 .confirmation__description {
   background: #fff;
   border-radius: 8px;
@@ -539,10 +465,9 @@ body {
   letter-spacing: 0.9px;
   box-shadow: 0px 2px 6px 0px rgba(51, 60, 70, 0.2);
   position: relative;
-  /*margin: -120px 20px -90px;*/
+  margin: -120px 20px -90px;
   z-index: 2;
 }
-
 .confirmation__description::before {
   content: "";
   width: 60px;
@@ -557,11 +482,9 @@ body {
   top: -32px;
   left: 50%;
 }
-
 .confirmation__description__time {
   position: relative;
 }
-
 .confirmation__description__time::before {
   content: "";
   width: 60px;
@@ -576,14 +499,12 @@ body {
   top: -32px;
   left: 50%;
 }
-
 .confirmation__text {
   letter-spacing: 1.2px;
   font-size: 1.25rem;
   padding-bottom: 10px;
   border-bottom: 2px solid rgb(229, 229, 229);
 }
-
 .confirmation__span {
   font-size: 1.125rem;
   letter-spacing: 1px;
@@ -593,7 +514,6 @@ body {
   text-align: start;
   position: relative;
 }
-
 .confirmation__span::after {
   content: "";
   width: 20px;
@@ -603,15 +523,12 @@ body {
   top: 10px;
   right: 0;
 }
-
 .wrong_icon::after {
   background: url(../images/wrong_little.svg) no-repeat;
 }
-
 .confirmation__sim {
   margin-top: 120px;
 }
-
 .confirmation__sim__description {
   text-align: center;
   font-size: 1.125rem;
@@ -619,7 +536,6 @@ body {
   letter-spacing: 1.1px;
   padding: 0 60px;
 }
-
 .contacts-number {
   display: block;
   text-align: center;
@@ -627,12 +543,10 @@ body {
   margin-bottom: 25px;
   letter-spacing: 1.8px;
 }
-
 .contacts__messanger {
   display: flex;
   justify-content: center;
 }
-
 .contacts__messanger__link {
   width: 60px;
   height: 60px;
@@ -647,31 +561,25 @@ body {
 .contacts__messanger__link:first-child {
   margin-right: 30px;
 }
-
 .confirmation-block {
   background: rgb(242, 245, 249);
 }
-
 .information {
   padding: 28px 18px;
   border-radius: 8px;
   text-align: center;
 }
-
 .information__heading {
   font-size: 0.8rem;
   margin-bottom: 12px;
 }
-
 .information__text {
   font-size: 1.1rem;
 }
-
 .information__text--first {
   font-size: 0.8rem;
   margin-bottom: 20px;
 }
-
 .information__text--border {
   align-self: center;
   text-transform: uppercase;
@@ -680,25 +588,21 @@ body {
   padding: 0 30px;
   color: #000;
 }
-
 .information__text--black {
   color: #000;
   font-weight: normal;
 }
-
 .information__heading--main {
   font-size: 1.375rem;
   font-weight: 500;
   color: #fff;
   margin: 0;
 }
-
 .information__heading--secondary {
   font-size: 1.375rem;
   margin: 0;
   color: rgb(254, 213, 25);
 }
-
 .information__heading-container {
   background-color: black;
   border-radius: 8px;
@@ -707,13 +611,11 @@ body {
   line-height: 26px;
   letter-spacing: 1.1px;
 }
-
 .information__price {
   font-size: 1.25rem;
   padding: 0;
   margin: 0;
 }
-
 .price__info {
   padding: 10px;
   background: black;
@@ -721,7 +623,6 @@ body {
   position: relative;
   height: 40px;
 }
-
 .price__info::after {
   content: '';
   position: absolute;
@@ -732,14 +633,12 @@ body {
   border-right: 12px solid rgb(242, 245, 249);
   border-left: 12px solid rgb(242, 245, 249);
 }
-
 .information__text__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 30px;
 }
-
 .information__image__wrapper {
   display: flex;
 }

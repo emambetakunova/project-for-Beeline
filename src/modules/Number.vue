@@ -67,15 +67,13 @@
             phoneNumber: this.name
           })
           .then((response) => {
-
             if (response.data.status === true) {
-              sessionStorage.setItem('phoneNumber', response.data.phoneNumber);
-              sessionStorage.setItem('session', response.data.session);
+              window.phoneNumber = response.data.phoneNumber;
+              window.session = response.data.session;
               this.$router.push("/code");
             }
           }).catch((err) => {
           alert(response.data.error);
-
           console.log(err);
         })
       },

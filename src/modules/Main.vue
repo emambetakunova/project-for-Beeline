@@ -57,18 +57,17 @@
       getAccess: function () {
         HTTP.get(baseUrl + 'auth/getAccess')
           .then((response) => {
-            console.log(response.data);
             if (response.data.rate === true) {
               this.$router.push("rating");
             } else {
 
               if (response.data.status === true) {
-                sessionStorage.setItem("messageType", '4');
+                window.messageType = '4';
                 this.$router.push("/confirm");
               }
 
               if (response.data.status === false) {
-                sessionStorage.setItem("messageType", '5');
+                window.messageType = '5';
                 this.$router.push("/confirm");
               }
             }
@@ -78,7 +77,7 @@
       },
 
       confirm_page: function () {
-        sessionStorage.setItem("messageType", null);
+        window.messageType = null;
         this.$router.push("/confirm");
       },
 
@@ -105,7 +104,7 @@
         }
         return false;
       },
-    }
+    },
   }
 </script>
 <style>

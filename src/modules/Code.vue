@@ -35,25 +35,23 @@
       validateCode: function () {
         event.preventDefault()
         HTTP.post(baseUrl + 'auth/validateCode', {
-          phoneNumber: sessionStorage.getItem('phoneNumber'),
+          phoneNumber: window.phoneNumber,
           code: this.code,
-          session: sessionStorage.getItem('session')
+          session: window.session
         })
           .then(response => {
             if (response.data.status === true) {
-
               if (response.data.hss === true && response.data.crm === true) {
-                sessionStorage.setItem("messageType", '1');
+                window.messageType = '1';
                 this.$router.push("/confirm");
               } else if (response.data.hss === false && response.data.crm === true) {
-                sessionStorage.setItem("messageType", '2');
+                window.messageType = '2';
                 this.$router.push("/confirm");
               } else {
-                sessionStorage.setItem("messageType", '3');
+                window.messageType = '3';
                 this.$router.push("/confirm");
               }
             }
-
           }).catch(e => {
           alert("Неверный код, попробуйте ввести еще раз")
         })
