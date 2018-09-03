@@ -17,6 +17,16 @@
   .rating__title {
     font-size: 1.125rem;
   }
+
+  .btn_agree,
+  .btn_agree_back {
+    width: 152px;
+  }
+
+  .agreement_text h6,
+  .agreement_text p {
+    font-size: 16px;
+  }
 }
 @media screen and (min-width: 480px) {
   .rating_btn {
@@ -79,6 +89,70 @@
   .rating_5.emoji_checkbox + label::before {
     background-position: -352px center;
   }
+
+  .phone__number__group input {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+  }
+
+  .form__label_sm,
+  .form__label {
+    font-size: 1.25rem;
+  }
+
+  .policy__group {
+    margin-left: 20px;
+  }
+
+  .btn_agree,
+  .btn_agree_back {
+    width: 180px;
+    height: 60px;
+  }
+
+  .btn_agree_back::before {
+    content: "";
+    top: 20px;
+    left: 60px;
+  }
+
+  .wifi__header {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+  }
+
+  .confirmation__header {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+  }
+
+  .confirmation__description {
+    padding: 25px 40px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+  }
+
+  .information__heading-container {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+  }
+
+  .confirmation__sim__description {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+  }
+
+  .information {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 480px;
+  }
 }
 @media screen and (min-width: 600px) {
   .rating_btn {
@@ -95,6 +169,82 @@
   .emoji_checkbox + label {
     width: 80px;
   }
+
+  .phone__number__group input {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 520px;
+  }
+
+  .policy__group {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 520px;
+  }
+
+  .btn_agree,
+  .btn_agree_back {
+    width: 230px;
+  }
+
+  .agreement_text h6 {
+    font-size: 22px;
+  }
+
+  .agreement_text p {
+    font-size: 18px;
+  }
+
+  .wrapper {
+    background-image: url(../images/bg_homepage_big.svg), linear-gradient(to right, rgb(251, 207, 26), rgb(249, 179, 1));
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+  }
+
+  .wifi__header {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 520px;
+  }
+
+  .confirmation__header {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 520px;
+  }
+
+  .confirmation__description {
+    padding: 25px 92px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 520px;
+  }
+
+  .information__heading-container {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 520px;
+  }
+
+  .price__info {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 520px;
+  }
+
+  .information {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 520px;
+  }
+
+  .confirmation__sim__description {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 520px;
+  }
+
 }
 @media screen and (min-width: 1440px) {
   .rating_btn {
@@ -104,5 +254,59 @@
     margin: auto;
     width: 600px;
     padding: 37px 137px 32px;
+  }
+
+  .phone__number__group input {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 398px;
+  }
+
+  .policy__group {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 398px;
+  }
+
+  .agreement_text h6 {
+    font-size: 26px;
+  }
+
+  .btn_agree,
+  .btn_agree_back {
+    width: 230px;
+  }
+
+  .agreement_block {
+    width: 600px;
+  }
+
+  .agreement_btn {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+  }
+
+  .wifi__header {
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .confirmation__description {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 520px;
+  }
+
+  .information__heading-container {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 520px;
+  }
+
+  .information {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 520px;
   }
 }

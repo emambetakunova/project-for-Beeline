@@ -139,5 +139,9 @@
     },
   }
 </script>
-<style src="../../assets/css/main.css"></style>
+<style>
+  @import "../../assets/css/media.css";
+  @import "../../assets/css/reset.css";
+  @import "../../assets/css/style.css";
+</style>
 

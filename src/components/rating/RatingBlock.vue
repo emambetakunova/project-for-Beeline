@@ -27,5 +27,8 @@
     }, methods: {}
   }
 </script>
-<style src="../../assets/css/reset.css"></style>
-<style src="../../assets/css/style.css"></style>
+<style>
+  @import "../../assets/css/media.css";
+  @import "../../assets/css/reset.css";
+  @import "../../assets/css/style.css";
+</style>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no">
+  <title>Wi Fi</title>
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="./src/assets/css/reset.css">
+  <link rel="stylesheet" href="./src/assets/css/style.css">
+  <link rel="stylesheet" href="./src/assets/css/media.css">
+</head>
+<div>
+  <div class="confirmation" id="app">
+    <header class="confirmation__header">
+      <button class="btn_back" onclick="backButton()" id="myBtn" title="Н">Назад</button>
+    </header>
+  </div>
+  <main class="confirmation-block">
+    <div class="confirmation__description">
+      <p class="confirmation__text">Безлимитный доступ предоставлен</p>
+      <p>Твой номер соответствует всем условиям</p>
+      <span class="confirmation__span">Абонентская плата</span>
+      <span class="confirmation__span">Тариф</span>
+    </div>
+    <div class="confirmation__description confirmation__description__time">
+      <p class="confirmation__text">Доступ на 1 час предоставлен</p>
+      <p>Оплати абонентскую плату для безлимитного доступа</p>
+      <span class="confirmation__span wrong_icon">Абонентская плата</span>
+      <span class="confirmation__span">Тариф</span>
+    </div>
+    <div class="confirmation__description confirmation__description__time">
+      <p class="confirmation__text">Доступ на 1 час предоставлен</p>
+      <p>Для безлимитного доступа необходмо преобрести один из тарифов <strong>«Можно всё 2.0»</strong>, <strong>«Можно
+        всё»</strong> или <strong>«Просто»</strong>, <strong>«Просто мини»</strong></p>
+      <span class="confirmation__span">Абонентская плата</span>
+      <span class="confirmation__span wrong_icon">Тариф</span>
+    </div>
+    <div class="confirmation__description confirmation__description__time">
+      <p class="confirmation__text">Доступ на 1 час предоставлен</p>
+      <p>Для безлимтног доступа необходмо преобрести один из тарифов <strong>«Можно всё 2.0»</strong>, <strong>«Можно
+        всё»</strong> или <strong>«Просто»</strong>, <strong>«Просто мини»</strong> с активным абонентской платой</p>
+      <span class="confirmation__span wrong_icon">Абонентская плата</span>
+      <span class="confirmation__span wrong_icon">Тариф</span>
+    </div>
+    <div class="confirmation__description confirmation__description__time">
+      <p class="confirmation__text">Доступ на 30 минут предоставлен</p>
+    </div>
+    <div class="confirmation__sim">
+      <p class="confirmation__sim__description">Для безлимитного доступа купи sim-карту. Есть вопросы? Сообщи нам:</p>
+      <p class="confirmation__sim__description">Есть вопросы? Сообщи нам:</p>
+      <strong class="contacts-number">0771 055 155</strong>
+      <div class="contacts__messanger">
+        <a class="contacts__messanger__link" href="https://api.whatsapp.com/send?phone=9960771055155">
+          <img src="./images/Whatsapp_icon.svg" alt="">
+        </a>
+        <a class="contacts__messanger__link" href="https://telegram.me/Beeline_free_wifi">
+          <img src="./images/Telegram_icon.svg" alt="">
+        </a>
+      </div>
+      <div class="information">
+        <div class="information__heading-container">
+          <h3 class="information__heading--main">НОВЫЙ ТАРИФ БЕЗ ЗАБОТ</h3>
+          <h3 class="information__heading--secondary">«Можно всё 2.0»:</h3>
+        </div>
+        <div class="information__text__container">
+          <div class="information__image__wrapper">
+            <img src="./images/like-illustration.svg" alt="">
+          </div>
+          <p class="information__text information__text--border">8 гигабайт <span
+            class="information__text--black">интернета днём</span>
+          </p>
+        </div>
+        <div class="information__text__container">
+          <div class="information__image__wrapper">
+            <img src="">
+            <img src="./images/ytube-illustration.svg" alt="">
+          </div>
+          <p class="information__text information__text--border">безлимитный ночной интернет <span
+            class="information__text--black">с 01:00 до 07:00</span>
+          </p>
+        </div>
+        <div class="information__text__container">
+          <div class="information__image__wrapper">
+            <img src="./images/eternity-illustration.svg" alt="">
+          </div>
+          <p class="information__text information__text--border">безлимитный интернет <span
+            class="information__text--black">по истечении пакета до 128 Кб/с</span>
+          </p>
+        </div>
+        <div class="information__text__container">
+          <div class="information__image__wrapper">
+            <img src="./images/profile-illustration.svg" alt="">
+          </div>
+          <p class="information__text information__text--border">безлимитные звонки sms <span
+            class="information__text--black">внутри сети</span>
+          </p>
+        </div>
+        <div class="information__text__container">
+          <div class="information__image__wrapper">
+            <img src="./images/tenmin-illustration.svg" alt="">
+          </div>
+          <p class="information__text information__text--border">10 минут <span
+            class="information__text--black">на другие сети</span>
+          </p>
+        </div>
+        <div class="price__info">
+          <p class="information__price">
+            <strong>ЗА 95 СОМ В НЕДЕЛЮ</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script>
+  function backButton() {
+    window.history.back();
+  }
+</script>
+</body>
+</html>

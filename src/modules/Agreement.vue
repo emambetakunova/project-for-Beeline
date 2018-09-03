@@ -1,11 +1,10 @@
 <template>
   <div>
-    <div class="agreement_block" id="agreement">
+    <div class="container agreement_block">
       <agreement-ru v-if="getLang('ru')"></agreement-ru>
       <agreement-kg v-if="getLang('kg')"></agreement-kg>
       <agreement-en v-if="getLang('en')"></agreement-en>
       <agreement-uz v-if="getLang('uz')"></agreement-uz>
-
     </div>
     <div class="agreement_btn">
       <btn_back-btn_agree_back></btn_back-btn_agree_back>
@@ -41,5 +40,8 @@
     },
   }
 </script>
-<style src="../assets/css/main.css"></style>
-
+<style>
+  @import "../assets/css/media.css";
+  @import "../assets/css/reset.css";
+  @import "../assets/css/style.css";
+</style>

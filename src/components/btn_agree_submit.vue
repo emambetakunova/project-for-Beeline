@@ -1,5 +1,5 @@
 <template>
-  <button class="button btn_agree" v-on:click="acceptButton()" type="submit">{{ $t("agree") }}</button>
+  <button class="rating_btn btn_agree" v-on:click="acceptButton()" type="submit">{{ $t("agree") }}</button>
 </template>
 <script>
   export default {
@@ -15,3 +15,8 @@
     }
   }
 </script>
+<style>
+  @import "../assets/css/media.css";
+  @import "../assets/css/reset.css";
+  @import "../assets/css/style.css";
+</style>

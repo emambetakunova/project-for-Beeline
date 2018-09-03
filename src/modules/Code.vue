@@ -2,7 +2,7 @@
   <div class="btn_block">
     <ButtonBackBlackWhite></ButtonBackBlackWhite>
     <form class="wifi__form" action="">
-      <div class="phone_number-group">
+      <div class="phone__number__group">
         <label class="form__label" for="code"> {{ $t("pass") }} <b> {{ $t("msisdn") }}</b> {{ $t("wifi_which") }}
           <br>
           {{ $t("code_receive") }}</label>
@@ -10,9 +10,9 @@
                placeholder="XXXX" v-model="code"
                required>
       </div>
-      <button class="button" type="submit" v-on:click="validateCode(event)">
-        {{ $t("connect") }}
-      </button>
+      <div class="rating_button">
+        <button class="rating_btn" type="submit" v-on:click.prevent="validateCode(event)"> {{ $t("connect") }}</button>
+      </div>
     </form>
   </div>
 </template>
@@ -41,7 +41,17 @@
         })
           .then(response => {
             if (response.data.status === true) {
-              window.location.href = "https://beeline.kg";
+
+              if (response.data.hss === true && response.data.crm === true) {
+                sessionStorage.setItem("messageType", '1');
+                this.$router.push("/confirm");
+              } else if (response.data.hss === false && response.data.crm === true) {
+                sessionStorage.setItem("messageType", '2');
+                this.$router.push("/confirm");
+              } else {
+                sessionStorage.setItem("messageType", '3');
+                this.$router.push("/confirm");
+              }
             }
 
           }).catch(e => {
@@ -54,4 +64,8 @@
     }
   }
 </script>
-<style src="../assets/css/main.css"></style>
+<style>
+  @import "../assets/css/media.css";
+  @import "../assets/css/reset.css";
+  @import "../assets/css/style.css";
+</style>

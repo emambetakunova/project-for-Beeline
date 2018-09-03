@@ -14,4 +14,3 @@ img, iframe{max-width: 100%; height: auto;}
 a {background-color: transparent; -webkit-text-decoration-skip: objects;}
 img {border-style: none;}
 .clearfix::after{clear: both; content: "";	display: table;}
-

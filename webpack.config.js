@@ -16,12 +16,11 @@ module.exports = {
           'vue-style-loader',
           'css-loader'
         ],
-      },      {
+      }, {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
-          loaders: {
-          }
+          loaders: {}
           // other vue-loader options go here
         }
       },
@@ -41,7 +40,10 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      'vue$': 'vue/dist/vue.esm.js',
+      'styles': path.resolve(__dirname, './src/assets/css'),
+      'fonts': path.resolve(__dirname, './src/assets/fonts'),
+      'images': path.resolve(__dirname, './src/assets/images')
     },
     extensions: ['*', '.js', '.vue', '.json']
   },

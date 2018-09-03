@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+  <title>Group 15</title>
+  <desc>Created with Sketch.</desc>
+  <defs>
+    <linearGradient x1="50%" y1="0%" x2="50%" y2="97.6442921%" id="linearGradient-1">
+      <stop stop-color="#FBCF1A" offset="0%"></stop>
+      <stop stop-color="#ED8900" offset="100%"></stop>
+    </linearGradient>
+  </defs>
+  <g id="320_landing-page-copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-130.000000, -168.000000)">
+    <g id="Group-3" transform="translate(127.000000, 165.000000)" fill="url(#linearGradient-1)">
+      <g id="Group-15" transform="translate(3.000000, 3.000000)">
+        <path d="M30,60 C13.4314575,60 0,46.5685425 0,30 C0,13.4314575 13.4314575,0 30,0 C46.5685425,0 60,13.4314575 60,30 C60,46.5685425 46.5685425,60 30,60 Z M41.9464641,16.5 C36.6572365,21.9062132 31.3762345,27.304114 26.0402112,32.7582296 C23.5845774,30.2489166 21.1281141,27.7387582 18.7055207,25.2632586 C16.9579742,27.0486812 15.2055201,28.8391055 13.5,30.5815568 C17.6948165,34.8676278 21.9154846,39.1802564 26.1432032,43.5 C33.1765902,36.3084346 40.2213133,29.1053162 47.25,21.9186115 C45.5291347,20.1603806 43.7809662,18.3742535 41.9464641,16.5 Z" id="Combined-Shape"></path>
+      </g>
+    </g>
+  </g>
+</svg>

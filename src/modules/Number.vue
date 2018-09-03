@@ -1,27 +1,26 @@
 <template>
   <div class="btn_block" id="number">
     <button-back-black-white></button-back-black-white>
-    <div class="form-wrapper">
-      <form class="wifi__form">
-        <div class="phone_number-group">
-          <label class="form__label">{{ $t("pass") }} {{ $t("msisdn") }}
-            <strong>{{ $t("Beeline") }}</strong> {{ $t("get_password") }}</label>
-          <input class="form__input" placeholder="07XX XXXXXX" id="name" type="number" v-model="name"
-                 required>
-        </div>
-        <div class="policy-group">
-          <input class="policy__input" id="policy" name="policy" type="checkbox" v-model="checked">
-          <label class="policy__label" for="policy">
-            <div class="policy__span"></div>
-            <div class="policy__text" v-on:click="goToAgreementpage()">{{ $t("using_agreement") }}
-            </div>
-          </label>
-        </div>
-        <button class="button" v-if="checked" type="submit" :class="[isFull() ? activeClass : '']"
-                v-on:click="sendCode(event)">
-          {{ $t("get_code") }}
+    <div class="container">
+      <div class="phone_number-group">
+        <label class="form__label">{{ $t("pass") }} {{ $t("msisdn") }}
+          <strong>{{ $t("Beeline") }}</strong> {{ $t("get_password") }}</label>
+        <input class="form__input" placeholder="07XX XXXXXX" id="name" type="number" v-model="name"
+               required>
+      </div>
+      <div class="policy-group">
+        <input class="policy__input" id="policy" name="policy" type="checkbox" v-model="checked">
+        <label class="policy__label" for="policy">
+          <div class="policy__span"></div>
+          <div class="policy__text" v-on:click="goToAgreementPage(event)">{{ $t("using_agreement") }}
+          </div>
+        </label>
+      </div>
+      <div class="rating_button">
+        <button class="rating_btn" v-if="checked" type="submit" :class="[isFull() ? activeClass : '']"
+                v-on:click.prevent="sendCode(event)">{{ $t("get_code") }}
         </button>
-      </form>
+      </div>
     </div>
     <router-view></router-view>
   </div>
@@ -58,13 +57,11 @@
       backButton: function () {
         this.$router.push('/');
       },
-      goToAgreementpage: function () {
-        al
-
+      goToAgreementPage: function () {
         this.$router.push('agreement');
       },
       sendCode: function () {
-        event.preventDefault()
+        event.preventDefault();
         HTTP.post(baseUrl + 'auth/sendCode',
           {
             phoneNumber: this.name
@@ -73,11 +70,9 @@
 
             if (response.data.status === true) {
               sessionStorage.setItem('phoneNumber', response.data.phoneNumber);
-              sessionStorage.setItem('session', response.data.session)
-
+              sessionStorage.setItem('session', response.data.session);
               this.$router.push("/code");
             }
-
           }).catch((err) => {
           alert(response.data.error);
 
@@ -90,4 +85,9 @@
     }
   }
 </script>
-<style src="../assets/css/main.css"></style>
+<style>
+  @import "../assets/css/media.css";
+  @import "../assets/css/reset.css";
+  @import "../assets/css/style.css";
+</style>
+

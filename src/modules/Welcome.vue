@@ -1,11 +1,8 @@
 <template>
   <div id="app">
-    <header class="wifi__header">
-      <div class="wrapper wrap">
+    <header class="header">
+      <div class="wrap">
         <img class="wifi__logo" src="../assets/images/logo_welcome.svg" alt="">
-        <div class="wifi__heading__wrapper">
-          <h3 class="wifi__heading">{{ $t("slogan") }}</h3>
-        </div>
       </div>
     </header>
   </div>
@@ -30,7 +27,16 @@
             //   window.location.href = "../lang/" + this.lang + "/forOwns.html";
             // }
             if (response.data.status === true) {
-              window.location.href = "https://beeline.kg";
+              if (response.data.hss === true && response.data.crm === true) {
+                sessionStorage.setItem("messageType", '1');
+                this.$router.push("/confirm");
+              } else if (response.data.hss === false && response.data.crm === true) {
+                sessionStorage.setItem("messageType", '2');
+                this.$router.push("/confirm");
+              } else {
+                sessionStorage.setItem("messageType", '3');
+                this.$router.push("/confirm");
+              }
             }
             else {
               this.$router.push("/");
@@ -40,7 +46,10 @@
     }
   }
 </script>
-<style src="../assets/css/main.css"></style>
 
-
+<style>
+  @import "~styles/media.css";
+  @import "~styles/reset.css";
+  @import "~styles/style.css";
+</style>
 

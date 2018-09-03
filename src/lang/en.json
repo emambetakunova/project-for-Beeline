@@ -1,7 +1,7 @@
 {
   "slogan": "High-speed and free",
   "unlimited_access": "Unlimited access",
-  "for_subscribers": "for",
+  "for_subscribers": "For",
   "no_sim": "Don't you have a Beeline number? ",
   "limited_access": "Try to connect for 30 minutes",
   "or": "or",
@@ -40,5 +40,22 @@
   "access_granted": "Access for 30 minutes is granted.",
   "access_restricted": "Unfortunately, time is up. Come back tomorrow!",
   "thanks_for_rate": "Thank you for rating! Access for 30 minutes </span>is granted.",
-  "": ""
+  "": "",
+  "day_internet": "интернета днём",
+  "unlimited_internet": "безлимитный интернет",
+  "128": "по истечении пакета до 128 Кб/с",
+  "rental_fee_descr": "Абонентская плата",
+  "tariff": "Тариф",
+  "unlimited_access_granted": "Безлимитный доступ предоставлен",
+  "everything_is_ok": "Твой номер соответствует всем условиям",
+  "access_60min_granted": "Доступ на 1 час предоставлен",
+  "pay_rental_fee": "Оплати абонентскую плату для безлимитного доступа",
+  "bye_one_of_tariffs": "Для безлимитного доступа необходмо преобрести один из тарифов",
+  "with_payed_rental_fee": "с активным абонентской платой",
+  "access_30min_granted": "Доступ на 30 минут предоставлен",
+  "bye_sim_for_unlimited_access": "Для безлимитного доступа купи sim-карту. Есть вопросы? Сообщи нам:",
+  "prostoTP": "«Просто»",
+  "ProstoMini": "«Просто мини»",
+  "MojnoVse": "«Можно всё»",
+  "MojnoVse20": "«Можно всё 2.0»"
 }

@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="8px" height="14px" viewBox="0 0 8 14" version="1.1" xmlns="http://www.w3.org/2000/svg"
->
-  <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
-  <title>arrow</title>
-  <desc>Created with Sketch.</desc>
-  <defs></defs>
-  <g id="Add-password-Copy-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"
-     transform="translate(-60.000000, -545.000000)">
-    <g id="arrow" transform="translate(60.000000, 545.000000)" fill="#000000">
-      <g>
-        <path
-          d="M-1.89504361,11 C-2.17947955,11 -2.4639155,10.8923587 -2.68055842,10.6770762 C-3.10794922,10.250875 -3.10647546,9.56284377 -2.67613714,9.13809719 L3.21890837,3.31965089 C3.65072045,2.8934497 4.34928335,2.8934497 4.78109543,3.31965089 L10.6761409,9.13809719 C11.107953,9.56429838 11.107953,10.2537843 10.6761409,10.6799855 C10.2443289,11.1061866 9.54576596,11.1061866 9.11395388,10.6799855 L4.04274098,5.67466703 L-1.11984512,10.6872585 C-1.33501429,10.8967226 -1.61502895,11 -1.89504361,11"
-          transform="translate(4.000000, 7.000000) rotate(-90.000000) translate(-4.000000, -7.000000) "></path>
-      </g>
+<svg width="8px" height="14px" viewBox="0 0 8 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>arrow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Add-password-Copy-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-60.000000, -545.000000)">
+        <g id="arrow" transform="translate(60.000000, 545.000000)" fill="#000000">
+            <g>
+                <path d="M-1.89504361,11 C-2.17947955,11 -2.4639155,10.8923587 -2.68055842,10.6770762 C-3.10794922,10.250875 -3.10647546,9.56284377 -2.67613714,9.13809719 L3.21890837,3.31965089 C3.65072045,2.8934497 4.34928335,2.8934497 4.78109543,3.31965089 L10.6761409,9.13809719 C11.107953,9.56429838 11.107953,10.2537843 10.6761409,10.6799855 C10.2443289,11.1061866 9.54576596,11.1061866 9.11395388,10.6799855 L4.04274098,5.67466703 L-1.11984512,10.6872585 C-1.33501429,10.8967226 -1.61502895,11 -1.89504361,11" transform="translate(4.000000, 7.000000) rotate(-90.000000) translate(-4.000000, -7.000000) "></path>
+            </g>
+        </g>
     </g>
-  </g>
 </svg>

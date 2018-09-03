@@ -1,11 +1,12 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper" id="app">
     <router-link to="/"></router-link>
     <router-link to="/number"></router-link>
     <router-link to="/confirm"></router-link>
     <router-view></router-view>
-    <header class="wifi__header">
-      <div class="language_block clearfix">
+
+    <div class="contaner wifi__header">
+      <div class="language_block">
         <a href="#" class="btn btn_dropdown" id="switch_lang">ru</a>
         <div class="languages_dropdown">
           <a href="#" class="btn" v-on:click="setLang('kg')" v-if="getLang('kg')">kg</a>
@@ -14,33 +15,24 @@
           <a href="#" class="btn" v-on:click="setLang('uz')" v-if="getLang('uz')">uz</a>
         </div>
       </div>
-      <img class="wifi__logo" src="../assets/images/logo.svg" alt="">
-      <div class="wifi__heading__wrapper">
-        <h3 class="wifi__heading">{{ $t("slogan") }}</h3>
-      </div>
-    </header>
-    <main class="wifi">
-      <div class="wifi__options">
-        <p class="wifi__options__heading">{{ $t("unlimited_access") }}</p>
-        <button class="wifi__options__button" v-on:click="route">
-          {{ $t("for_subscribers") }}
-          <span class="wifi__options__strong">{{ $t("Beeline") }} {{ $t("for_beeline_customers") }}</span>
-        </button>
-      </div>
-      <div class="wifi__options">
-        <p class="wifi__options__heading"> {{ $t("no_sim") }}</p>
-        <button class="wifi__options__button" v-on:click="getAccess">{{ $t("limited_access") }}</button>
-      </div>
-      <div class="wifi__options">
-        <p class="wifi__options__heading">{{ $t("or") }}</p>
-        <button class="wifi__options__button wifi__options__button--transparent" v-on:click="confirm_page">
-          <p style="width: 95%">{{ $t("just_bye") }}
-            <span class="wifi__options__strong">{{ $t("sim") }}</span>
-            {{ $t("for_unlimited") }}</p>
-          <span class="arrow"></span>
-        </button>
-      </div>
-    </main>
+
+      <header>
+        <img class="wifi__logo" src="../assets/images/logo.svg" alt="">
+        <main class="wifi">
+          <div class="wifi__options">
+            <button class="wifi__options__button" @click="route">
+              {{ $t("for_subscribers") }}
+              <span class="wifi__options__strong">{{ $t("Beeline") }}</span>
+              {{ $t("for_beeline_customers") }}
+            </button>
+          </div>
+          <div class="wifi__options">
+            <button class="wifi__options__button" @click="getAccess">{{ $t("no_sim") }} <span
+              class="wifi__options__strong">{{ $t("limited_access") }}</span></button>
+          </div>
+        </main>
+      </header>
+    </div>
   </div>
 </template>
 
@@ -71,12 +63,12 @@
             } else {
 
               if (response.data.status === true) {
-                sessionStorage.setItem("messageType", 1);
+                sessionStorage.setItem("messageType", '4');
                 this.$router.push("/confirm");
               }
 
               if (response.data.status === false) {
-                sessionStorage.setItem("messageType", 2);
+                sessionStorage.setItem("messageType", '5');
                 this.$router.push("/confirm");
               }
             }
@@ -116,7 +108,11 @@
     }
   }
 </script>
-<style src="../assets/css/main.css"></style>
+<style>
+  @import "~styles/media.css";
+  @import "~styles/reset.css";
+  @import "~styles/style.css";
+</style>
 
 
 
