@@ -40,6 +40,7 @@ window.messageType = 0;
 window.bottomType = 0;
 window.phoneNumber = 0;
 window.session = 0;
+window.rate = 0;
 
 
 

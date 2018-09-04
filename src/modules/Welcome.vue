@@ -23,12 +23,15 @@
       seamlessAuth: function () {
         HTTP.get(baseUrl + 'auth/seamlessAuth')
           .then(response => {
-            // if (response.data.rate === true) {
-            //   window.location.href = "../lang/" + this.lang + "/forOwns.html";
-            // }
             if (response.data.status === true) {
               if (response.data.hss === true && response.data.crm === true) {
                 window.messageType = '1';
+
+                if (response.data.rate === true) {
+                  sessionStorage.setItem("rate", '1')
+                  this.$router.push("/rating");
+                }
+
                 this.$router.push("/confirm");
               } else if (response.data.hss === false && response.data.crm === true) {
                 window.messageType = '2';

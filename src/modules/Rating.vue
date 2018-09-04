@@ -3,6 +3,7 @@
     <div class="container">
       <p class="rating__description" v-if="showMsg">Время истекло. Хочешь еще доступ на <span>30 минут?</span>
       </p>
+      <p class="rating__description" v-if="showMsgOwn">Помоги нам стать еще лучше</p>
       <h3 class="rating__title">Оцени качество Wi-Fi</h3>
       <div class="rating_block">
         <div>
@@ -32,33 +33,38 @@
           <div class="interview_list">
             <form>
               <div class="interview_item">
-                <input name="interview" type="radio" class="interview_radio" id="interview_1"/>
+                <input v-model="interview" name="interview" type="radio" class="interview_radio" id="interview_1"
+                       v-bind:value="'Wi-Fi не везде ловит'"/>
                 <label for="interview_1">Wi-Fi не везде ловит</label>
               </div>
               <div class="interview_item">
-                <input name="interview" type="radio" class="interview_radio" id="interview_2"/>
+                <input v-model="interview" name="interview" type="radio" class="interview_radio" id="interview_2"
+                       v-bind:value="'Интернет тормозит'"/>
                 <label for="interview_2">Интернет тормозит</label>
               </div>
               <div class="interview_item">
-                <input name="interview" type="radio" class="interview_radio" id="interview_3"/>
+                <input v-model="interview" name="interview" type="radio" class="interview_radio" id="interview_3"
+                       v-bind:value="'Сложно подключиться'"/>
                 <label for="interview_3">Сложно подключиться</label>
               </div>
               <div class="interview_item">
-                <input name="interview" type="radio" class="interview_radio" id="interview_4"/>
+                <input v-model="interview" name="interview" type="radio" class="interview_radio" id="interview_4"
+                       v-bind:value="'Интернет периодически пропадает'"/>
                 <label for="interview_4">Интернет периодически пропадает</label>
               </div>
               <div class="interview_item interview_itemlast">
                 <label class="interview_label" for="interview_text">Другое</label>
               </div>
               <div class="interview_item interview_itemlast">
-                <textarea class="interview_textarea" id="interview_text" placeholder="Твои комментарии"></textarea>
+                <textarea v-model="comment" class="interview_textarea" id="interview_text"
+                          placeholder="Твои комментарии"></textarea>
               </div>
             </form>
           </div>
         </div>
       </div>
       <div class="rating_button">
-        <button class="rating_btn" type="submit" v-on:click.prevent="validateCode($event)">подключись</button>
+        <button class="rating_btn" type="submit" v-on:click.prevent="sendRate(event)">Отправить</button>
       </div>
     </div>
   </div>
@@ -66,6 +72,9 @@
 <script>
   import RatingBlock from "../components/rating/RatingBlock";
   import RatingInterview from "../components/rating/RatingInterview";
+  import {baseUrl} from '../utils/constants';
+  import {HTTP} from '../service/http-common';
+
 
   export default {
     name: 'rating',
@@ -76,13 +85,18 @@
         showRating: true,
         showInterview: false,
         showMsg: false,
+        showMsgOwn: false,
         rate: 0,
+        interview: '',
+        comment: '',
       }
-    }, methods: {
+    },
+    methods: {
       setRate: function (rate) {
         this.rate = rate;
 
         if (rate === 5) {
+          this.rate = rate;
           this.showThanks = true;
           this.showInterview = false;
         } else {
@@ -90,6 +104,31 @@
           this.showThanks = false;
 
         }
+      },
+      sendRate: function () {
+        event.preventDefault()
+        HTTP.post(baseUrl + 'rating/rate', {
+          descr: this.interview + ' ' + this.comment,
+          ownUsers: this.code,
+          rate: this.rate
+        })
+
+          .then(response => {
+            if (response.data.status === true) {
+              if (response.data.hss === true && response.data.crm === true) {
+                window.messageType = '1';
+                this.$router.push("/confirm");
+              } else if (response.data.hss === false && response.data.crm === true) {
+                window.messageType = '2';
+                this.$router.push("/confirm");
+              } else {
+                window.messageType = '3';
+                this.$router.push("/confirm");
+              }
+            }
+          }).catch(e => {
+          alert("Неверный код, попробуйте ввести еще раз")
+        })
       }
     }
   }

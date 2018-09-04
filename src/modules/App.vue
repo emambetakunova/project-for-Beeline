@@ -5,7 +5,7 @@
   export default {
     name: 'app',
     mounted: function () {
-      this.$router.push("/rating");
+      this.$router.push("/");
     },
 
     data: function () {
