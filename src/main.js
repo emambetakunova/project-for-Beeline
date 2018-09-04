@@ -36,11 +36,6 @@ export const app = new Vue({
 
 window['vue'] = app;
 window.store = store;
-window.messageType = 0;
-window.bottomType = 0;
-window.phoneNumber = 0;
-window.session = 0;
-window.rate = 0;
 
 
 

@@ -68,8 +68,8 @@
           })
           .then((response) => {
             if (response.data.status === true) {
-              window.phoneNumber = response.data.phoneNumber;
-              window.session = response.data.session;
+              sessionStorage.setItem("phoneNumber", response.data.phoneNumber);
+              sessionStorage.setItem("session", response.data.session);
               this.$router.push("/code");
             }
           }).catch((err) => {

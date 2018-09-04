@@ -62,12 +62,12 @@
             } else {
 
               if (response.data.status === true) {
-                window.messageType = '4';
+                sessionStorage.setItem("messageType", '4');
                 this.$router.push("/confirm");
               }
 
               if (response.data.status === false) {
-                window.messageType = '5';
+                sessionStorage.setItem("messageType", '5');
                 this.$router.push("/confirm");
               }
             }
