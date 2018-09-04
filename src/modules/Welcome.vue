@@ -24,7 +24,7 @@
         HTTP.get(baseUrl + 'auth/seamlessAuth')
           .then(response => {
             if (response.data.status === true) {
-              if (response.data.hss === true && response.data.crm === true) {
+              if (response.data.hss === true && response.data.offer === true) {
                 sessionStorage.setItem("messageType", '1');
 
                 // if (response.data.rate === true) {
@@ -33,10 +33,12 @@
                 // }
 
                 this.$router.push("/confirm");
-              } else if (response.data.hss === false && response.data.crm === true) {
+              }
+              else if (response.data.hss === false && response.data.offer === true) {
                 sessionStorage.setItem("messageType", '2');
                 this.$router.push("/confirm");
-              } else {
+              }
+              else {
                 sessionStorage.setItem("messageType", '3');
                 this.$router.push("/confirm");
               }

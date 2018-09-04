@@ -11,7 +11,7 @@
                required>
       </div>
       <div class="rating_button">
-        <button class="rating_btn" type="submit" v-on:click.prevent="validateCode(event)"> {{ $t("connect") }}</button>
+        <button class="rating_btn" type="submit" v-on:click.prevent="validateCode()"> {{ $t("connect") }}</button>
       </div>
     </form>
   </div>
@@ -28,6 +28,8 @@
       return {
         lang: 'ru',
         code: '',
+        hss: false,
+        offer: false,
       }
     },
     components: {ButtonBackBlackWhite},
@@ -41,16 +43,18 @@
         })
           .then(response => {
             if (response.data.status === true) {
-              if (response.data.hss === true && response.data.crm === true) {
+              if (response.data.hss === true && response.data.offer === true) {
                 sessionStorage.setItem("messageType", '1');
                 this.$router.push("/confirm");
-              } else if (response.data.hss === false && response.data.crm === true) {
+              } else if (response.data.hss === false && response.data.offer === true) {
                 sessionStorage.setItem("messageType", '2');
                 this.$router.push("/confirm");
               } else {
                 sessionStorage.setItem("messageType", '3');
                 this.$router.push("/confirm");
               }
+            } else {
+              alert(response.data.error)
             }
           }).catch(e => {
           alert("Неверный код, попробуйте ввести еще раз")

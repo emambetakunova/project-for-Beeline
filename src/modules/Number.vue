@@ -12,13 +12,13 @@
         <input class="policy__input" id="policy" name="policy" type="checkbox" v-model="checked">
         <label class="policy__label" for="policy">
           <div class="policy__span"></div>
-          <div class="policy__text" v-on:click="goToAgreementPage(event)">{{ $t("using_agreement") }}
+          <div class="policy__text" v-on:click="goToAgreementPage()">{{ $t("using_agreement") }}
           </div>
         </label>
       </div>
       <div class="rating_button">
         <button class="rating_btn" v-if="checked" type="submit" :class="[isFull() ? activeClass : '']"
-                v-on:click.prevent="sendCode(event)">{{ $t("get_code") }}
+                v-on:click.prevent="sendCode()">{{ $t("get_code") }}
         </button>
       </div>
     </div>
@@ -61,7 +61,7 @@
         this.$router.push('agreement');
       },
       sendCode: function () {
-        event.preventDefault();
+        event.preventDefault()
         HTTP.post(baseUrl + 'auth/sendCode',
           {
             phoneNumber: this.name
@@ -71,7 +71,9 @@
               sessionStorage.setItem("phoneNumber", response.data.phoneNumber);
               sessionStorage.setItem("session", response.data.session);
               this.$router.push("/code");
-            }
+            } else (
+              alert(response.data.error)
+            )
           }).catch((err) => {
           alert(response.data.error);
           console.log(err);

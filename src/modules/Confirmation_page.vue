@@ -4,27 +4,27 @@
       <button-back></button-back>
 
       <header class="confirmation__header">
-        <div class="confirmation__description" v-if="getMessage(1)">
+        <div class="confirmation__description" v-if="getMessage('1')">
           <p>{{ $t("everything_is_ok") }}</p>
         </div>
 
-        <div class="confirmation__description confirmation__description__time" v-if="getMessage(2)">
+        <div class="confirmation__description confirmation__description__time" v-if="getMessage('2')">
           <p class="confirmation__text">{{ $t("access_60min_granted") }}</p>
           <p>{{ $t("pay_rental_fee") }}</p>
         </div>
 
-        <div class="confirmation__description confirmation__description__time" v-if="getMessage(3)">
+        <div class="confirmation__description confirmation__description__time" v-if="getMessage('3')">
           <p class="confirmation__text">{{ $t("access_60min_granted") }}</p>
           <p> {{ $t("bye_one_of_tariffs") }} <strong>«{{ $t("MojnoVse20") }}</strong>, <strong>{{ $t("MojnoVse") }}
           </strong> {{ $t("or") }} <strong> {{ $t("prostoTP") }} </strong>, <strong>{{ $t("ProstoMini") }}</strong>
             {{$t("with_payed_rental_fee") }}</p>
         </div>
 
-        <div class="confirmation__description confirmation__description__time" v-if="getMessage(4)">
+        <div class="confirmation__description confirmation__description__time" v-if="getMessage('4')">
           <p class="confirmation__text">{{ $t("access_30min_granted") }}</p>
         </div>
 
-        <div class="confirmation__description confirmation__description__time" v-if="getMessage(5)">
+        <div class="confirmation__description confirmation__description__time" v-if="getMessage('5')">
           <p class="confirmation__text">{{ $t("timeUp") }}</p>
           <p> {{ $t("bye_one_of_tariffs") }} <strong>«{{ $t("MojnoVse20") }}</strong>, <strong>{{ $t("MojnoVse") }}
           </strong> {{ $t("or") }} <strong> {{ $t("prostoTP") }} </strong>, <strong>{{ $t("ProstoMini") }}</strong>
@@ -36,10 +36,11 @@
     <main class="confirmation-block">
 
       <div class="confirmation__sim">
-        <p class="confirmation__sim__description" v-if="getBottomType(4)"> {{ $t("bye_sim_for_unlimited_access") }} </p>
-        <p class="confirmation__sim__description" v-if="getBottomType(1)">{{ $t("any_questions_write") }}</p>
-        <p class="confirmation__sim__description" v-if="getBottomType(2)">{{ $t("any_questions_inform_us") }}</p>
-        <p class="confirmation__sim__description" v-if="getBottomType(3)">{{ $t("want_to_by_sim_write") }}</p>
+        <p class="confirmation__sim__description" v-if="getBottomType('4')"> {{ $t("bye_sim_for_unlimited_access")
+          }} </p>
+        <p class="confirmation__sim__description" v-if="getBottomType('1')">{{ $t("any_questions_write") }}</p>
+        <p class="confirmation__sim__description" v-if="getBottomType('2')">{{ $t("any_questions_inform_us") }}</p>
+        <p class="confirmation__sim__description" v-if="getBottomType('3')">{{ $t("want_to_by_sim_write") }}</p>
 
 
         <strong class="contacts-number">0771 055 155</strong>
@@ -116,8 +117,8 @@
     data: function () {
       return {
         count: 0,
-        messageType: 0,
-        bottomType: 0,
+        messageType: '0',
+        bottomType: '0',
       }
     },
     methods: {
@@ -133,7 +134,7 @@
           }
 
           if (this.messageType === '3') {
-            this.bottomType = 2;
+            this.bottomType = '2';
           }
 
           if (this.messageType === '4') {
@@ -146,6 +147,7 @@
 
           return true;
         }
+
         return false;
       },
 
