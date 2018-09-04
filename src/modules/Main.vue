@@ -37,8 +37,6 @@
 </template>
 
 <script>
-  import {baseUrl} from '../utils/constants';
-  import {HTTP} from '../service/http-common';
 
   export default {
     mounted: function () {
@@ -55,25 +53,25 @@
 
     methods: {
       getAccess: function () {
-        HTTP.get(baseUrl + 'auth/getAccess')
-          .then((response) => {
-            if (response.data.rate === true) {
-              this.$router.push("rating");
-            } else {
-
-              if (response.data.status === true) {
-                window.messageType = '4';
-                this.$router.push("/confirm");
-              }
-
-              if (response.data.status === false) {
-                window.messageType = '5';
-                this.$router.push("/confirm");
-              }
-            }
-          }).catch((err) => {
-          console.log(err);
-        })
+        // HTTP.get(baseUrl + 'auth/getAccess')
+        //   .then((response) => {
+        //     if (response.data.rate === true) {
+        //       this.$router.push("rating");
+        //     } else {
+        //
+        //       if (response.data.status === true) {
+        //         window.messageType = '4';
+        //         this.$router.push("/confirm");
+        //       }
+        //
+        //       if (response.data.status === false) {
+        //         window.messageType = '5';
+        //         this.$router.push("/confirm");
+        //       }
+        //     }
+        //   }).catch((err) => {
+        //   console.log(err);
+        // })
       },
 
       confirm_page: function () {
@@ -82,7 +80,7 @@
       },
 
       route: function () {
-        this.$router.push("/number");
+        // this.$router.push("/number");
       },
 
       changeLang: function (lang) {
