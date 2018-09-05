@@ -20,7 +20,6 @@
   import agreementKg from "../components/agreement/AgreementKg.vue";
   import agreementUz from "../components/agreement/AgreementUz.vue";
 
-
   export default {
     name: 'agreement',
     components: {BtnAgreeSubmit, Btn_backBtn_agree_back, agreementRu, agreementEn, agreementKg, agreementUz},
@@ -31,7 +30,7 @@
     },
     methods: {
       getLang: function (lang) {
-        this.lang = localStorage.getItem("lang");
+        this.lang = sessionStorage.getItem("lang");
         if (lang == this.lang) {
           return true;
         }

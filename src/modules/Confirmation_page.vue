@@ -110,7 +110,6 @@
 
   export default {
     mounted: function () {
-      console.log(window.test);
     },
     name: 'confirm',
     components: {ConfirmRestricted, ConfirmGranted, ConfirmRated, ButtonBack},
