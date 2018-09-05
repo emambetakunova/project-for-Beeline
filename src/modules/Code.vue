@@ -54,7 +54,8 @@
                 this.$router.push("/confirm");
               }
             } else {
-              alert(response.data.error)
+              sessionStorage.setItem("messageType", '5');
+              this.$router.push("/confirm");
             }
           }).catch(e => {
           alert("Неверный код, попробуйте ввести еще раз")
