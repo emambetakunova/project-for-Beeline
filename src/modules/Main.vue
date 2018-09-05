@@ -42,10 +42,10 @@
 
   export default {
     mounted: function () {
-      if (sessionStorage.getItem("lang") === null) {
+      if (localStorage.getItem("lang") === null) {
         location.reload();
       }
-      this.changeLang(sessionStorage.getItem("lang"));
+      this.changeLang(localStorage.getItem("lang"));
     },
     data: function () {
       return {
@@ -91,7 +91,7 @@
         }
         document.getElementById('switch_lang').innerHTML = lang;
         this.lang = lang;
-        sessionStorage.setItem('lang', lang);
+        localStorage.setItem('lang', lang);
       },
       setLang: function (lang) {
         this.$store.dispatch('setLang', lang);

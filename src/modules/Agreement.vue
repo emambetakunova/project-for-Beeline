@@ -31,7 +31,7 @@
     },
     methods: {
       getLang: function (lang) {
-        this.lang = sessionStorage.getItem("lang");
+        this.lang = localStorage.getItem("lang");
         if (lang == this.lang) {
           return true;
         }
