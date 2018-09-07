@@ -30,6 +30,8 @@
         code: '',
         hss: false,
         offer: false,
+        responseStatus: false,
+
       }
     },
     components: {ButtonBackBlackWhite},
@@ -42,22 +44,29 @@
           session: sessionStorage.getItem("session")
         })
           .then(response => {
-            if (response.data.status === true) {
-              if (response.data.hss === true && response.data.offer === true) {
-                sessionStorage.setItem("messageType", '1');
-                this.$router.push("/confirm");
-              } else if (response.data.hss === false && response.data.offer === true) {
-                sessionStorage.setItem("messageType", '2');
-                this.$router.push("/confirm");
-              } else {
-                sessionStorage.setItem("messageType", '3');
+              if (response.data.status === true) {
+                if (response.data.hss === true && response.data.offer === true) {
+                  sessionStorage.setItem("messageType", '1');
+                  this.$router.push("/confirm");
+                }
+                else if (response.data.responseStatus == 100) {
+                  sessionStorage.setItem("messageType", '6');
+                  this.$router.push("/confirm");
+                }
+                else if (response.data.hss === false && response.data.offer === true) {
+                  sessionStorage.setItem("messageType", '2');
+                  this.$router.push("/confirm");
+                } else {
+                  sessionStorage.setItem("messageType", '3');
+                  this.$router.push("/confirm");
+                }
+              }
+              else {
+                sessionStorage.setItem("messageType", '5');
                 this.$router.push("/confirm");
               }
-            } else {
-              sessionStorage.setItem("messageType", '5');
-              this.$router.push("/confirm");
             }
-          }).catch(e => {
+          ).catch(e => {
           alert("Неверный код, попробуйте ввести еще раз")
         })
       },

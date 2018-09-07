@@ -31,6 +31,10 @@
             {{$t("with_payed_rental_fee") }}</p>
           <!---->
         </div>
+
+        <div class="confirmation__description confirmation__description__time" v-if="getMessage('6')">
+          <p class="confirmation__text">{{ $t("already_have_access") }}</p>
+        </div>
       </header>
     </div>
     <main class="confirmation-block">
