@@ -71,9 +71,9 @@
               sessionStorage.setItem("phoneNumber", response.data.phoneNumber);
               sessionStorage.setItem("session", response.data.session);
               this.$router.push("/code");
-            } else (
-              alert(response.data.error)
-            )
+            } else {
+              this.$router.push("/number");
+            }
           }).catch((err) => {
           alert(response.data.error);
           console.log(err);
