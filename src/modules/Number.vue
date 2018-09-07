@@ -75,7 +75,7 @@
               this.$router.push("/number");
             }
           }).catch((err) => {
-          alert(response.data.error);
+          this.$router.push("/number");
           console.log(err);
         })
       },
