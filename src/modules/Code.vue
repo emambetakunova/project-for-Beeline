@@ -30,7 +30,7 @@
         code: '',
         hss: false,
         offer: false,
-        responseStatus: false,
+        responseStatus: 0,
 
       }
     },
@@ -45,11 +45,12 @@
         })
           .then(response => {
               if (response.data.status === true) {
+
                 if (response.data.hss === true && response.data.offer === true) {
                   sessionStorage.setItem("messageType", '1');
                   this.$router.push("/confirm");
                 }
-                else if (response.data.responseStatus == 100) {
+                else if (response.data.responseStatus === 100) {
                   sessionStorage.setItem("messageType", '6');
                   this.$router.push("/confirm");
                 }
