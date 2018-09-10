@@ -122,13 +122,12 @@
     data: function () {
       return {
         count: 0,
-        messageType: '1',
-        bottomType: '1',
+        messageType: '0',
+        bottomType: '0',
       }
     },
     methods: {
       getMessage: function (messageType) {
-        sessionStorage.setItem("messageType", "1");
         if (messageType === sessionStorage.getItem("messageType")) {
           this.messageType = sessionStorage.getItem("messageType");
           if (this.messageType === '1') {
