@@ -1,5 +1,7 @@
 <template>
   <div>
+
+
     <div class="confirmation" id="confirm">
       <button-back></button-back>
 
@@ -29,7 +31,6 @@
           <p> {{ $t("bye_one_of_tariffs") }} <strong>«{{ $t("MojnoVse20") }}</strong>, <strong>{{ $t("MojnoVse") }}
           </strong> {{ $t("or") }} <strong> {{ $t("prostoTP") }} </strong>, <strong>{{ $t("ProstoMini") }}</strong>
             {{$t("with_payed_rental_fee") }}</p>
-          <!---->
         </div>
 
         <div class="confirmation__description confirmation__description__time" v-if="getMessage('6')">
@@ -104,6 +105,7 @@
       </div>
     </main>
   </div>
+
 </template>
 
 <script>
@@ -120,12 +122,13 @@
     data: function () {
       return {
         count: 0,
-        messageType: '0',
-        bottomType: '0',
+        messageType: '1',
+        bottomType: '1',
       }
     },
     methods: {
       getMessage: function (messageType) {
+        sessionStorage.setItem("messageType", "1");
         if (messageType === sessionStorage.getItem("messageType")) {
           this.messageType = sessionStorage.getItem("messageType");
           if (this.messageType === '1') {

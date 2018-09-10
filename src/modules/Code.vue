@@ -11,7 +11,9 @@
                required>
       </div>
       <div class="rating_button">
-        <button class="rating_btn" type="submit" v-on:click.prevent="validateCode()"> {{ $t("connect") }}</button>
+        <button class="rating_btn" type="submit" v-on:click.prevent="validateCode()" v-if="activeState"> {{
+          $t("connect") }}
+        </button>
       </div>
     </form>
   </div>
@@ -31,12 +33,14 @@
         hss: false,
         offer: false,
         responseStatus: 0,
-
+        submitted: false,
+        activeState: true,
       }
     },
     components: {ButtonBackBlackWhite},
     methods: {
       validateCode: function () {
+        this.activeState = false;
         event.preventDefault()
         HTTP.post(baseUrl + 'auth/validateCode', {
           phoneNumber: sessionStorage.getItem("phoneNumber"),
@@ -45,7 +49,6 @@
         })
           .then(response => {
               if (response.data.status === true) {
-
                 if (response.data.hss === true && response.data.offer === true) {
                   sessionStorage.setItem("messageType", '1');
                   this.$router.push("/confirm");
