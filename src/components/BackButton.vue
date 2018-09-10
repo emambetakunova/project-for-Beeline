@@ -10,7 +10,7 @@
     },
     methods: {
       backButton() {
-        window.history.back();
+        this.$router.push("/");
       }
     }
   }
