@@ -46,17 +46,17 @@
                 this.$router.push("/confirm");
               }
 
-              else if (response.data.responseStatus === 200) {
+              else if (response.data.error === 200) {
                 sessionStorage.setItem("messageType", '6');
                 this.$router.push("/confirm");
               }
 
-              else if (response.data.responseStatus === 100) {
+              else if (response.data.error === 100) {
                 sessionStorage.setItem("messageType", '6');
                 this.$router.push("/confirm");
               }
 
-              else if (response.data.responseStatus === 5) {
+              else if (response.data.error === 5) {
                 sessionStorage.setItem("messageType", '5');
                 this.$router.push("/confirm");
               }
