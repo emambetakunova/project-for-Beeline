@@ -124,7 +124,6 @@
     },
     methods: {
       getMessage: function (messageType) {
-        sessionStorage.setItem("messageType", "3");
         if (messageType === sessionStorage.getItem("messageType")) {
           this.messageType = sessionStorage.getItem("messageType");
           if (this.messageType === '1') {
