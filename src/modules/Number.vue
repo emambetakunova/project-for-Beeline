@@ -5,8 +5,8 @@
       <div class="phone_number-group">
         <label class="form__label">{{ $t("pass") }} {{ $t("msisdn") }}
           <strong>{{ $t("Beeline") }}</strong> {{ $t("get_password") }}</label>
-        <input class="form__input" placeholder="07XX XXXXXX" id="name" type="number" v-model="name"
-               required>
+        <input class="form__input" placeholder="0XXX XXXXXX" id="name" type="number" v-model="name"
+               required v-on:click="setZero()">
       </div>
       <div class="policy-group">
         <input class="policy__input" id="policy" name="policy" type="checkbox" v-model="checked">
@@ -59,6 +59,9 @@
       },
       goToAgreementPage: function () {
         this.$router.push('agreement');
+      },
+      setZero: function () {
+        this.name = '0';
       },
       sendCode: function () {
         event.preventDefault()

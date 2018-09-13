@@ -130,8 +130,7 @@
   }
 
   .confirmation__description {
-    padding: 25px 40px;
-    margin-left: 50%;
+    left: 50%;
     transform: translateX(-50%);
     width: 400px;
   }
