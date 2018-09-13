@@ -25,7 +25,7 @@
         HTTP.get(baseUrl + 'auth/seamlessAuth')
           .then(response => {
             if (response.data.status === true) {
-              if (response.data.hss === true && response.data.offer === true) {
+              if (response.data.error === 1) {
                 sessionStorage.setItem("messageType", '1');
 
                 // if (response.data.rate === true) {
@@ -57,8 +57,7 @@
               }
 
               else if (response.data.error === 5) {
-                sessionStorage.setItem("messageType", '5');
-                this.$router.push("/confirm");
+                this.$router.push("/");
               }
             }
             else {

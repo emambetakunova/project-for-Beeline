@@ -49,7 +49,7 @@
         })
           .then(response => {
               if (response.data.status === true) {
-                if (response.data.hss === true && response.data.offer === true) {
+                if (response.data.error === 1) {
                   sessionStorage.setItem("messageType", '1');
                   this.$router.push("/confirm");
                 }
