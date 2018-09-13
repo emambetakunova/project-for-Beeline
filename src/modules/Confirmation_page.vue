@@ -19,7 +19,7 @@
       </div>
 
       <div class="confirmation__description confirmation__description__time" v-if="getMessage('3')">
-        <p class="confirmation__text">{{ $t("UPS!") }}<br> {{ $t("access_60min_granted") }}</p>
+        <p class="confirmation__text">{{ $t("access_60min_granted") }}</p>
         <p>{{ $t("bye_one_of_tariffs") }} <strong>{{ $t("prostoTP") }}</strong>, <strong>{{ $t("ProstoMini") }}</strong>
           или купи sim-карту <strong>{{ $t("MojnoVse20") }}</strong> и оплати абонентскую плату</p>
       </div>

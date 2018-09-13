@@ -48,23 +48,42 @@
           session: sessionStorage.getItem("session")
         })
           .then(response => {
-              if (response.data.status === true) {
-                if (response.data.error === 1) {
-                  sessionStorage.setItem("messageType", '1');
-                  this.$router.push("/confirm");
-                }
-                else if (response.data.error === 100) {
-                  sessionStorage.setItem("messageType", '6');
-                  this.$router.push("/confirm");
-                }
-                else if (response.data.hss === false && response.data.offer === true) {
-                  sessionStorage.setItem("messageType", '2');
-                  this.$router.push("/confirm");
-                } else {
-                  sessionStorage.setItem("messageType", '3');
-                  this.$router.push("/confirm");
-                }
+            if (response.data.status === true) {
+              if (response.data.error === 1) {
+                sessionStorage.setItem("messageType", '1');
+
+                // if (response.data.rate === true) {
+                //   sessionStorage.setItem("rate", '1')
+                //   this.$router.push("/rating");
+                // }
+
+                this.$router.push("/confirm");
               }
+
+              else if (response.data.error === 2) {
+                sessionStorage.setItem("messageType", '2');
+                this.$router.push("/confirm");
+              }
+
+              else if (response.data.error === 3) {
+                sessionStorage.setItem("messageType", '3');
+                this.$router.push("/confirm");
+              }
+
+              else if (response.data.error === 200) {
+                sessionStorage.setItem("messageType", '5');
+                this.$router.push("/confirm");
+              }
+
+              else if (response.data.error === 100) {
+                sessionStorage.setItem("messageType", '6');
+                this.$router.push("/confirm");
+              }
+
+              else if (response.data.error === 5) {
+                this.$router.push("/");
+              }
+            }
               else {
                 sessionStorage.setItem("messageType", '5');
                 this.$router.push("/confirm");
