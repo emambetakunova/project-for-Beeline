@@ -32,7 +32,6 @@
         code: '',
         hss: false,
         offer: false,
-        responseStatus: 0,
         submitted: false,
         activeState: true,
       }
@@ -41,7 +40,7 @@
     methods: {
       validateCode: function () {
         this.activeState = false;
-        event.preventDefault()
+        event.preventDefault();
         HTTP.post(baseUrl + 'auth/validateCode', {
           phoneNumber: sessionStorage.getItem("phoneNumber"),
           code: this.code,
@@ -90,7 +89,7 @@
               }
             }
           ).catch(e => {
-          alert("Неверный код, попробуйте ввести еще раз")
+          this.$router.push("/");
         })
       },
       isFull() {

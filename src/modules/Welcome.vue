@@ -15,16 +15,24 @@
   export default {
     name: 'app',
     mounted: function () {
+      if (sessionStorage.getItem("lang") === null) {
+        location.reload();
+        this.changeLang(sessionStorage.getItem("lang"));
+      }
+
       this.seamlessAuth();
     },
-    data() {
-      return {}
+    data: function () {
+      return {
+        lang: 'ru',
+        mainPageRes: '',
+      }
     },
     methods: {
       seamlessAuth: function () {
+
         HTTP.get(baseUrl + 'auth/seamlessAuth')
           .then(response => {
-            if (response.data.status === true) {
               if (response.data.error === 1) {
                 sessionStorage.setItem("messageType", '1');
 
@@ -55,16 +63,28 @@
                 sessionStorage.setItem("messageType", '6');
                 this.$router.push("/confirm");
               }
-
-              else if (response.data.error === 5) {
+              else {
                 this.$router.push("/");
               }
             }
-            else {
-              this.$router.push("/");
-            }
-          })
+          ).catch((err) => {
+          this.$router.push("/");
+          console.log(err);
+        })
+      },
+      changeLang: function (lang) {
+        if (lang === null) {
+          lang = this.lang;
+        }
+        this.lang = lang;
+        sessionStorage.setItem('lang', lang);
       }
+      ,
+      setLang: function (lang) {
+        this.$store.dispatch('setLang', lang);
+        this.changeLang(lang);
+      }
+      ,
     }
   }
 </script>

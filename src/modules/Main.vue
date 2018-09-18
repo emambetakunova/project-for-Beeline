@@ -41,6 +41,7 @@
   import {HTTP} from '../service/http-common';
 
   export default {
+
     mounted: function () {
       if (sessionStorage.getItem("lang") === null) {
         location.reload();
@@ -50,6 +51,7 @@
     data: function () {
       return {
         lang: 'ru',
+        mainPageRes: 'test Message',
       }
     },
 
@@ -74,11 +76,6 @@
           }).catch((err) => {
           console.log(err);
         })
-      },
-
-      confirm_page: function () {
-        window.messageType = null;
-        this.$router.push("/confirm");
       },
 
       route: function () {
