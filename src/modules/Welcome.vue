@@ -26,6 +26,7 @@
       return {
         lang: 'ru',
         mainPageRes: '',
+
       }
     },
     methods: {

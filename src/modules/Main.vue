@@ -1,4 +1,4 @@
-<template>
+<template xmlns:v-if="http://www.w3.org/1999/xhtml">
   <div class="wrapper" id="app">
     <router-link to="/"></router-link>
     <router-link to="/number"></router-link>
@@ -26,7 +26,7 @@
               {{ $t("for_beeline_customers") }}
             </button>
           </div>
-          <div class="wifi__options">
+          <div class="wifi__options" v-if="checked">
             <button class="wifi__options__button" @click="getAccess">{{ $t("no_sim") }} <span
               class="wifi__options__strong">{{ $t("limited_access") }}</span></button>
           </div>
@@ -52,13 +52,19 @@
       return {
         lang: 'ru',
         mainPageRes: 'test Message',
+        checked: true,
+        disabled: false,
       }
     },
 
     methods: {
       getAccess: function () {
+
+        this.checked = false;
+
         HTTP.get(baseUrl + 'auth/getAccess')
           .then((response) => {
+
             if (response.data.rate === true) {
               this.$router.push("rating");
             } else {
@@ -74,6 +80,7 @@
               }
             }
           }).catch((err) => {
+          this.checked = true;
           console.log(err);
         })
       },

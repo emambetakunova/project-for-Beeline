@@ -64,7 +64,10 @@
         this.name = '0';
       },
       sendCode: function () {
-        event.preventDefault()
+
+        this.checked = false;
+
+        event.preventDefault();
         HTTP.post(baseUrl + 'auth/sendCode',
           {
             phoneNumber: this.name
@@ -76,9 +79,12 @@
               this.$router.push("/code");
             } else {
               this.$router.push("/number");
+              this.checked = true;
             }
           }).catch((err) => {
           this.$router.push("/number");
+          this.checked = true;
+
           console.log(err);
         })
       },
