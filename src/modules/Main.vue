@@ -43,15 +43,14 @@
   export default {
 
     mounted: function () {
-      if (sessionStorage.getItem("lang") === null) {
-        location.reload();
-      }
-      this.changeLang(sessionStorage.getItem("lang"));
+      // if (sessionStorage.getItem("lang") === null) {
+      //   //location.reload();
+      // }
+      // this.changeLang(sessionStorage.getItem("lang"));
     },
     data: function () {
       return {
         lang: 'ru',
-        mainPageRes: 'test Message',
         checked: true,
         disabled: false,
       }
@@ -95,7 +94,6 @@
         }
         document.getElementById('switch_lang').innerHTML = lang;
         this.lang = lang;
-        sessionStorage.setItem('lang', lang);
       },
       setLang: function (lang) {
         this.$store.dispatch('setLang', lang);

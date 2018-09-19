@@ -15,23 +15,21 @@
   export default {
     name: 'app',
     mounted: function () {
-      if (sessionStorage.getItem("lang") === null) {
-        location.reload();
-        this.changeLang(sessionStorage.getItem("lang"));
+      if (this.actionStart === '1') {
+        this.seamlessAuth();
+        sessionStorage.setItem('actionStart', '1');
+      } else {
+        this.$router.push("/");
       }
-
-      this.seamlessAuth();
     },
     data: function () {
       return {
-        lang: 'ru',
-        mainPageRes: '',
-
+        actionStart: '0',
       }
     },
     methods: {
       seamlessAuth: function () {
-
+        this.actionStart = '1';
         HTTP.get(baseUrl + 'auth/seamlessAuth')
           .then(response => {
               if (response.data.error === 1) {
@@ -73,19 +71,6 @@
           console.log(err);
         })
       },
-      changeLang: function (lang) {
-        if (lang === null) {
-          lang = this.lang;
-        }
-        this.lang = lang;
-        sessionStorage.setItem('lang', lang);
-      }
-      ,
-      setLang: function (lang) {
-        this.$store.dispatch('setLang', lang);
-        this.changeLang(lang);
-      }
-      ,
     }
   }
 </script>

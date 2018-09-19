@@ -22,7 +22,7 @@ export default new Vuex.Store({
     },
 
     [types.SET_LANG](state, payload) {
-      app.$i18n.locale = payload
+      app.$i18n.locale = payload;
     }
 
   }, actions: {
@@ -30,7 +30,7 @@ export default new Vuex.Store({
       context.commit('changeMessageType', payload);
     },
     setLang({commit}, payload) {
-      commit(types.SET_LANG, payload)
+      commit(types.SET_LANG, payload);
     }
   }
 })
