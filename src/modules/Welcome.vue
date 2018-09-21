@@ -15,12 +15,12 @@
   export default {
     name: 'app',
     mounted: function () {
-      if (this.actionStart === '1') {
+      // if (this.actionStart === '1') {
         this.seamlessAuth();
-        sessionStorage.setItem('actionStart', '1');
-      } else {
-        this.$router.push("/");
-      }
+      // sessionStorage.setItem('actionStart', '1');
+      // } else {
+      //   this.$router.push("/");
+      // }
     },
     data: function () {
       return {
