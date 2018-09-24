@@ -8,29 +8,22 @@
   </div>
 </template>
 <script>
-
-  import {baseUrl} from '../utils/constants';
   import {HTTP} from '../service/http-common';
+  import api from '../service/api';
+
 
   export default {
     name: 'app',
     mounted: function () {
-      // if (this.actionStart === '1') {
         this.seamlessAuth();
-      // sessionStorage.setItem('actionStart', '1');
-      // } else {
-      //   this.$router.push("/");
-      // }
     },
     data: function () {
       return {
-        actionStart: '0',
       }
     },
     methods: {
       seamlessAuth: function () {
-        this.actionStart = '1';
-        HTTP.get(baseUrl + 'auth/seamlessAuth')
+        HTTP.get(api.seamlessAuth)
           .then(response => {
               if (response.data.error === 1) {
                 sessionStorage.setItem("messageType", '1');

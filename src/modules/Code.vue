@@ -20,7 +20,7 @@
 </template>
 
 <script>
-  import {API} from '../service/api';
+  import api from '../service/api';
   import ButtonBackBlackWhite from "../components/BackButtonBlackWhite";
   import {HTTP} from '../service/http-common';
 
@@ -41,7 +41,7 @@
       validateCode: function () {
         this.activeState = false;
         event.preventDefault();
-        HTTP.post(API.validateCode, {
+        HTTP.post(api.validateCode, {
           phoneNumber: sessionStorage.getItem("phoneNumber"),
           code: this.code,
           session: sessionStorage.getItem("session")

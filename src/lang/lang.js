@@ -6,9 +6,7 @@ import en from './en.json'
 import kg from './kg.json'
 import uz from './uz.json'
 
-Vue.use(VueI18n)
-
-const locale = sessionStorage.getItem('lang');
+Vue.use(VueI18n);
 
 const messages = {
   ru, en, kg, uz

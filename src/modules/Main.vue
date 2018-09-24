@@ -37,16 +37,15 @@
 </template>
 
 <script>
-  import {baseUrl} from '../utils/constants';
   import {HTTP} from '../service/http-common';
+  import api from '../service/api';
+  import i18n from "../lang/lang";
+
 
   export default {
 
     mounted: function () {
-      // if (sessionStorage.getItem("lang") === null) {
-      //   //location.reload();
-      // }
-      // this.changeLang(sessionStorage.getItem("lang"));
+      this.changeLang(i18n.locale);
     },
     data: function () {
       return {
@@ -61,7 +60,7 @@
 
         this.checked = false;
 
-        HTTP.get(baseUrl + 'auth/getAccess')
+        HTTP.get(api.getAccess)
           .then((response) => {
 
             if (response.data.rate === true) {

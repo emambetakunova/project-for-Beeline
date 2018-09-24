@@ -27,9 +27,10 @@
 </template>
 
 <script>
-  import {baseUrl} from '../utils/constants';
   import {HTTP} from '../service/http-common';
   import ButtonBackBlackWhite from "../components/BackButtonBlackWhite";
+  import api from '../service/api';
+
 
   export default {
     name: 'number',
@@ -68,7 +69,7 @@
         this.checked = false;
 
         event.preventDefault();
-        HTTP.post(baseUrl + 'auth/sendCode',
+        HTTP.post(api.sendCode,
           {
             phoneNumber: this.name
           })

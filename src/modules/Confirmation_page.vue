@@ -26,6 +26,9 @@
 
       <div class="confirmation__description confirmation__description__time" v-if="getMessage('4')">
         <p class="confirmation__text">{{ $t("access_30min_granted") }}</p>
+        <!--<p class="confirmation__text"><strong>{{ $t("30_min_test1") }}</strong></p>-->
+        <!--<p>{{ // $t("30_min_test2") }}</p>-->
+        <!--<p>{{ // $t("30_min_test3") }}</p>-->
       </div>
 
       <div class="confirmation__description confirmation__description__time" v-if="getMessage('5')">
@@ -124,6 +127,7 @@
     },
     methods: {
       getMessage: function (messageType) {
+        // sessionStorage.setItem('messageType', '4')
         if (messageType === sessionStorage.getItem("messageType")) {
           this.messageType = sessionStorage.getItem("messageType");
           if (this.messageType === '1') {

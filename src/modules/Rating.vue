@@ -72,8 +72,8 @@
 <script>
   import RatingBlock from "../components/rating/RatingBlock";
   import RatingInterview from "../components/rating/RatingInterview";
-  import {baseUrl} from '../utils/constants';
   import {HTTP} from '../service/http-common';
+  import api from '../service/api';
 
 
   export default {
@@ -88,6 +88,7 @@
         showMsgOwn: false,
         rate: 0,
         interview: '',
+        descr: '',
         comment: '',
       }
     },
@@ -106,8 +107,8 @@
         }
       },
       sendRate: function () {
-        event.preventDefault()
-        HTTP.post(baseUrl + 'rating/rate', {
+        event.preventDefault();
+        HTTP.post(api.rate, {
           descr: this.interview + ' ' + this.comment,
           ownUsers: this.code,
           rate: this.rate
