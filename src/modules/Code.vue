@@ -59,23 +59,28 @@
                 this.$router.push("/confirm");
               }
 
-              else if (response.data.error === 2) {
-                sessionStorage.setItem("messageType", '2');
+              else if (response.data.error === 100) {
+                sessionStorage.setItem("messageType", '6');
                 this.$router.push("/confirm");
               }
 
-              else if (response.data.error === 3) {
+              else if (response.data.error === 110) {
                 sessionStorage.setItem("messageType", '3');
+                this.$router.push("/confirm");
+              }
+
+              else if (response.data.error === 111) {
+                sessionStorage.setItem("messageType", '3');
+                this.$router.push("/confirm");
+              }
+
+              else if (response.data.error === 112) {
+                sessionStorage.setItem("messageType", '2');
                 this.$router.push("/confirm");
               }
 
               else if (response.data.error === 200) {
                 sessionStorage.setItem("messageType", '5');
-                this.$router.push("/confirm");
-              }
-
-              else if (response.data.error === 100) {
-                sessionStorage.setItem("messageType", '6');
                 this.$router.push("/confirm");
               }
 
