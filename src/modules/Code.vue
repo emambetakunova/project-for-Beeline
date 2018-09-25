@@ -87,11 +87,28 @@
               else if (response.data.error === 5) {
                 this.$router.push("/");
               }
-            }
-              else {
+            } else if (response.data.status === false) {
+
+              if (response.data.error === 110) {
+                sessionStorage.setItem("messageType", '7');
+                this.$router.push("/confirm");
+              }
+
+              else if (response.data.error === 111) {
+                sessionStorage.setItem("messageType", '7');
+                this.$router.push("/confirm");
+              }
+
+              else if (response.data.error === 112) {
                 sessionStorage.setItem("messageType", '5');
                 this.$router.push("/confirm");
               }
+              else {
+                this.$router.push("/");
+              }
+            }
+
+            this.$router.push("/");
             }
           ).catch(e => {
           this.$router.push("/");

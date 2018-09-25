@@ -15,16 +15,16 @@
   export default {
     name: 'app',
     mounted: function () {
-        this.seamlessAuth();
+      this.seamlessAuth();
     },
     data: function () {
-      return {
-      }
+      return {}
     },
     methods: {
       seamlessAuth: function () {
         HTTP.get(api.seamlessAuth)
           .then(response => {
+            if (response.data.status === true) {
               if (response.data.error === 1) {
                 sessionStorage.setItem("messageType", '1');
 
@@ -61,9 +61,31 @@
                 this.$router.push("/confirm");
               }
 
+              else if (response.data.error === 5) {
+                this.$router.push("/");
+              }
+            } else if (response.data.status === false) {
+
+              if (response.data.error === 110) {
+                sessionStorage.setItem("messageType", '7');
+                this.$router.push("/confirm");
+              }
+
+              else if (response.data.error === 111) {
+                sessionStorage.setItem("messageType", '7');
+                this.$router.push("/confirm");
+              }
+
+              else if (response.data.error === 112) {
+                sessionStorage.setItem("messageType", '5');
+                this.$router.push("/confirm");
+              }
               else {
                 this.$router.push("/");
               }
+            }
+
+            this.$router.push("/");
             }
           ).catch((err) => {
           this.$router.push("/");

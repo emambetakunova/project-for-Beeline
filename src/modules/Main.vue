@@ -73,7 +73,7 @@
               }
 
               if (response.data.status === false) {
-                sessionStorage.setItem("messageType", '5');
+                sessionStorage.setItem("messageType", '8');
                 this.$router.push("/confirm");
               }
             }

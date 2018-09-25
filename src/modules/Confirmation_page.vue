@@ -22,29 +22,36 @@
 
       <div class="confirmation__description confirmation__description__time" v-if="getMessage('3')">
         <p class="confirmation__text">{{ $t("UPS!") }}<br> {{ $t("access_60min_granted") }}</p>
-        <p>{{ $t("bye_one_of_tariffs") }} <strong>{{ $t("MojnoVse20") }}</strong></p>
+        <p>{{ $t("30_min_test2_limit") }}</p>
+        <p>{{ $t("bye_one_of_tariffs") }} <strong>{{ $t("MojnoVse20") }}</strong> {{ $t("optional_lang") }}</p>
       </div>
 
       <div class="confirmation__description confirmation__description__time" v-if="getMessage('4')">
         <p class="confirmation__text"><strong>{{ $t("30_min_test1") }}</strong></p>
         <p>{{ $t("30_min_test2") }}</p>
-        <p>{{ $t("30_min_test3") }} <strong>{{ $t("MojnoVse20") }}</strong></p>
+        <p>{{ $t("30_min_test3") }} <strong>{{ $t("MojnoVse20") }} </strong> {{ $t("optional_lang") }}</p>
       </div>
 
+      <div class="confirmation__description confirmation__description__time" v-if="getMessage('5')">
+        <p class="confirmation__text"><strong>{{ $t("time_up_own_rental_fee1") }}</strong></p>
+        <p>{{ $t("time_up_own_rental_fee2") }}</p>
+      </div>
 
       <div class="confirmation__description confirmation__description__time" v-if="getMessage('6')">
         <p class="confirmation__text">{{ $t("already_have_access") }}</p>
       </div>
 
-
-      <div class="confirmation__description confirmation__description__time" v-if="getMessage('5')">
-        <p class="confirmation__text">{{ $t("time") }}<br> {{ $t("up") }}</p>
-        <p>{{ $t("bye_one_of_tariffs") }} <strong>{{ $t("prostoTP") }}</strong>, <strong>{{ $t("ProstoMini")
-          }}</strong>
-          или купи
-          sim-карту <strong>{{ $t("MojnoVse20") }}</strong> и оплати абонентскую плату</p>
+      <div class="confirmation__description confirmation__description__time" v-if="getMessage('7')">
+        <p class="confirmation__text"><strong>{{ $t("time_up_own_rental_fee1") }}</strong></p>
+        <p>{{ $t("time_up_own_b2b_not_bundle2") }} <strong>{{ $t("MojnoVse20") }}</strong> {{ $t("optional_lang") }}</p>
       </div>
 
+
+      <div class="confirmation__description confirmation__description__time" v-if="getMessage('8')">
+        <p class="confirmation__text"><strong>{{ $t("30_min_test1_limit") }}</strong></p>
+        <p>{{ $t("30_min_test2_limit") }}</p>
+        <p>{{ $t("30_min_test3_limit") }}</p>
+      </div>
 
 
       <div class="confirmation__sim">
@@ -132,7 +139,7 @@
     },
     methods: {
       getMessage: function (messageType) {
-        // sessionStorage.setItem('messageType', '3')
+        // sessionStorage.setItem('messageType', '8')
         if (messageType === sessionStorage.getItem("messageType")) {
           this.messageType = sessionStorage.getItem("messageType");
           if (this.messageType === '1') {
@@ -154,12 +161,21 @@
           }
 
           if (this.messageType === '5') {
-            this.bottomType = '4';
+            this.bottomType = '1';
+            this.showOfferInfo = false;
           }
 
 
           if (this.messageType === '6') {
             this.bottomType = '1';
+          }
+
+          if (this.messageType === '7') {
+            this.bottomType = '2';
+          }
+
+          if (this.messageType === '8') {
+            this.bottomType = '3';
           }
 
           return true;
