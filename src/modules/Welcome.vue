@@ -24,7 +24,11 @@
       seamlessAuth: function () {
         HTTP.get(api.seamlessAuth)
           .then(response => {
+
             if (response.data.status === true) {
+
+              // console.log('i m here' + response.data.error);
+
               if (response.data.error === 1) {
                 sessionStorage.setItem("messageType", '1');
 
@@ -39,6 +43,7 @@
               else if (response.data.error === 100) {
                 sessionStorage.setItem("messageType", '6');
                 this.$router.push("/confirm");
+                ``
               }
 
               else if (response.data.error === 110) {
@@ -85,7 +90,7 @@
               }
             }
 
-            this.$router.push("/");
+//            this.$router.push("/");
             }
           ).catch((err) => {
           this.$router.push("/");

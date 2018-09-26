@@ -108,7 +108,7 @@
               }
             }
 
-            this.$router.push("/");
+            // this.$router.push("/");
             }
           ).catch(e => {
           this.$router.push("/");
