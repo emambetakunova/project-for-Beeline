@@ -49,7 +49,11 @@
     font-size: 0.75rem;
   }
   .interview_list {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
   }
   .interview_radio + label {
@@ -92,6 +96,8 @@
 
   .phone__number__group input {
     margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 400px;
   }
@@ -119,36 +125,48 @@
 
   .wifi__header {
     margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 400px;
   }
 
   .confirmation__header {
     margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 400px;
   }
 
   .confirmation__description {
     left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 400px;
   }
 
   .information__heading-container {
     margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 400px;
   }
 
   .confirmation__sim__description {
     margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 400px;
   }
 
   .information {
     margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 480px;
   }
@@ -171,12 +189,16 @@
 
   .phone__number__group input {
     margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 520px;
   }
 
   .policy__group {
     margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 520px;
   }
@@ -195,6 +217,9 @@
   }
 
   .wrapper {
+    background-image: url(../images/bg_homepage_big.svg), -webkit-gradient(linear, left top, right top, from(rgb(251, 207, 26)), to(rgb(249, 179, 1)));
+    background-image: url(../images/bg_homepage_big.svg), -webkit-linear-gradient(left, rgb(251, 207, 26), rgb(249, 179, 1));
+    background-image: url(../images/bg_homepage_big.svg), -o-linear-gradient(left, rgb(251, 207, 26), rgb(249, 179, 1));
     background-image: url(../images/bg_homepage_big.svg), linear-gradient(to right, rgb(251, 207, 26), rgb(249, 179, 1));
     background-repeat: no-repeat;
     background-position: center top;
@@ -203,12 +228,16 @@
 
   .wifi__header {
     margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 520px;
   }
 
   .confirmation__header {
     margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 520px;
   }
@@ -216,30 +245,40 @@
   .confirmation__description {
     padding: 25px 92px;
     margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 520px;
   }
 
   .information__heading-container {
     margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 520px;
   }
 
   .price__info {
     margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 520px;
   }
 
   .information {
     margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 520px;
   }
 
   .confirmation__sim__description {
     margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 520px;
   }
@@ -257,12 +296,16 @@
 
   .phone__number__group input {
     margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 398px;
   }
 
   .policy__group {
     margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 398px;
   }
@@ -282,29 +325,39 @@
 
   .agreement_btn {
     margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 600px;
   }
 
   .wifi__header {
     margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
   }
 
   .confirmation__description {
     margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 520px;
   }
 
   .information__heading-container {
     margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 520px;
   }
 
   .information {
     margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 520px;
   }

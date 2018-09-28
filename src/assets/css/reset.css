@@ -8,8 +8,18 @@ input, select, textarea, button, optgroup{font-family: inherit; font-size: 100%;
 button,input[type="button"], input[type="submit"], input[type="reset"]{cursor: pointer; -webkit-appearance: button; }
 input:focus, button:focus, select:focus, textarea:focus {outline:none}
 textarea{overflow: auto;}
-*{box-sizing: border-box;}
-hr{box-sizing: content-box;height: 0;overflow: visible;}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+hr {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
 img, iframe{max-width: 100%; height: auto;}
 a {background-color: transparent; -webkit-text-decoration-skip: objects;}
 img {border-style: none;}
